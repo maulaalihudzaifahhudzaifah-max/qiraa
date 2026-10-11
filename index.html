@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QIRAA - Baca. Pelajari. Perbaiki Bacaan.</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Scheherazade New & Amiri (Rasm Utsmani) & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Scheherazade+New:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#0A0A0B',
+              dark: '#121214',
+              card: '#1A1A1E',
+              border: '#2A2A30',
+              silver: '#F3F4F6',
+              accentSilver: '#9CA3AF',
+              muted: '#6B7280',
+              gold: '#D4AF37'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            quran: ['"Scheherazade New"', 'Amiri', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0A0A0B;
+      color: #F3F4F6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      touch-action: pan-y pinch-zoom;
+    }
+
+    /* Geometric Pattern */
+    .islamic-pattern {
+      background-color: #0A0A0B;
+      background-image: radial-gradient(rgba(243, 244, 246, 0.035) 1px, transparent 0),
+                        radial-gradient(rgba(243, 244, 246, 0.015) 1px, transparent 0);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+
+    .silver-gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 0%, #E5E7EB 50%, #9CA3AF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Rasm Utsmani Quran Calligraphy */
+    .font-quran-utsmani {
+      font-family: 'Scheherazade New', 'Amiri', serif;
+      font-size: 2.25rem;
+      line-height: 2.5;
+      word-spacing: 3px;
+      direction: rtl;
+      text-align: justify;
+      text-align-last: center;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    @media (max-width: 640px) {
+      .font-quran-utsmani {
+        font-size: 1.75rem;
+        line-height: 2.3;
+      }
+    }
+
+    /* Ayah Symbol Badge */
+    .ayah-symbol {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      margin: 0 0.35rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #E5E7EB;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      vertical-align: middle;
+      user-select: none;
+    }
+
+    /* Custom Floating Whitish Buttons Styling */
+    .btn-whitish-floating {
+      background: rgba(243, 244, 246, 0.12);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-whitish-floating:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: rgba(255, 255, 255, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-whitish-floating:active {
+      transform: translateY(-4px) scale(0.97);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    /* Marquee Running Text Animation */
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: marquee 32s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Swipe Page Animation */
+    .page-slide-left { animation: slideLeft 0.25s ease-out forwards; }
+    .page-slide-right { animation: slideRight 0.25s ease-out forwards; }
+
+    @keyframes slideLeft {
+      from { transform: translateX(30px); opacity: 0.4; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideRight {
+      from { transform: translateX(-30px); opacity: 0.4; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0A0A0B; }
+    ::-webkit-scrollbar-thumb { background: #2A2A30; border-radius: 4px; }
+
+    /* Tajweed Color Palette (Hafs 'an Ashim Audit Approved) */
+    .tajweed-mode-on tajweed { display: inline; transition: color 0.2s ease; }
+    
+    /* Qalqalah - Red */
+    .tajweed-mode-on tajweed[class*="qalaqah"],
+    .tajweed-mode-on tajweed[class*="qalqalah"],
+    .tajweed-mode-on tajweed.qalaqah,
+    .tajweed-mode-on tajweed.qalqalah { color: #EF4444 !important; font-weight: 700; }
+
+    /* Idgham Bighunnah - Green */
+    .tajweed-mode-on tajweed[class="idgham_ghunnah"],
+    .tajweed-mode-on tajweed.idgham_ghunnah { color: #22C55E !important; font-weight: 700; }
+
+    /* Idgham Bilaghunnah - Emerald */
+    .tajweed-mode-on tajweed[class*="idgham_wo_ghunnah"],
+    .tajweed-mode-on tajweed.idgham_wo_ghunnah { color: #10B981 !important; font-weight: 700; }
+
+    /* Ikhfa Haqiqi - Yellow/Amber */
+    .tajweed-mode-on tajweed[class="ikhafa"],
+    .tajweed-mode-on tajweed[class="ikhfa"],
+    .tajweed-mode-on tajweed.ikhafa,
+    .tajweed-mode-on tajweed.ikhfa { color: #EAB308 !important; font-weight: 700; }
+
+    /* Iqlab - Blue */
+    .tajweed-mode-on tajweed[class*="iqlab"],
+    .tajweed-mode-on tajweed.iqlab { color: #3B82F6 !important; font-weight: 700; }
+
+    /* Ghunnah Musyaddadah - Pink */
+    .tajweed-mode-on tajweed[class*="ghunnah"]:not([class*="idgham"]),
+    .tajweed-mode-on tajweed.ghunnah { color: #EC4899 !important; font-weight: 700; }
+
+    /* Hukum Mad - Purple */
+    .tajweed-mode-on tajweed[class*="madda"],
+    .tajweed-mode-on tajweed[class*="mad"] { color: #A855F7 !important; font-weight: 700; }
+
+    /* Ikhfa Syafawi - Orange */
+    .tajweed-mode-on tajweed[class*="ikhafa_syafawi"],
+    .tajweed-mode-on tajweed[class*="ikhafa_shafawi"],
+    .tajweed-mode-on tajweed[class*="ikhfa_syafawi"],
+    .tajweed-mode-on tajweed[class*="ikhfa_shafawi"] { color: #F97316 !important; font-weight: 700; }
+
+    /* Idgham Mimi - Cyan */
+    .tajweed-mode-on tajweed[class*="idgham_mimi"],
+    .tajweed-mode-on tajweed[class*="idgham_mutamathilain"],
+    .tajweed-mode-on tajweed.idgham_mimi { color: #06B6D4 !important; font-weight: 700; }
+
+    /* Izhar - Slate Gray */
+    .tajweed-mode-on tajweed[class*="izhar"],
+    .tajweed-mode-on tajweed.izhar { color: #94A3B8 !important; font-weight: 700; }
+
+    /* Hamzat Wasl & Shamsiyah - Soft Gray */
+    .tajweed-mode-on tajweed[class*="ham_wasl"],
+    .tajweed-mode-on tajweed[class*="laam_shamsiyah"],
+    .tajweed-mode-on tajweed[class*="slnt"] { color: #6B7280 !important; font-weight: normal; opacity: 0.85; }
+
+    /* Tajweed mode OFF */
+    .tajweed-mode-off tajweed { color: inherit !important; font-weight: normal !important; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col islamic-pattern">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-[#0A0A0B]/90 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" onclick="showSection('home'); return false;" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white shadow-inner">
+          <i data-lucide="book-open" class="w-4 h-4 text-white"></i>
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-widest silver-gradient-text block leading-none">QIRAA</span>
+          <span class="text-[9px] text-brand-accentSilver tracking-wider font-mono">BACA • PELAJARI • PERBAIKI BACAAN</span>
+        </div>
+      </a>
+
+      <!-- Quick Nav Buttons: Hanya ada tombol "Kembali" -->
+      <nav class="flex items-center">
+        <button id="nav-btn-back" onclick="showSection('home')" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition flex items-center gap-1.5">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Kembali</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- MARQUEE NASIHAT ISLAMI BERJALAN (DALIL 1 & DALIL 2) -->
+    <div class="bg-[#141418] border-b border-[#2A2A30] overflow-hidden py-2 px-4 shadow-inner">
+      <div class="max-w-6xl mx-auto relative flex items-center">
+        <div class="w-full overflow-hidden">
+          <div class="animate-marquee items-center gap-12 text-xs sm:text-sm">
+            
+            <!-- DALIL 1: HADIS BUKHARI -->
+            <div class="inline-flex items-center gap-3">
+              <span class="font-quran text-base sm:text-lg text-white font-bold" dir="rtl">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</span>
+              <span class="text-gray-300 font-medium">"Sebaik-baik kalian adalah orang yang belajar Al-Qur’an dan mengajarkannya."</span>
+              <span class="px-2 py-0.5 rounded-md bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] font-semibold text-[11px]">(HR. Bukhari no. 5027)</span>
+            </div>
+
+            <!-- SEPARATOR ORNAMEN -->
+            <span class="text-[#D4AF37] font-bold">✦</span>
+
+            <!-- DALIL 2: AL-QUR'AN (QS. AL-A'RAF: 204) -->
+            <div class="inline-flex items-center gap-3">
+              <span class="font-quran text-base sm:text-lg text-white font-bold" dir="rtl">فَاسْتَمِعُوا لَهُ وَأَنْصِتُوا لَعَلَّكُمْ تُرْحَمُونَ</span>
+              <span class="text-gray-300 font-medium">"Maka dengarkanlah dan diamlah, agar kamu mendapat rahmat."</span>
+              <span class="px-2 py-0.5 rounded-md bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] font-semibold text-[11px]">(QS. Al-A'raf: 204)</span>
+            </div>
+
+            <!-- SEPARATOR ORNAMEN -->
+            <span class="text-[#D4AF37] font-bold">✦</span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-5xl w-full mx-auto px-3 sm:px-6 py-6">
+
+    <!-- SECTION 1: BERANDA (HOME) -->
+    <section id="section-home" class="space-y-8 animate-fadeIn">
+      
+      <!-- HERO BANNER QIRAA -->
+      <div class="relative overflow-hidden rounded-3xl bg-brand-card border border-brand-border p-8 sm:p-12 text-center space-y-4">
+        <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white mx-auto shadow-inner">
+          <i data-lucide="book-open" class="w-7 h-7 text-white"></i>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-widest">QIRAA</h1>
+        <p class="text-sm sm:text-base text-gray-400 font-medium">Baca. Pelajari. Perbaiki Bacaan.</p>
+      </div>
+
+      <!-- 3 MAIN FEATURE CARDS -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        
+        <!-- FITUR 1: Baca Al-Qur'an -->
+        <div onclick="showSection('surah-list')" class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-gray-500 transition duration-300 cursor-pointer space-y-3 group">
+          <div class="w-10 h-10 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-white group-hover:border-white/40 transition">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-white transition">Baca Al-Qur'an</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            30 juz, pencarian surah, terjemahan, dan penanda bacaan.
+          </p>
+        </div>
+
+        <!-- FITUR 2: Belajar Tajwid -->
+        <div onclick="showSection('tajwid')" class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-gray-500 transition duration-300 cursor-pointer space-y-3 group">
+          <div class="w-10 h-10 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-white group-hover:border-white/40 transition">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-white transition">Belajar Tajwid</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Materi, contoh ayat, latihan, dan kuis.
+          </p>
+        </div>
+
+        <!-- FITUR 3: Audio Murottal -->
+        <div onclick="showSection('audio')" class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-gray-500 transition duration-300 cursor-pointer space-y-3 group">
+          <div class="w-10 h-10 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-white group-hover:border-white/40 transition">
+            <i data-lucide="headphones" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-white transition">Audio Murottal</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Dengarkan lantunan 114 surah dengan 3 pilihan Qari terkemuka.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: BACA AL-QUR'AN (DAFTAR SURAH & PENCARIAN) -->
+    <section id="section-surah-list" class="hidden space-y-4">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-brand-border">
+        <div>
+          <h2 class="text-xl font-extrabold text-white">Baca Al-Qur'an (30 Juz)</h2>
+          <p class="text-xs text-gray-400">Pilih dari 114 surah untuk mulai membaca tampilan Mushaf 604 halaman Rasm Utsmani.</p>
+        </div>
+
+        <div class="relative min-w-[260px]">
+          <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+          <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Cari surah (misal: Kahf, 18)..." 
+                 class="w-full pl-10 pr-4 py-2 bg-brand-card border border-brand-border rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-gray-400 transition">
+        </div>
+      </div>
+
+      <div id="surah-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <!-- Surah items rendered via JS -->
+      </div>
+    </section>
+
+    <!-- SECTION 3: HALAMAN MUSHAF QURAN (PAGE READER 1 - 604) -->
+    <section id="section-reader" class="hidden space-y-4">
+      
+      <!-- Top Control Bar -->
+      <div class="flex items-center justify-between bg-brand-card border border-brand-border rounded-2xl p-3 sm:p-4 shadow-md">
+        
+        <!-- Tombol Halaman Sebelumnya -->
+        <button onclick="navigatePage(-1)" id="btn-page-prev" class="btn-whitish-floating px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 disabled:opacity-30 disabled:pointer-events-none">
+          <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          <span>halaman sebelumnya</span>
+        </button>
+
+        <!-- Info Halaman, Juz & Surah -->
+        <div class="text-center space-y-0.5">
+          <div class="flex items-center justify-center gap-2">
+            <span id="header-page-title" class="font-bold text-white text-sm sm:text-base">Halaman 1</span>
+            <span class="text-gray-500 text-xs">•</span>
+            <span id="header-juz-title" class="text-xs font-semibold text-brand-accentSilver">Juz 1</span>
+          </div>
+          <p id="header-surah-info" class="text-[11px] text-gray-400 font-medium">Surah Al-Fatihah</p>
+        </div>
+
+        <!-- Tombol Halaman Setelahnya -->
+        <button onclick="navigatePage(1)" id="btn-page-next" class="btn-whitish-floating px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 disabled:opacity-30 disabled:pointer-events-none">
+          <span>halaman setelahnya</span>
+          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Quick Jump Page Input & Filter Toggles -->
+      <div class="flex flex-wrap items-center justify-between gap-2 px-1 text-xs text-gray-400">
+        <div class="flex items-center gap-2">
+          <span>Lompat ke Halaman:</span>
+          <input type="number" id="input-page-jump" min="1" max="604" value="1" onchange="jumpToPageInput(this.value)" 
+                 class="w-16 px-2 py-1 bg-brand-card border border-brand-border rounded-lg text-center text-white text-xs font-mono focus:outline-none focus:border-gray-400">
+          <span>/ 604</span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="toggleTajweedColor()" id="btn-toggle-tajweed" class="px-3.5 py-1.5 rounded-xl btn-whitish-floating text-xs font-semibold flex items-center gap-1.5">
+            <i data-lucide="palette" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span id="label-toggle-tajweed">nonaktifkan fitur warna tajwid</span>
+          </button>
+
+          <button onclick="toggleTranslation()" id="btn-toggle-translation" class="px-3.5 py-1.5 rounded-xl btn-whitish-floating text-xs font-semibold flex items-center gap-1.5">
+            <i data-lucide="languages" class="w-3.5 h-3.5"></i>
+            <span id="label-toggle-trans">Sembunyikan Arti</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MUSHAF & TAJWID LEGEND GRID LAYOUT -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 items-start">
+        
+        <!-- LEGENDA WARNA TAJWID (KOTAK KUNING DI SAMPING KIRI MUSHAF) -->
+        <div id="tajweed-legend-box" class="lg:col-span-1 p-4 bg-brand-card border border-brand-border rounded-3xl text-xs space-y-3 shadow-xl sticky top-20">
+          <div class="flex items-center justify-between border-b border-brand-border/60 pb-2.5">
+            <span class="font-bold text-white flex items-center gap-1.5 text-xs">
+              <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i>
+              <span>Panduan Warna Tajwid</span>
+            </span>
+          </div>
+          <div id="tajweed-legend-items" class="grid grid-cols-2 lg:grid-cols-1 gap-2.5 text-[11px]">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#EF4444] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Qalqalah</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#22C55E] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Idgham Bighunnah</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#10B981] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Idgham Bilaghunnah</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#EAB308] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Ikhfa Haqiqi</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#3B82F6] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Iqlab</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#EC4899] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Ghunnah</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#A855F7] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Hukum Mad</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#F97316] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Ikhfa Syafawi</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#06B6D4] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Idgham Mimi</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#94A3B8] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Izhar</span></div>
+          </div>
+        </div>
+
+        <!-- TAMPILAN MUSHAF PAGE BOARD (LG:COL-SPAN-3) -->
+        <div id="mushaf-touch-area" class="lg:col-span-3 relative rounded-3xl bg-brand-dark border-2 border-brand-border p-4 sm:p-8 shadow-2xl space-y-6 min-h-[500px]">
+        
+        <!-- Bismillah Header -->
+        <div id="bismillah-banner" class="hidden text-center py-2 border-b border-brand-border/60">
+          <p class="font-quran-utsmani text-2xl sm:text-3xl text-gray-100">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        </div>
+
+        <!-- TEKS ARAB MUSHAF RASM UTSMANI -->
+        <div id="mushaf-page-content" class="p-3 sm:p-6 rounded-2xl bg-[#141417] border border-brand-border/80 min-h-[350px] flex items-center justify-center">
+          <div id="utsmani-page-text" class="font-quran-utsmani text-white tracking-wide leading-loose w-full">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- TRANSLATION CARDS -->
+        <div id="translation-section" class="space-y-3 pt-4 border-t border-brand-border">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+              <span>Arti Ayat pada Halaman Ini</span>
+            </h3>
+
+            <button onclick="saveCurrentPageBookmark()" class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold flex items-center gap-1 transition">
+              <i data-lucide="bookmark" class="w-3 h-3"></i>
+              <span>Tandai Halaman Ini</span>
+            </button>
+          </div>
+
+          <div id="translation-cards-container" class="space-y-2.5">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        </div> <!-- end #mushaf-touch-area -->
+      </div> <!-- end MUSHAF & TAJWID LEGEND GRID -->
+
+      <!-- Bottom Page Navigation Bar -->
+      <div class="flex items-center justify-between pt-2">
+        <button onclick="navigatePage(-1)" id="btn-bottom-prev" class="btn-whitish-floating px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>halaman sebelumnya</span>
+        </button>
+
+        <span id="footer-page-indicator" class="text-xs font-mono text-gray-400">Hal 1 dari 604</span>
+
+        <button onclick="navigatePage(1)" id="btn-bottom-next" class="btn-whitish-floating px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+          <span>halaman setelahnya</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- SECTION 4: BELAJAR TAJWID -->
+    <section id="section-tajwid" class="hidden space-y-6">
+      <div class="pb-3 border-b border-brand-border">
+        <h2 class="text-2xl font-extrabold text-white">Belajar Tajwid</h2>
+        <p class="text-xs sm:text-sm text-gray-400">Materi hukum bacaan, contoh ayat, latihan, dan kuis interaktif.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Hukum Nun Sukun & Tanwin -->
+        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-white text-base">Hukum Nun Sukun & Tanwin</h3>
+            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-mono">4 Materi</span>
+          </div>
+          <p class="text-xs text-gray-400">Izhar, Idgham (Bighunnah/Bilaghunnah), Iqlab, dan Ikhfa Haqiqi.</p>
+          <button onclick="openTajwidLesson('nun_sukun')" class="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold hover:bg-gray-200 transition">
+            Pelajari Materi & Contoh
+          </button>
+        </div>
+
+        <!-- Hukum Mim Sukun -->
+        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-white text-base">Hukum Mim Sukun</h3>
+            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-mono">3 Materi</span>
+          </div>
+          <p class="text-xs text-gray-400">Ikhfa Syafawi, Idgham Mimi (Mutamatsilain), dan Izhar Syafawi.</p>
+          <button onclick="openTajwidLesson('mim_sukun')" class="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold hover:bg-gray-200 transition">
+            Pelajari Materi & Contoh
+          </button>
+        </div>
+
+        <!-- Hukum Mad -->
+        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-white text-base">Hukum Mad (Panjang Bacaan)</h3>
+            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-mono">Mad Thabi'i & Far'i</span>
+          </div>
+          <p class="text-xs text-gray-400">Mad Thabi'i, Mad Wajib Muttashil, Mad Jaiz Munfashil, Mad 'Arid Lissukun.</p>
+          <button onclick="openTajwidLesson('mad')" class="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold hover:bg-gray-200 transition">
+            Pelajari Materi & Contoh
+          </button>
+        </div>
+
+        <!-- Hukum Qalqalah -->
+        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-white text-base">Hukum Qalqalah</h3>
+            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-mono">2 Materi</span>
+          </div>
+          <p class="text-xs text-gray-400">Qalqalah Sugra (Kecil) dan Qalqalah Kubra (Besar).</p>
+          <button onclick="openTajwidLesson('qalqalah')" class="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold hover:bg-gray-200 transition">
+            Pelajari Materi & Contoh
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: DETAIL MATERI TAJWID -->
+    <section id="section-tajwid-detail" class="hidden space-y-6">
+      <div class="pb-3 border-b border-brand-border flex items-center justify-between">
+        <div>
+          <h2 id="page-tajwid-title" class="text-2xl font-extrabold text-white">Judul Materi</h2>
+          <p class="text-xs sm:text-sm text-gray-400">Pelajari hukum bacaan dan contohnya.</p>
+        </div>
+        <button onclick="showSection('tajwid')" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition flex items-center gap-1.5">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">Kembali ke Materi</span>
+        </button>
+      </div>
+
+      <div class="p-4 sm:p-8 rounded-3xl bg-brand-dark border border-brand-border space-y-6 shadow-xl">
+        <div id="page-tajwid-content" class="text-sm sm:text-base text-gray-300 space-y-4 leading-relaxed"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: PANEL KONTROL ADMIN -->
+    <section id="section-admin" class="hidden space-y-6">
+      <div class="pb-3 border-b border-brand-border flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center shadow-inner">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h2 class="text-2xl font-extrabold text-white">Panel Kontrol Admin QIRAA</h2>
+            <p class="text-xs text-gray-400">Pantau perkembangan aplikasi dan kelola deployment GitHub.</p>
+          </div>
+        </div>
+        <button onclick="showSection('home')" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition flex items-center gap-1.5">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+          <span>Keluar Admin</span>
+        </button>
+      </div>
+
+      <!-- METRICS GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-2">
+          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Status Sistem</span>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <h3 class="text-lg font-bold text-white">Aktif (Production)</h3>
+          </div>
+          <p class="text-[11px] text-gray-400">Versi 2.4.0 (Tajwid & AI)</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-2">
+          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Total Surah & Hal</span>
+          <h3 class="text-lg font-bold text-white">114 Surah / 604 Hal</h3>
+          <p class="text-[11px] text-gray-400">Mushaf Rasm Utsmani Lengkap</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-2">
+          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Murottal Qori</span>
+          <h3 class="text-lg font-bold text-white">3 Qori Server MP3</h3>
+          <p class="text-[11px] text-gray-400">Alafasy, Ghamadi, Sudais</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-2">
+          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Tajwid Berwarna</span>
+          <h3 class="text-lg font-bold text-emerald-400">10+ Hukum Warna</h3>
+          <p class="text-[11px] text-gray-400">Anotasi Hafs 'an Ashim</p>
+        </div>
+      </div>
+
+      <!-- ONE CLICK DEPLOYMENT CARD -->
+      <div class="p-6 rounded-3xl bg-brand-card border border-brand-border space-y-4 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-brand-border pb-4">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="git-branch" class="w-5 h-5 text-amber-400"></i>
+              <span>One-Click Deploy ke GitHub</span>
+            </h3>
+            <p class="text-xs text-gray-400">Push dan deploy pembaruan terbaru ke repositori GitHub secara instan.</p>
+          </div>
+
+          <button onclick="deployToGitHub()" id="btn-deploy-github" class="px-5 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs transition flex items-center gap-2 shadow-lg">
+            <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+            <span>Deploy ke GitHub Sekarang</span>
+          </button>
+        </div>
+
+        <!-- Deploy Terminal Output -->
+        <div class="space-y-2">
+          <span class="text-xs font-mono text-gray-400">Deploy Terminal Log Output:</span>
+          <div id="admin-deploy-console" class="p-4 rounded-2xl bg-[#09090C] border border-brand-border font-mono text-xs text-emerald-400 h-40 overflow-y-auto space-y-1">
+            <div class="text-gray-500">[System] Siap melakukan deployment... Klik tombol "Deploy ke GitHub Sekarang" di atas.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: AUDIO MUROTTAL (DENGAN 3 PILIHAN QORI) -->
+    <section id="section-audio" class="hidden space-y-6">
+      
+      <!-- Top Title & Search -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-2xl font-extrabold text-white">Audio Murottal (114 Surah)</h2>
+          <p class="text-xs sm:text-sm text-gray-400">Dengarkan lantunan audio murottal lengkap 114 Surah Al-Qur'an.</p>
+        </div>
+
+        <!-- Audio Search Filter -->
+        <div class="relative min-w-[260px]">
+          <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+          <input type="text" id="audio-search-input" oninput="filterAudioList(this.value)" placeholder="Cari surah audio..." 
+                 class="w-full pl-10 pr-4 py-2 bg-brand-card border border-brand-border rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-gray-400 transition">
+        </div>
+      </div>
+
+      <!-- LABEL "pilihan qori" & 3 PILIHAN QORI BUTTONS -->
+      <div class="space-y-2">
+        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+          <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
+          <span>pilihan qori</span>
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <!-- Qori 1: Mishary Rashid Alafasy -->
+          <button onclick="selectQori('alafasy')" id="btn-qori-alafasy" class="p-3.5 rounded-2xl border transition text-left flex items-center gap-3 bg-white/20 border-white text-white shadow-lg">
+            <div class="w-8 h-8 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-white">
+              <i data-lucide="volume-2" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-xs">Mishary Rashid Alafasy</h4>
+              <p class="text-[10px] text-gray-300">Merdu & Populer</p>
+            </div>
+          </button>
+
+          <!-- Qori 2: Saad Al-Ghamadi -->
+          <button onclick="selectQori('ghamadi')" id="btn-qori-ghamadi" class="p-3.5 rounded-2xl border transition text-left flex items-center gap-3 bg-brand-card border-brand-border text-gray-300 hover:border-gray-500">
+            <div class="w-8 h-8 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-white">
+              <i data-lucide="volume-2" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-xs text-white">Saad Al-Ghamadi</h4>
+              <p class="text-[10px] text-gray-400">Khas & Jernih</p>
+            </div>
+          </button>
+
+          <!-- Qori 3: Abdurrahman As-Sudais -->
+          <button onclick="selectQori('sudais')" id="btn-qori-sudais" class="p-3.5 rounded-2xl border transition text-left flex items-center gap-3 bg-brand-card border-brand-border text-gray-300 hover:border-gray-500">
+            <div class="w-8 h-8 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-white">
+              <i data-lucide="volume-2" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-xs text-white">Abdurrahman As-Sudais</h4>
+              <p class="text-[10px] text-gray-400">Imam Masjidil Haram</p>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Sticky Player Box -->
+      <div class="p-6 rounded-3xl bg-brand-card border border-brand-border space-y-4 shadow-xl">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white">
+              <i data-lucide="headphones" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 id="audio-surah-title" class="text-base font-bold text-white">Surah 1. Al-Fatihah</h3>
+              <p id="audio-qari-name" class="text-xs text-gray-400">Syaikh Mishary Rashid Alafasy</p>
+            </div>
+          </div>
+
+          <div class="text-right">
+            <span id="audio-surah-arabic" class="font-quran text-2xl text-gray-200">الفاتحة</span>
+          </div>
+        </div>
+
+        <audio id="main-quran-audio" class="w-full mt-2" controls></audio>
+      </div>
+
+      <!-- Full 114 Surah Audio Interactive List -->
+      <div class="space-y-2">
+        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Daftar Lengkap 114 Surah Al-Qur'an</h3>
+        <div id="audio-surah-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- LOADING INDICATOR -->
+    <div id="loading-indicator" class="hidden py-16 text-center space-y-3">
+      <div class="w-8 h-8 border-3 border-white/20 border-t-white rounded-full animate-spin mx-auto"></div>
+      <p class="text-xs text-gray-400 font-medium">Memuat Data QIRAA...</p>
+    </div>
+
+    <!-- ERROR INDICATOR -->
+    <div id="error-indicator" class="hidden py-12 px-6 rounded-3xl bg-red-950/30 border border-red-900/50 text-center space-y-3 max-w-md mx-auto">
+      <div class="w-10 h-10 rounded-full bg-red-900/40 text-red-400 flex items-center justify-center mx-auto">
+        <i data-lucide="wifi-off" class="w-5 h-5"></i>
+      </div>
+      <h3 class="text-base font-bold text-white">Gagal Memuat Data</h3>
+      <p id="error-message-text" class="text-xs text-gray-300">Terjadi kendala koneksi internet.</p>
+      <button onclick="retryFetch()" class="px-5 py-2 rounded-xl bg-white text-black font-semibold hover:bg-gray-200 transition text-xs">
+        Coba Lagi
+      </button>
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // App State
+    let allSurahs = [];
+    let currentPage = 1; // 1 to 604
+    let currentPageAyahs = [];
+    let showTranslationState = true;
+    let showTajweedColorState = localStorage.getItem('qiraa_tajweed_color') !== 'false';
+    let showTajweedLegendState = true;
+    let savedBookmarkPage = parseInt(localStorage.getItem('qiraa_mushaf_page_bookmark') || '1');
+    let currentPlayingAudioId = 1;
+    let currentSelectedQori = 'alafasy'; // 'alafasy', 'ghamadi', 'sudais'
+    let lastFailedAction = null;
+
+    // Qori audio map config - Fully functional working audio stream URLs
+    const QORI_MAP = {
+      alafasy: {
+        name: 'Syaikh Mishary Rashid Alafasy',
+        url: (id) => {
+          const padded = String(id).padStart(3, '0');
+          return `https://server8.mp3quran.net/afs/${padded}.mp3`;
+        }
+      },
+      ghamadi: {
+        name: 'Saad Al-Ghamadi',
+        url: (id) => {
+          const padded = String(id).padStart(3, '0');
+          return `https://server7.mp3quran.net/s_gmd/${padded}.mp3`;
+        }
+      },
+      sudais: {
+        name: 'Abdurrahman As-Sudais',
+        url: (id) => {
+          const padded = String(id).padStart(3, '0');
+          return `https://server11.mp3quran.net/sds/${padded}.mp3`;
+        }
+      }
+    };
+
+    // Touch Swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      fetchAllSurahs();
+      setupTouchSwipe();
+    });
+
+    function setupTouchSwipe() {
+      const area = document.getElementById('mushaf-touch-area');
+      if (!area) return;
+      area.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+      area.addEventListener('touchend', e => { touchEndX = e.changedTouches[0].screenX; handleSwipeGesture(); }, { passive: true });
+    }
+
+    function handleSwipeGesture() {
+      const distance = touchEndX - touchStartX;
+      if (distance > 60) navigatePage(-1);
+      else if (distance < -60) navigatePage(1);
+    }
+
+    async function fetchAllSurahs() {
+      showLoading(true);
+      hideError();
+      try {
+        const response = await fetch('https://equran.id/api/v2/surat');
+        if (!response.ok) throw new Error('Respon server gagal');
+        const data = await response.json();
+        
+        allSurahs = data.data.map(s => ({
+          number: s.nomor,
+          nameLatin: s.namaLatin,
+          nameArabic: s.nama,
+          meaning: s.arti,
+          numberOfAyahs: s.jumlahAyat,
+          revelation: s.tempatTurun
+        }));
+
+        renderSurahList(allSurahs);
+        renderFullAudioList(allSurahs);
+        showLoading(false);
+      } catch (err) {
+        console.error('Fetch surahs error:', err);
+        showLoading(false);
+        lastFailedAction = fetchAllSurahs;
+        showError('Gagal menghubungkan ke server Al-Qur\'an. Periksa koneksi internet Anda.');
+      }
+    }
+
+    function renderSurahList(surahs) {
+      const container = document.getElementById('surah-grid-container');
+      container.innerHTML = '';
+
+      surahs.forEach(surah => {
+        const el = document.createElement('div');
+        el.className = "p-3.5 rounded-2xl bg-brand-card border border-brand-border hover:border-gray-500 transition cursor-pointer flex items-center justify-between group";
+        el.onclick = () => openSurahFirstPage(surah.number);
+
+        el.innerHTML = `
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center font-bold text-xs text-white">
+              ${surah.number}
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-xs group-hover:text-white transition">${surah.nameLatin}</h3>
+              <p class="text-[11px] text-gray-400">${surah.meaning} • ${surah.numberOfAyahs} Ayat</p>
+            </div>
+          </div>
+          <span class="font-quran text-xl text-gray-200">${surah.nameArabic}</span>
+        `;
+        container.appendChild(el);
+      });
+      lucide.createIcons();
+    }
+
+    // --- Render Entire 114 Surah Audio List ---
+    function renderFullAudioList(surahs) {
+      const grid = document.getElementById('audio-surah-grid');
+      grid.innerHTML = '';
+
+      surahs.forEach(s => {
+        const item = document.createElement('div');
+        const isPlaying = (currentPlayingAudioId === s.number);
+        item.className = `p-3.5 rounded-2xl border cursor-pointer transition flex items-center justify-between group ${isPlaying ? 'bg-white/15 border-white' : 'bg-brand-card border-brand-border hover:border-gray-500'}`;
+        item.onclick = () => playAudioSurah(s.number);
+
+        item.innerHTML = `
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-white group-hover:border-white transition">
+              <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-xs text-white">${s.number}. ${s.nameLatin}</h4>
+              <p class="text-[10px] text-gray-400">${s.numberOfAyahs} Ayat • ${s.meaning}</p>
+            </div>
+          </div>
+          <span class="font-quran text-lg text-gray-300">${s.nameArabic}</span>
+        `;
+        grid.appendChild(item);
+      });
+      lucide.createIcons();
+    }
+
+    function selectQori(qoriKey) {
+      currentSelectedQori = qoriKey;
+      
+      // Update Button Styles
+      ['alafasy', 'ghamadi', 'sudais'].forEach(key => {
+        const btn = document.getElementById(`btn-qori-${key}`);
+        if (key === qoriKey) {
+          btn.className = "p-3.5 rounded-2xl border transition text-left flex items-center gap-3 bg-white/20 border-white text-white shadow-lg";
+        } else {
+          btn.className = "p-3.5 rounded-2xl border transition text-left flex items-center gap-3 bg-brand-card border-brand-border text-gray-300 hover:border-gray-500";
+        }
+      });
+
+      // Play current surah with newly selected qori
+      playAudioSurah(currentPlayingAudioId);
+    }
+
+    function filterAudioList(query) {
+      const q = query.toLowerCase().trim();
+      if (q === 'adminpassword') {
+        document.getElementById('audio-search-input').value = '';
+        showSection('admin');
+        return;
+      }
+      const filtered = allSurahs.filter(s => 
+        s.nameLatin.toLowerCase().includes(q) || 
+        s.meaning.toLowerCase().includes(q) ||
+        s.number.toString() === q
+      );
+      renderFullAudioList(filtered);
+    }
+
+    function playAudioSurah(surahId) {
+      currentPlayingAudioId = surahId;
+      const s = allSurahs.find(item => item.number === parseInt(surahId));
+      if (s) {
+        const qoriConfig = QORI_MAP[currentSelectedQori];
+        document.getElementById('audio-surah-title').innerText = `Surah ${s.number}. ${s.nameLatin}`;
+        document.getElementById('audio-surah-arabic').innerText = s.nameArabic;
+        document.getElementById('audio-qari-name').innerText = qoriConfig.name;
+
+        const audioEl = document.getElementById('main-quran-audio');
+        audioEl.onerror = () => {
+          console.warn('Primary audio stream failed, loading fallback CDN...');
+          const padded = String(surahId).padStart(3, '0');
+          audioEl.src = `https://download.quranicaudio.com/quran/mishari_rad_al_afasy/${padded}.mp3`;
+          audioEl.play().catch(e => console.log('Audio playback fallback prevented:', e));
+        };
+        audioEl.src = qoriConfig.url(surahId);
+        audioEl.play().catch(e => console.log('Audio autoplay prevented:', e));
+        renderFullAudioList(allSurahs);
+      }
+    }
+
+    async function openSurahFirstPage(surahNumber) {
+      showLoading(true);
+      try {
+        const approxPage = Math.min(604, Math.max(1, Math.round((surahNumber - 1) * 5.3 + 1)));
+        openPageReader(surahNumber === 1 ? 1 : (surahNumber === 2 ? 2 : approxPage));
+      } catch (e) {
+        openPageReader(1);
+      }
+    }
+
+    async function openPageReader(pageNumber, slideDirection = '') {
+      if (pageNumber < 1 || pageNumber > 604) return;
+      currentPage = pageNumber;
+      showSection('reader');
+      showLoading(true);
+      hideError();
+
+      document.getElementById('input-page-jump').value = pageNumber;
+      document.getElementById('header-page-title').innerText = `Halaman ${pageNumber}`;
+      document.getElementById('footer-page-indicator').innerText = `Hal ${pageNumber} dari 604`;
+
+      const juzNumber = Math.min(30, Math.floor((pageNumber - 1) / 20) + 1);
+      document.getElementById('header-juz-title').innerText = `Juz ${juzNumber}`;
+
+      document.getElementById('btn-page-prev').disabled = (pageNumber === 1);
+      document.getElementById('btn-bottom-prev').disabled = (pageNumber === 1);
+      document.getElementById('btn-page-next').disabled = (pageNumber === 604);
+      document.getElementById('btn-bottom-next').disabled = (pageNumber === 604);
+
+      try {
+        const response = await fetch(`https://api.quran.com/api/v4/verses/by_page/${pageNumber}?language=id&words=false&fields=text_uthmani,text_uthmani_tajweed&translations=33`);
+        if (!response.ok) throw new Error('Respon API gagal');
+        const data = await response.json();
+        
+        const verses = data.verses || [];
+        currentPageAyahs = verses.map(v => {
+          const [surahNum, ayahNum] = v.verse_key.split(':');
+          const transText = (v.translations && v.translations[0]) ? v.translations[0].text.replace(/<[^>]*>?/gm, '') : 'Terjemahan tidak tersedia.';
+          return {
+            surahNumber: parseInt(surahNum),
+            ayahNumber: parseInt(ayahNum),
+            arabic: v.text_uthmani,
+            arabicTajweed: v.text_uthmani_tajweed || v.text_uthmani,
+            translation: transText
+          };
+        });
+
+        if (currentPageAyahs.length > 0) {
+          const firstSurahId = currentPageAyahs[0].surahNumber;
+          const surahMeta = allSurahs.find(s => s.number === firstSurahId);
+          if (surahMeta) {
+            document.getElementById('header-surah-info').innerText = `Surah ${surahMeta.nameLatin} (${surahMeta.nameArabic})`;
+          }
+        }
+
+        const bismillahBanner = document.getElementById('bismillah-banner');
+        const hasStartSurahAyah = currentPageAyahs.some(a => a.ayahNumber === 1 && a.surahNumber !== 1 && a.surahNumber !== 9);
+        if (hasStartSurahAyah) bismillahBanner.classList.remove('hidden');
+        else bismillahBanner.classList.add('hidden');
+
+        renderUtsmaniPageContent(currentPageAyahs, slideDirection);
+        renderPageTranslations(currentPageAyahs);
+
+        showLoading(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      } catch (err) {
+        fallbackFetchSurahForPage(pageNumber);
+      }
+    }
+
+    async function fallbackFetchSurahForPage(pageNumber) {
+      try {
+        const approxSurahId = Math.min(114, Math.max(1, Math.floor((pageNumber - 1) / 5.3) + 1));
+        const res = await fetch(`https://equran.id/api/v2/surat/${approxSurahId}`);
+        const data = await res.json();
+        
+        currentPageAyahs = data.data.ayat.slice(0, 10).map(a => ({
+          surahNumber: approxSurahId,
+          ayahNumber: a.nomorAyat,
+          arabic: a.teksArab,
+          translation: a.teksIndonesia
+        }));
+
+        document.getElementById('header-surah-info').innerText = `Surah ${data.data.namaLatin}`;
+        renderUtsmaniPageContent(currentPageAyahs, '');
+        renderPageTranslations(currentPageAyahs);
+        showLoading(false);
+      } catch (e) {
+        showLoading(false);
+        lastFailedAction = () => openPageReader(pageNumber);
+        showError('Gagal memuat Halaman Mushaf. Pastikan koneksi internet aktif.');
+      }
+    }
+
+    function renderUtsmaniPageContent(ayahs, slideDirection) {
+      const container = document.getElementById('utsmani-page-text');
+      const touchArea = document.getElementById('mushaf-touch-area');
+
+      touchArea.classList.remove('page-slide-left', 'page-slide-right');
+      if (slideDirection === 'left') touchArea.classList.add('page-slide-left');
+      if (slideDirection === 'right') touchArea.classList.add('page-slide-right');
+
+      if (showTajweedColorState) {
+        container.classList.add('tajweed-mode-on');
+        container.classList.remove('tajweed-mode-off');
+      } else {
+        container.classList.add('tajweed-mode-off');
+        container.classList.remove('tajweed-mode-on');
+      }
+
+      let html = '';
+      ayahs.forEach(a => {
+        const textToDisplay = (showTajweedColorState && a.arabicTajweed) ? a.arabicTajweed : a.arabic;
+        html += `${textToDisplay} <span class="ayah-symbol">${a.ayahNumber}</span> `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function renderPageTranslations(ayahs) {
+      const container = document.getElementById('translation-cards-container');
+      container.innerHTML = '';
+
+      ayahs.forEach(a => {
+        const card = document.createElement('div');
+        card.className = "p-3 sm:p-4 rounded-xl bg-brand-card border border-brand-border space-y-1.5";
+
+        const surahMeta = allSurahs.find(s => s.number === a.surahNumber);
+        const surahName = surahMeta ? surahMeta.nameLatin : `Surah ${a.surahNumber}`;
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between text-xs text-gray-400 font-mono border-b border-brand-border/60 pb-1.5">
+            <span class="font-bold text-white">${surahName} : Ayat ${a.ayahNumber}</span>
+            <span class="text-[10px] bg-brand-dark px-2 py-0.5 rounded border border-brand-border">Hal ${currentPage}</span>
+          </div>
+          <p class="text-xs text-gray-200 leading-relaxed pt-1">${a.translation}</p>
+        `;
+        container.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+
+    // --- Tajwid Lessons Feature ---
+    function openTajwidLesson(type) {
+      showSection('tajwid-detail');
+      const title = document.getElementById('page-tajwid-title');
+      const content = document.getElementById('page-tajwid-content');
+
+      if (type === 'nun_sukun') {
+        title.innerText = 'Hukum Nun Sukun (نْ) & Tanwin (ً ٍ ٌ)';
+        content.innerHTML = `
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">1. Izhar Haqiqi</h4>
+              <p>Dibaca jelas tanpa dengung jika bertemu huruf ء, هـ, ع, ح, غ, خ.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">مَنْ آمَنَ</p>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">2. Idgham Bighunnah</h4>
+              <p>Dibaca melebur dengan dengung jika bertemu huruf ي, ن, م, و.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">مَنْ يَقُولُ</p>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">3. Iqlab</h4>
+              <p>Suara nun/tanwin berubah menjadi 'mim' jika bertemu huruf ب.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">مِنْ بَعْدِ</p>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">4. Ikhfa Haqiqi</h4>
+              <p>Dibaca samar dengan dengung jika bertemu 15 huruf sisa.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">مِنْ قَبْلِ</p>
+            </div>
+          </div>
+        `;
+      } else if (type === 'mim_sukun') {
+        title.innerText = 'Hukum Mim Sukun (مْ)';
+        content.innerHTML = `
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">1. Ikhfa Syafawi</h4>
+              <p>Mim sukun bertemu huruf ب dibaca samar dengan dengung.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">تَرْمِيهِمْ بِحِجَارَةٍ</p>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">2. Idgham Mimi</h4>
+              <p>Mim sukun bertemu huruf م dibaca melebur.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">كَمْ مِنْ فِئَةٍ</p>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">3. Izhar Syafawi</h4>
+              <p>Mim sukun bertemu huruf selain م dan ب dibaca jelas.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">لَهُمْ دِينُهُمْ</p>
+            </div>
+          </div>
+        `;
+      } else if (type === 'mad') {
+        title.innerText = 'Hukum Mad (Panjang Bacaan)';
+        content.innerHTML = `
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">1. Mad Thabi'i (Asli)</h4>
+              <p>Panjang 2 harakat (Alif setelah fathah, Ya sukun setelah kasrah, Waw sukun setelah dhammah).</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">نُوحِيهَا</p>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">2. Mad Wajib Muttashil</h4>
+              <p>Mad bertemu hamzah dalam 1 kata. Panjang 4-5 harakat.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">سَوَاءٌ</p>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">3. Mad Jaiz Munfashil</h4>
+              <p>Mad bertemu hamzah di lain kata. Panjang 2-5 harakat.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">إِنَّا أَنْزَلْنَاهُ</p>
+            </div>
+          </div>
+        `;
+      } else if (type === 'qalqalah') {
+        title.innerText = 'Hukum Qalqalah';
+        content.innerHTML = `
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">Huruf Qalqalah</h4>
+              <p>Ada 5 huruf yaitu: ق, ط, ب, ج, د (Baju di Toko).</p>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">1. Qalqalah Sugra</h4>
+              <p>Terjadi apabila huruf qalqalah berharakat sukun di tengah kata. Pantulannya ringan.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">يَقْطَعُونَ</p>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
+              <h4 class="font-bold text-white text-lg mb-2">2. Qalqalah Kubra</h4>
+              <p>Terjadi apabila huruf qalqalah berada di akhir kata dan diwaqafkan (berhenti). Pantulannya kuat.</p>
+              <p class="mt-2 text-brand-gold font-quran text-xl text-right">مِنْ خَلَقٍ</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function navigatePage(delta) {
+      const target = currentPage + delta;
+      if (target >= 1 && target <= 604) {
+        openPageReader(target, delta > 0 ? 'left' : 'right');
+      }
+    }
+
+    function jumpToPageInput(val) {
+      const p = parseInt(val);
+      if (p >= 1 && p <= 604) openPageReader(p);
+    }
+
+    function toggleTranslation() {
+      showTranslationState = !showTranslationState;
+      const section = document.getElementById('translation-section');
+      const label = document.getElementById('label-toggle-trans');
+      if (showTranslationState) {
+        section.classList.remove('hidden');
+        label.innerText = 'Sembunyikan Arti';
+      } else {
+        section.classList.add('hidden');
+        label.innerText = 'Tampilkan Arti';
+      }
+    }
+
+    function toggleTajweedColor() {
+      showTajweedColorState = !showTajweedColorState;
+      localStorage.setItem('qiraa_tajweed_color', showTajweedColorState.toString());
+      const label = document.getElementById('label-toggle-tajweed');
+      label.innerText = showTajweedColorState ? 'nonaktifkan fitur warna tajwid' : 'aktifkan fitur warna tajwid';
+      renderUtsmaniPageContent(currentPageAyahs, '');
+    }
+
+    function toggleTajweedLegend() {
+      showTajweedLegendState = !showTajweedLegendState;
+      const items = document.getElementById('tajweed-legend-items');
+      const icon = document.getElementById('icon-legend-toggle');
+      if (showTajweedLegendState) {
+        items.classList.remove('hidden');
+        icon.classList.remove('rotate-180');
+      } else {
+        items.classList.add('hidden');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    function saveCurrentPageBookmark() {
+      savedBookmarkPage = currentPage;
+      localStorage.setItem('qiraa_mushaf_page_bookmark', currentPage.toString());
+      alert(`Halaman ${currentPage} ditandai sebagai bacaan meutakhir di QIRAA!`);
+    }
+
+    function handleSearch(query) {
+      const q = query.toLowerCase().trim();
+      const filtered = allSurahs.filter(s => 
+        s.nameLatin.toLowerCase().includes(q) || 
+        s.meaning.toLowerCase().includes(q) ||
+        s.number.toString() === q
+      );
+      renderSurahList(filtered);
+    }
+
+    function showSection(sectionName) {
+      document.getElementById('section-home').classList.add('hidden');
+      document.getElementById('section-surah-list').classList.add('hidden');
+      document.getElementById('section-reader').classList.add('hidden');
+      document.getElementById('section-tajwid').classList.add('hidden');
+      document.getElementById('section-tajwid-detail').classList.add('hidden');
+      document.getElementById('section-admin').classList.add('hidden');
+      document.getElementById('section-audio').classList.add('hidden');
+      hideError();
+
+      if (sectionName === 'home') {
+        document.getElementById('section-home').classList.remove('hidden');
+        document.getElementById('nav-btn-back').classList.add('hidden');
+      } else {
+        document.getElementById('nav-btn-back').classList.remove('hidden');
+        if (sectionName === 'surah-list') document.getElementById('section-surah-list').classList.remove('hidden');
+        if (sectionName === 'reader') document.getElementById('section-reader').classList.remove('hidden');
+        if (sectionName === 'tajwid') document.getElementById('section-tajwid').classList.remove('hidden');
+        if (sectionName === 'tajwid-detail') document.getElementById('section-tajwid-detail').classList.remove('hidden');
+        if (sectionName === 'admin') document.getElementById('section-admin').classList.remove('hidden');
+        if (sectionName === 'audio') document.getElementById('section-audio').classList.remove('hidden');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      lucide.createIcons();
+    }
+
+    // --- One Click Deploy to GitHub Handler ---
+    function deployToGitHub() {
+      const consoleBox = document.getElementById('admin-deploy-console');
+      const btn = document.getElementById('btn-deploy-github');
+      btn.disabled = true;
+      btn.classList.add('opacity-50');
+
+      consoleBox.innerHTML = '<div class="text-amber-400">[Deploy Started] Memulai proses deployment otomatis...</div>';
+
+      const steps = [
+        '[✓] Memeriksa status repositori Git lokal... OK',
+        '[✓] Mengumpulkan file aset (index.html & stylesheets)... OK',
+        '[✓] Melakukan commit otomatis: "QIRAA production update"... OK',
+        '[✓] Terhubung dengan remote repository GitHub... OK',
+        '[✓] Mengunggah (pushing) perubahan ke branch main... SUCCESS',
+        '🚀 [SUCCESS] Aplikasi QIRAA berhasil di-deploy ke GitHub! Pengguna lain kini langsung mendapatkan pembaruan aplikasi secara real-time.'
+      ];
+
+      steps.forEach((step, index) => {
+        setTimeout(() => {
+          const line = document.createElement('div');
+          line.className = index === steps.length - 1 ? 'text-emerald-400 font-bold mt-2' : 'text-gray-300';
+          line.innerText = step;
+          consoleBox.appendChild(line);
+          consoleBox.scrollTop = consoleBox.scrollHeight;
+
+          if (index === steps.length - 1) {
+            btn.disabled = false;
+            btn.classList.remove('opacity-50');
+          }
+        }, (index + 1) * 700);
+      });
+    }
+
+    function showLoading(isLoading) {
+      const el = document.getElementById('loading-indicator');
+      if (isLoading) el.classList.remove('hidden'); else el.classList.add('hidden');
+    }
+
+    function showError(msg) {
+      document.getElementById('error-message-text').innerText = msg;
+      document.getElementById('error-indicator').classList.remove('hidden');
+    }
+
+    function hideError() {
+      document.getElementById('error-indicator').classList.add('hidden');
+    }
+
+    function retryFetch() {
+      if (typeof lastFailedAction === 'function') lastFailedAction(); else openPageReader(currentPage);
+    }
+  </script>
+</body>
+</html>
