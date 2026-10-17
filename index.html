@@ -5,10 +5,10 @@
   <title>QIRAA - Baca. Pelajari. Perbaiki Bacaan.</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Scheherazade New & Amiri (Rasm Utsmani) & Plus Jakarta Sans -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&amp;family=Scheherazade+New:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&amp;family=Scheherazade+New:wght@400;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;display=swap" rel="stylesheet">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
@@ -18,18 +18,22 @@
         extend: {
           colors: {
             brand: {
-              black: '#0A0A0B',
-              dark: '#121214',
-              card: '#1A1A1E',
-              border: '#2A2A30',
-              silver: '#F3F4F6',
-              accentSilver: '#9CA3AF',
-              muted: '#6B7280',
-              gold: '#D4AF37'
+              bg:     '#0D0D0F',
+              surface:'#161618',
+              card:   '#1C1C1F',
+              border: '#272729',
+              muted:  '#3A3A3E',
+              subtle: '#52525B',
+              dim:    '#71717A',
+              text:   '#E4E4E7',
+              soft:   '#A1A1AA',
+              gold:   '#C9A84C',
+              'gold-light': '#E2C97E',
+              'gold-dim':   '#C9A84C22'
             }
           },
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            sans:  ['DM Sans', 'Inter', 'sans-serif'],
             quran: ['"Scheherazade New"', 'Amiri', 'serif']
           }
         }
@@ -37,787 +41,1061 @@
     }
   </script>
   <style>
+    /* ===== MODERN ISLAMIC PREMIUM DESIGN SYSTEM ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      background-color: #0A0A0B;
-      color: #F3F4F6;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0A0A0C;
+      color: #E2E2E8;
+      font-family: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       touch-action: pan-y pinch-zoom;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Geometric Pattern */
-    .islamic-pattern {
-      background-color: #0A0A0B;
-      background-image: radial-gradient(rgba(243, 244, 246, 0.035) 1px, transparent 0),
-                        radial-gradient(rgba(243, 244, 246, 0.015) 1px, transparent 0);
-      background-size: 24px 24px;
-      background-position: 0 0, 12px 12px;
+    /* Ambient Spiritual Glow & Micro Texture */
+    .spiritual-canvas {
+      background-color: #0A0A0C;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201, 168, 76, 0.08), transparent 70%),
+        radial-gradient(circle at 100% 100%, rgba(201, 168, 76, 0.03), transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
     }
 
-    .silver-gradient-text {
-      background: linear-gradient(135deg, #FFFFFF 0%, #E5E7EB 50%, #9CA3AF 100%);
+    /* Gold Accents & Shimmer */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #F9E7B3 0%, #D4AF37 50%, #AA8222 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    /* Rasm Utsmani Quran Calligraphy */
+    .gold-border-glow {
+      position: relative;
+    }
+    .gold-border-glow::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(212,175,55,0.4), transparent 50%, rgba(212,175,55,0.15));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* High Precision Quran Calligraphy */
     .font-quran-utsmani {
       font-family: 'Scheherazade New', 'Amiri', serif;
-      font-size: 2.25rem;
-      line-height: 2.5;
-      word-spacing: 3px;
+      font-size: 2.35rem;
+      line-height: 2.85;
+      word-spacing: 5px;
+      letter-spacing: 0;
       direction: rtl;
       text-align: justify;
       text-align-last: center;
       word-break: normal;
       overflow-wrap: break-word;
+      color: #F6F3EB;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "cv01" on, "cv02" on;
     }
-
     @media (max-width: 640px) {
-      .font-quran-utsmani {
-        font-size: 1.75rem;
-        line-height: 2.3;
-      }
+      .font-quran-utsmani { font-size: 1.85rem; line-height: 2.55; word-spacing: 3px; }
     }
 
-    /* Ayah Symbol Badge */
+    /* Ayah Number Rosette / Badge */
     .ayah-symbol {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 2.2rem;
-      height: 2.2rem;
+      width: 2.15rem;
+      height: 2.15rem;
       margin: 0 0.35rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
       font-weight: 700;
-      color: #E5E7EB;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      color: #D4AF37;
+      background: radial-gradient(circle, rgba(212,175,55,0.14) 0%, rgba(18,18,22,0.95) 75%);
+      border: 1px solid rgba(212,175,55,0.38);
       border-radius: 50%;
       vertical-align: middle;
       user-select: none;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5), inset 0 0 4px rgba(212,175,55,0.2);
+      transition: all 0.2s ease;
+    }
+    .ayah-symbol:hover {
+      transform: scale(1.08);
+      border-color: #F9E7B3;
+      box-shadow: 0 0 10px rgba(212,175,55,0.4);
     }
 
-    /* Custom Floating Whitish Buttons Styling */
-    .btn-whitish-floating {
-      background: rgba(243, 244, 246, 0.12);
+    /* Glass Controls & Nav Elements */
+    .btn-nav, .btn-whitish-floating {
+      background: rgba(22, 22, 26, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #E2E2E8;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-nav:hover, .btn-whitish-floating:hover {
+      background: rgba(30, 30, 36, 0.95);
+      border-color: rgba(212, 175, 55, 0.4);
       color: #FFFFFF;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), 0 0 10px rgba(212, 175, 55, 0.15);
+    }
+    .btn-nav:active, .btn-whitish-floating:active {
+      transform: scale(0.97);
+    }
+    .btn-nav:disabled, .btn-whitish-floating:disabled {
+      opacity: 0.25;
+      pointer-events: none;
     }
 
-    .btn-whitish-floating:hover {
-      background: rgba(255, 255, 255, 0.22);
-      border-color: rgba(255, 255, 255, 0.45);
+    .btn-gold {
+      background: linear-gradient(135deg, #E2C97E 0%, #C9A84C 60%, #9F7824 100%);
+      color: #0A0A0C;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #FBF0CC 0%, #D8B75B 60%, #B88B2A 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+      box-shadow: 0 6px 24px rgba(201, 168, 76, 0.4);
+    }
+    .btn-gold:active {
+      transform: scale(0.97);
     }
 
-    .btn-whitish-floating:active {
-      transform: translateY(-4px) scale(0.97);
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
-      background: rgba(255, 255, 255, 0.32);
+    /* Cards Architecture */
+    .premium-card {
+      background: linear-gradient(165deg, rgba(24, 24, 28, 0.85) 0%, rgba(16, 16, 20, 0.95) 100%);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 20px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .premium-card:hover {
+      border-color: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.06);
     }
 
-    /* Marquee Running Text Animation */
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
+    /* Mushaf Master Frame */
+    .mushaf-master-frame {
+      background: radial-gradient(circle at 50% 20%, #17171B 0%, #0F0F12 100%);
+      border: 1.5px solid rgba(212, 175, 55, 0.25);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+    .mushaf-master-frame::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(212, 175, 55, 0.12);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    /* Modern Surah Card */
+    .surah-card {
+      background: linear-gradient(150deg, #17171B 0%, #121215 100%);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+    .surah-card:hover {
+      background: linear-gradient(150deg, #1E1E24 0%, #15151A 100%);
+      border-color: rgba(212, 175, 55, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px -8px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.08);
+    }
+
+    /* Inputs */
+    .qiraa-input {
+      background: rgba(18, 18, 22, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #F1F1F5;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+    .qiraa-input:focus {
+      outline: none;
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+      background: #151519;
+    }
+
+    /* Header Nav Pills */
+    .nav-pill {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 12px;
+      color: #9E9EAA;
+      background: transparent;
+      border: 1px solid transparent;
+      transition: all 0.18s ease;
+      cursor: pointer;
+    }
+    .nav-pill:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Marquee ticker */
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
     .animate-marquee {
       display: inline-flex;
       white-space: nowrap;
-      animation: marquee 32s linear infinite;
+      animation: marqueeScroll 40s linear infinite;
     }
-    .animate-marquee:hover {
-      animation-play-state: paused;
-    }
-
-    /* Swipe Page Animation */
-    .page-slide-left { animation: slideLeft 0.25s ease-out forwards; }
-    .page-slide-right { animation: slideRight 0.25s ease-out forwards; }
-
-    @keyframes slideLeft {
-      from { transform: translateX(30px); opacity: 0.4; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes slideRight {
-      from { transform: translateX(-30px); opacity: 0.4; }
-      to { transform: translateX(0); opacity: 1; }
-    }
+    .animate-marquee:hover { animation-play-state: paused; }
 
     /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #0A0A0B; }
-    ::-webkit-scrollbar-thumb { background: #2A2A30; border-radius: 4px; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0A0A0C; }
+    ::-webkit-scrollbar-thumb { background: #26262D; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
 
-    /* Tajweed Color Palette (Hafs 'an Ashim Audit Approved) */
-    .tajweed-mode-on tajweed { display: inline; transition: color 0.2s ease; }
-    
-    /* Qalqalah - Red */
+    /* Swipe Page Transitions */
+    .page-slide-left  { animation: slideInLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .page-slide-right { animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes slideInLeft  { from { transform: translateX(30px); opacity: 0.4; } to { transform: none; opacity: 1; } }
+    @keyframes slideInRight { from { transform: translateX(-30px); opacity: 0.4; } to { transform: none; opacity: 1; } }
+
+    /* Tajweed Master System */
+    .tajweed-mode-on tajweed { display: inline; transition: color 0.15s ease; }
     .tajweed-mode-on tajweed[class*="qalaqah"],
     .tajweed-mode-on tajweed[class*="qalqalah"],
     .tajweed-mode-on tajweed.qalaqah,
-    .tajweed-mode-on tajweed.qalqalah { color: #EF4444 !important; font-weight: 700; }
-
-    /* Idgham Bighunnah - Green */
+    .tajweed-mode-on tajweed.qalqalah    { color: #F87171 !important; font-weight: 700; text-shadow: 0 0 1px rgba(248,113,113,0.3); }
     .tajweed-mode-on tajweed[class="idgham_ghunnah"],
-    .tajweed-mode-on tajweed.idgham_ghunnah { color: #22C55E !important; font-weight: 700; }
-
-    /* Idgham Bilaghunnah - Emerald */
+    .tajweed-mode-on tajweed.idgham_ghunnah { color: #4ADE80 !important; font-weight: 700; text-shadow: 0 0 1px rgba(74,222,128,0.3); }
     .tajweed-mode-on tajweed[class*="idgham_wo_ghunnah"],
-    .tajweed-mode-on tajweed.idgham_wo_ghunnah { color: #10B981 !important; font-weight: 700; }
-
-    /* Ikhfa Haqiqi - Yellow/Amber */
+    .tajweed-mode-on tajweed.idgham_wo_ghunnah { color: #2DD4BF !important; font-weight: 700; }
     .tajweed-mode-on tajweed[class="ikhafa"],
     .tajweed-mode-on tajweed[class="ikhfa"],
     .tajweed-mode-on tajweed.ikhafa,
-    .tajweed-mode-on tajweed.ikhfa { color: #EAB308 !important; font-weight: 700; }
-
-    /* Iqlab - Blue */
+    .tajweed-mode-on tajweed.ikhfa        { color: #FBBF24 !important; font-weight: 700; text-shadow: 0 0 1px rgba(251,191,36,0.3); }
     .tajweed-mode-on tajweed[class*="iqlab"],
-    .tajweed-mode-on tajweed.iqlab { color: #3B82F6 !important; font-weight: 700; }
-
-    /* Ghunnah Musyaddadah - Pink */
+    .tajweed-mode-on tajweed.iqlab         { color: #60A5FA !important; font-weight: 700; }
     .tajweed-mode-on tajweed[class*="ghunnah"]:not([class*="idgham"]),
-    .tajweed-mode-on tajweed.ghunnah { color: #EC4899 !important; font-weight: 700; }
-
-    /* Hukum Mad - Purple */
+    .tajweed-mode-on tajweed.ghunnah       { color: #F472B6 !important; font-weight: 700; }
     .tajweed-mode-on tajweed[class*="madda"],
-    .tajweed-mode-on tajweed[class*="mad"] { color: #A855F7 !important; font-weight: 700; }
-
-    /* Ikhfa Syafawi - Orange */
+    .tajweed-mode-on tajweed[class*="mad"]  { color: #C084FC !important; font-weight: 700; }
     .tajweed-mode-on tajweed[class*="ikhafa_syafawi"],
     .tajweed-mode-on tajweed[class*="ikhafa_shafawi"],
     .tajweed-mode-on tajweed[class*="ikhfa_syafawi"],
-    .tajweed-mode-on tajweed[class*="ikhfa_shafawi"] { color: #F97316 !important; font-weight: 700; }
-
-    /* Idgham Mimi - Cyan */
+    .tajweed-mode-on tajweed[class*="ikhfa_shafawi"] { color: #FB923C !important; font-weight: 700; }
     .tajweed-mode-on tajweed[class*="idgham_mimi"],
     .tajweed-mode-on tajweed[class*="idgham_mutamathilain"],
-    .tajweed-mode-on tajweed.idgham_mimi { color: #06B6D4 !important; font-weight: 700; }
-
-    /* Izhar - Slate Gray */
+    .tajweed-mode-on tajweed.idgham_mimi   { color: #38BDF8 !important; font-weight: 700; }
     .tajweed-mode-on tajweed[class*="izhar"],
-    .tajweed-mode-on tajweed.izhar { color: #94A3B8 !important; font-weight: 700; }
-
-    /* Hamzat Wasl & Shamsiyah - Soft Gray */
+    .tajweed-mode-on tajweed.izhar         { color: #CBD5E1 !important; font-weight: 700; }
     .tajweed-mode-on tajweed[class*="ham_wasl"],
     .tajweed-mode-on tajweed[class*="laam_shamsiyah"],
-    .tajweed-mode-on tajweed[class*="slnt"] { color: #6B7280 !important; font-weight: normal; opacity: 0.85; }
-
-    /* Tajweed mode OFF */
-    .tajweed-mode-off tajweed { color: inherit !important; font-weight: normal !important; }
+    .tajweed-mode-on tajweed[class*="slnt"] { color: #71717A !important; font-weight: normal; opacity: 0.8; }
+    .tajweed-mode-off tajweed { color: inherit !important; font-weight: normal !important; text-shadow: none !important; }
   </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Plus Jakarta Sans, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.left-3\.5{left:0.875rem}.right-0{right:0px}.top-0{top:0px}.top-1\/2{top:50%}.top-20{top:5rem}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-2{height:0.5rem}.h-2\.5{height:0.625rem}.h-24{height:6rem}.h-3{height:0.75rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-40{height:10rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-full{height:100%}.min-h-\[350px\]{min-height:350px}.min-h-\[500px\]{min-height:500px}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-16{width:4rem}.w-2\.5{width:0.625rem}.w-24{width:6rem}.w-3{width:0.75rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-full{width:100%}.min-w-\[260px\]{min-width:260px}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-8{--tw-translate-y:-2rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-x-8{--tw-translate-x:2rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-12{gap:3rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-0\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.125rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.125rem * var(--tw-space-y-reverse))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-\[\#2A2A30\]{--tw-border-opacity:1;border-color:rgb(42 42 48 / var(--tw-border-opacity, 1))}.border-\[\#D4AF37\]\/50{border-color:rgb(212 175 55 / 0.5)}.border-amber-500\/30{border-color:rgb(245 158 11 / 0.3)}.border-amber-500\/40{border-color:rgb(245 158 11 / 0.4)}.border-brand-border{--tw-border-opacity:1;border-color:rgb(42 42 48 / var(--tw-border-opacity, 1))}.border-brand-border\/60{border-color:rgb(42 42 48 / 0.6)}.border-brand-border\/80{border-color:rgb(42 42 48 / 0.8)}.border-emerald-500\/30{border-color:rgb(16 185 129 / 0.3)}.border-red-900\/50{border-color:rgb(127 29 29 / 0.5)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-white\/30{border-color:rgb(255 255 255 / 0.3)}.\!border-emerald-500{--tw-border-opacity:1 !important;border-color:rgb(16 185 129 / var(--tw-border-opacity, 1)) !important}.\!border-red-500{--tw-border-opacity:1 !important;border-color:rgb(239 68 68 / var(--tw-border-opacity, 1)) !important}.border-red-500\/30{border-color:rgb(239 68 68 / 0.3)}.border-t-white{--tw-border-opacity:1;border-top-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.bg-\[\#06B6D4\]{--tw-bg-opacity:1;background-color:rgb(6 182 212 / var(--tw-bg-opacity, 1))}.bg-\[\#09090C\]{--tw-bg-opacity:1;background-color:rgb(9 9 12 / var(--tw-bg-opacity, 1))}.bg-\[\#0A0A0B\]\/90{background-color:rgb(10 10 11 / 0.9)}.bg-\[\#10B981\]{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-\[\#141417\]{--tw-bg-opacity:1;background-color:rgb(20 20 23 / var(--tw-bg-opacity, 1))}.bg-\[\#141418\]{--tw-bg-opacity:1;background-color:rgb(20 20 24 / var(--tw-bg-opacity, 1))}.bg-\[\#22C55E\]{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-\[\#3B82F6\]{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-\[\#94A3B8\]{--tw-bg-opacity:1;background-color:rgb(148 163 184 / var(--tw-bg-opacity, 1))}.bg-\[\#A855F7\]{--tw-bg-opacity:1;background-color:rgb(168 85 247 / var(--tw-bg-opacity, 1))}.bg-\[\#D4AF37\]\/20{background-color:rgb(212 175 55 / 0.2)}.bg-\[\#EAB308\]{--tw-bg-opacity:1;background-color:rgb(234 179 8 / var(--tw-bg-opacity, 1))}.bg-\[\#EC4899\]{--tw-bg-opacity:1;background-color:rgb(236 72 153 / var(--tw-bg-opacity, 1))}.bg-\[\#EF4444\]{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-\[\#F97316\]{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-amber-500\/15{background-color:rgb(245 158 11 / 0.15)}.bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.bg-amber-500\/5{background-color:rgb(245 158 11 / 0.05)}.bg-brand-card{--tw-bg-opacity:1;background-color:rgb(26 26 30 / var(--tw-bg-opacity, 1))}.bg-brand-dark{--tw-bg-opacity:1;background-color:rgb(18 18 20 / var(--tw-bg-opacity, 1))}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/10{background-color:rgb(16 185 129 / 0.1)}.bg-emerald-500\/15{background-color:rgb(16 185 129 / 0.15)}.bg-emerald-500\/5{background-color:rgb(16 185 129 / 0.05)}.bg-red-900\/40{background-color:rgb(127 29 29 / 0.4)}.bg-red-950\/30{background-color:rgb(69 10 10 / 0.3)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.\!bg-emerald-500\/20{background-color:rgb(16 185 129 / 0.2) !important}.\!bg-red-500\/20{background-color:rgb(239 68 68 / 0.2) !important}.bg-red-500\/10{background-color:rgb(239 68 68 / 0.1)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-amber-500{--tw-gradient-from:#f59e0b var(--tw-gradient-from-position);--tw-gradient-to:rgb(245 158 11 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-amber-300{--tw-gradient-to:#fcd34d var(--tw-gradient-to-position)}.p-0\.5{padding:0.125rem}.p-1\.5{padding:0.375rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.p-3\.5{padding:0.875rem}.px-0\.5{padding-left:0.125rem;padding-right:0.125rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-2\.5{padding-bottom:0.625rem}.pb-3{padding-bottom:0.75rem}.pb-4{padding-bottom:1rem}.pl-10{padding-left:2.5rem}.pr-4{padding-right:1rem}.pt-2{padding-top:0.5rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-quran{font-family:"Scheherazade New", Amiri, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-6xl{font-size:3.75rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-loose{line-height:2}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-\[\#D4AF37\]{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-brand-accentSilver{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-brand-gold{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-gray-100{--tw-text-opacity:1;color:rgb(243 244 246 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-red-300{--tw-text-opacity:1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.placeholder-gray-500::placeholder{--tw-placeholder-opacity:1;color:rgb(107 114 128 / var(--tw-placeholder-opacity, 1))}.opacity-50{opacity:0.5}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.duration-200{transition-duration:200ms}.hover\:border-amber-500\/60:hover{border-color:rgb(245 158 11 / 0.6)}.hover\:border-emerald-500\/60:hover{border-color:rgb(16 185 129 / 0.6)}.hover\:border-gray-500:hover{--tw-border-opacity:1;border-color:rgb(107 114 128 / var(--tw-border-opacity, 1))}.hover\:bg-amber-400:hover{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-200:hover{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:bg-white\/30:hover{background-color:rgb(255 255 255 / 0.3)}.hover\:bg-amber-500\/10:hover{background-color:rgb(245 158 11 / 0.1)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-amber-400:focus{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.focus\:border-gray-400:focus{--tw-border-opacity:1;border-color:rgb(156 163 175 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.disabled\:pointer-events-none:disabled{pointer-events:none}.disabled\:opacity-30:disabled{opacity:0.3}.group:hover .group-hover\:border-white\/40{border-color:rgb(255 255 255 / 0.4)}.group:hover .group-hover\:text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:inline{display:inline}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:p-12{padding:3rem}.sm\:p-4{padding:1rem}.sm\:p-6{padding:1.5rem}.sm\:p-8{padding:2rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}}@media (min-width: 1024px){.lg\:col-span-1{grid-column:span 1 / span 1}.lg\:col-span-3{grid-column:span 3 / span 3}.lg\:grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
-<body class="min-h-screen flex flex-col islamic-pattern">
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:DM Sans, Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.-top-24{top:-6rem}.left-1\/2{left:50%}.left-3\.5{left:0.875rem}.top-0{top:0px}.top-1\/2{top:50%}.top-20{top:5rem}.top-40{top:10rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.ml-2{margin-left:0.5rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-2\.5{height:0.625rem}.h-3{height:0.75rem}.h-3\.5{height:0.875rem}.h-36{height:9rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-96{height:24rem}.h-full{height:100%}.min-h-\[360px\]{min-height:360px}.min-h-\[550px\]{min-height:550px}.min-h-screen{min-height:100vh}.w-1\.5{width:0.375rem}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-2\.5{width:0.625rem}.w-3{width:0.75rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-96{width:24rem}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-amber-500\/20{border-color:rgb(245 158 11 / 0.2)}.border-amber-500\/25{border-color:rgb(245 158 11 / 0.25)}.border-amber-500\/30{border-color:rgb(245 158 11 / 0.3)}.border-emerald-500\/30{border-color:rgb(16 185 129 / 0.3)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/\[0\.04\]{border-color:rgb(255 255 255 / 0.04)}.border-white\/\[0\.06\]{border-color:rgb(255 255 255 / 0.06)}.border-white\/\[0\.08\]{border-color:rgb(255 255 255 / 0.08)}.border-blue-500\/25{border-color:rgb(59 130 246 / 0.25)}.border-emerald-500\/25{border-color:rgb(16 185 129 / 0.25)}.border-purple-500\/25{border-color:rgb(168 85 247 / 0.25)}.border-t-transparent{border-top-color:transparent}.bg-\[\#070709\]{--tw-bg-opacity:1;background-color:rgb(7 7 9 / var(--tw-bg-opacity, 1))}.bg-\[\#0A0A0C\]\/90{background-color:rgb(10 10 12 / 0.9)}.bg-\[\#0E0E12\]{--tw-bg-opacity:1;background-color:rgb(14 14 18 / var(--tw-bg-opacity, 1))}.bg-\[\#121216\]{--tw-bg-opacity:1;background-color:rgb(18 18 22 / var(--tw-bg-opacity, 1))}.bg-\[\#2DD4BF\]{--tw-bg-opacity:1;background-color:rgb(45 212 191 / var(--tw-bg-opacity, 1))}.bg-\[\#38BDF8\]{--tw-bg-opacity:1;background-color:rgb(56 189 248 / var(--tw-bg-opacity, 1))}.bg-\[\#4ADE80\]{--tw-bg-opacity:1;background-color:rgb(74 222 128 / var(--tw-bg-opacity, 1))}.bg-\[\#60A5FA\]{--tw-bg-opacity:1;background-color:rgb(96 165 250 / var(--tw-bg-opacity, 1))}.bg-\[\#C084FC\]{--tw-bg-opacity:1;background-color:rgb(192 132 252 / var(--tw-bg-opacity, 1))}.bg-\[\#CBD5E1\]{--tw-bg-opacity:1;background-color:rgb(203 213 225 / var(--tw-bg-opacity, 1))}.bg-\[\#F472B6\]{--tw-bg-opacity:1;background-color:rgb(244 114 182 / var(--tw-bg-opacity, 1))}.bg-\[\#F87171\]{--tw-bg-opacity:1;background-color:rgb(248 113 113 / var(--tw-bg-opacity, 1))}.bg-\[\#FB923C\]{--tw-bg-opacity:1;background-color:rgb(251 146 60 / var(--tw-bg-opacity, 1))}.bg-\[\#FBBF24\]{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-amber-500\/10{background-color:rgb(245 158 11 / 0.1)}.bg-amber-500\/15{background-color:rgb(245 158 11 / 0.15)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/10{background-color:rgb(16 185 129 / 0.1)}.bg-white\/\[0\.04\]{background-color:rgb(255 255 255 / 0.04)}.bg-\[\#1C1C22\]{--tw-bg-opacity:1;background-color:rgb(28 28 34 / var(--tw-bg-opacity, 1))}.bg-\[\#16161A\]{--tw-bg-opacity:1;background-color:rgb(22 22 26 / var(--tw-bg-opacity, 1))}.bg-blue-500\/10{background-color:rgb(59 130 246 / 0.1)}.bg-purple-500\/10{background-color:rgb(168 85 247 / 0.1)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-\[\#1C1C22\]{--tw-gradient-from:#1C1C22 var(--tw-gradient-from-position);--tw-gradient-to:rgb(28 28 34 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-600{--tw-gradient-from:#d97706 var(--tw-gradient-from-position);--tw-gradient-to:rgb(217 119 6 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-\[\#121215\]{--tw-gradient-to:#121215 var(--tw-gradient-to-position)}.to-amber-300{--tw-gradient-to:#fcd34d var(--tw-gradient-to-position)}.p-1{padding:0.25rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.p-3\.5{padding:0.875rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-3{padding-bottom:0.75rem}.pb-5{padding-bottom:1.25rem}.pb-6{padding-bottom:1.5rem}.pl-10{padding-left:2.5rem}.pr-4{padding-right:1rem}.pt-2{padding-top:0.5rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.pl-2{padding-left:0.5rem}.pb-2\.5{padding-bottom:0.625rem}.pt-1{padding-top:0.25rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-quran{font-family:"Scheherazade New", Amiri, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-\[0\.18em\]{letter-spacing:0.18em}.tracking-\[0\.22em\]{letter-spacing:0.22em}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-\[\#F6F3EB\]{--tw-text-opacity:1;color:rgb(246 243 235 / var(--tw-text-opacity, 1))}.text-amber-200{--tw-text-opacity:1;color:rgb(253 230 138 / var(--tw-text-opacity, 1))}.text-amber-200\/90{color:rgb(253 230 138 / 0.9)}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-400\/80{color:rgb(251 191 36 / 0.8)}.text-amber-400\/90{color:rgb(251 191 36 / 0.9)}.text-amber-500\/60{color:rgb(245 158 11 / 0.6)}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-zinc-100{--tw-text-opacity:1;color:rgb(244 244 245 / var(--tw-text-opacity, 1))}.text-zinc-200{--tw-text-opacity:1;color:rgb(228 228 231 / var(--tw-text-opacity, 1))}.text-zinc-300{--tw-text-opacity:1;color:rgb(212 212 216 / var(--tw-text-opacity, 1))}.text-zinc-400{--tw-text-opacity:1;color:rgb(161 161 170 / var(--tw-text-opacity, 1))}.text-zinc-500{--tw-text-opacity:1;color:rgb(113 113 122 / var(--tw-text-opacity, 1))}.text-zinc-600{--tw-text-opacity:1;color:rgb(82 82 91 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.opacity-50{opacity:0.5}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-black\/40{--tw-shadow-color:rgb(0 0 0 / 0.4);--tw-shadow:var(--tw-shadow-colored)}.blur-3xl{--tw-blur:blur(64px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-200{transition-duration:200ms}.hover\:border-amber-500\/30:hover{border-color:rgb(245 158 11 / 0.3)}.hover\:border-amber-500\/40:hover{border-color:rgb(245 158 11 / 0.4)}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-amber-400:focus{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:translate-x-1{--tw-translate-x:0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:border-amber-400\/60{border-color:rgb(251 191 36 / 0.6)}.group:hover .group-hover\:border-amber-400{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.group:hover .group-hover\:bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.group:hover .group-hover\:bg-amber-500\/10{background-color:rgb(245 158 11 / 0.1)}.group:hover .group-hover\:text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:inline{display:inline}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:p-10{padding:2.5rem}.sm\:p-12{padding:3rem}.sm\:p-14{padding:3.5rem}.sm\:p-8{padding:2rem}.sm\:p-5{padding:1.25rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-6xl{font-size:3.75rem;line-height:1}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:inline-flex{display:inline-flex}.md\:w-80{width:20rem}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-end{align-items:flex-end}}@media (min-width: 1024px){.lg\:col-span-1{grid-column:span 1 / span 1}.lg\:col-span-3{grid-column:span 3 / span 3}.lg\:grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style></head>
+<body class="min-h-screen flex flex-col spiritual-canvas text-zinc-100">
 
-  <!-- NAVBAR -->
-  <header class="sticky top-0 z-50 bg-[#0A0A0B]/90 backdrop-blur-md border-b border-brand-border">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+  <!-- ULTRA-CLEAN NAVBAR (QURAN.COM & TARTEEL AESTHETIC) -->
+  <header class="sticky top-0 z-50 bg-[#0A0A0C]/90 backdrop-blur-xl border-b border-white/[0.06] transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <a href="#" onclick="showSection('home'); return false;" class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white shadow-inner">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-4 h-4 text-white"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
+      <!-- Logo Branding -->
+      <a href="#" onclick="showSection('home'); return false;" class="flex items-center gap-3.5 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1C1C22] to-[#121215] border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-lg shadow-black/40 group-hover:border-amber-400/60 transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-5 h-5 text-amber-400"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
         </div>
         <div>
-          <span class="text-lg font-extrabold tracking-widest silver-gradient-text block leading-none">QIRAA</span>
-          <span class="text-[9px] text-brand-accentSilver tracking-wider font-mono">BACA • PELAJARI • PERBAIKI BACAAN</span>
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-extrabold tracking-[0.22em] gold-gradient-text leading-none">QIRAA</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400/90 font-mono font-bold">2.5</span>
+          </div>
+          <span class="text-[9px] text-zinc-500 tracking-[0.18em] font-medium block mt-1">BACA • TAJWID • MUSHAF</span>
         </div>
       </a>
 
-      <!-- Quick Nav Buttons: Tombol Kembali -->
-      <nav class="flex items-center">
-        <button id="nav-btn-back" onclick="showSection('home')" class="cursor-pointer px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition flex items-center gap-1.5 hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-left" aria-hidden="true" class="lucide lucide-arrow-left w-3.5 h-3.5"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+      <!-- Quick Nav Buttons / Navigation Pills -->
+      <nav class="flex items-center gap-2">
+        <button onclick="showSection('surah-list')" class="hidden md:inline-flex nav-pill items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book" aria-hidden="true" class="lucide lucide-book w-3.5 h-3.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"></path></svg>
+          <span>Al-Qur'an</span>
+        </button>
+        <button onclick="showSection('tajwid')" class="hidden md:inline-flex nav-pill items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="graduation-cap" aria-hidden="true" class="lucide lucide-graduation-cap w-3.5 h-3.5"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+          <span>Tajwid</span>
+        </button>
+        <button onclick="showSection('game')" class="hidden md:inline-flex nav-pill items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="gamepad-2" aria-hidden="true" class="lucide lucide-gamepad-2 w-3.5 h-3.5"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg>
+          <span>Kuis</span>
+        </button>
+
+        <button id="nav-btn-back" onclick="showSection('home')" class="cursor-pointer px-3.5 py-1.5 rounded-xl text-xs font-semibold btn-nav flex items-center gap-1.5 ml-2 hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-left" aria-hidden="true" class="lucide lucide-arrow-left w-3.5 h-3.5 text-amber-400"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
           <span>Kembali</span>
         </button>
       </nav>
     </div>
 
-    <!-- MARQUEE NASIHAT ISLAMI BERJALAN (DALIL 1 & DALIL 2) -->
-    <div class="bg-[#141418] border-b border-[#2A2A30] overflow-hidden py-2 px-4 shadow-inner">
-      <div class="max-w-6xl mx-auto relative flex items-center">
-        <div class="w-full overflow-hidden">
-          <div class="animate-marquee items-center gap-12 text-xs sm:text-sm">
-            
-            <!-- DALIL 1: HADIS BUKHARI -->
-            <div class="inline-flex items-center gap-3">
-              <span class="font-quran text-base sm:text-lg text-white font-bold" dir="rtl">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</span>
-              <span class="text-gray-300 font-medium">"Sebaik-baik kalian adalah orang yang belajar Al-Qur’an dan mengajarkannya."</span>
-              <span class="px-2 py-0.5 rounded-md bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] font-semibold text-[11px]">(HR. Bukhari no. 5027)</span>
-            </div>
-
-            <!-- SEPARATOR ORNAMEN -->
-            <span class="text-[#D4AF37] font-bold">✦</span>
-
-            <!-- DALIL 2: AL-QUR'AN (QS. AL-A'RAF: 204) -->
-            <div class="inline-flex items-center gap-3">
-              <span class="font-quran text-base sm:text-lg text-white font-bold" dir="rtl">فَاسْتَمِعُوا لَهُ وَأَنْصِتُوا لَعَلَّكُمْ تُرْحَمُونَ</span>
-              <span class="text-gray-300 font-medium">"Maka dengarkanlah dan diamlah, agar kamu mendapat rahmat."</span>
-              <span class="px-2 py-0.5 rounded-md bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] font-semibold text-[11px]">(QS. Al-A'raf: 204)</span>
-            </div>
-
-            <!-- SEPARATOR ORNAMEN -->
-            <span class="text-[#D4AF37] font-bold">✦</span>
-
+    <!-- ELEGAN MARQUEE TICKER -->
+    <div class="bg-[#0E0E12] border-t border-b border-white/[0.04] overflow-hidden py-1.5 px-4 shadow-inner">
+      <div class="max-w-6xl mx-auto overflow-hidden">
+        <div class="animate-marquee items-center gap-16 text-xs text-zinc-400">
+          
+          <div class="inline-flex items-center gap-3">
+            <span class="font-quran text-base text-amber-300 font-bold" dir="rtl">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</span>
+            <span class="text-zinc-300 font-medium">"Sebaik-baik kalian adalah orang yang belajar Al-Qur’an dan mengajarkannya."</span>
+            <span class="px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-400 font-semibold text-[10px]">HR. Bukhari no. 5027</span>
           </div>
+
+          <span class="text-amber-500/60 font-bold">✦</span>
+
+          <div class="inline-flex items-center gap-3">
+            <span class="font-quran text-base text-amber-300 font-bold" dir="rtl">فَاسْتَمِعُوا لَهُ وَأَنْصِتُوا لَعَلَّكُمْ تُرْحَمُونَ</span>
+            <span class="text-zinc-300 font-medium">"Maka dengarkanlah dan diamlah, agar kamu mendapat rahmat."</span>
+            <span class="px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-400 font-semibold text-[10px]">QS. Al-A'raf: 204</span>
+          </div>
+
+          <span class="text-amber-500/60 font-bold">✦</span>
+
         </div>
       </div>
     </div>
   </header>
 
   <!-- MAIN CONTAINER -->
-  <main class="flex-1 max-w-5xl w-full mx-auto px-3 sm:px-6 py-6">
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
     <!-- SECTION 1: BERANDA (HOME) -->
-    <section id="section-home" class="space-y-8 animate-fadeIn">
+    <section id="section-home" class="space-y-10 animate-fadeUp">
       
-      <!-- HERO BANNER QIRAA -->
-      <div class="relative overflow-hidden rounded-3xl bg-brand-card border border-brand-border p-8 sm:p-12 text-center space-y-4">
-        <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white mx-auto shadow-inner">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-7 h-7 text-white"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
+      <!-- HERO BANNER PRESTIGE -->
+      <div class="relative overflow-hidden rounded-3xl premium-card p-8 sm:p-14 text-center space-y-6 gold-border-glow shadow-2xl">
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs text-amber-400 font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+            Mushaf Utsmani 30 Juz &amp; Tajwid Interaktif
+          </div>
+          
+          <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
+            <span class="gold-gradient-text">QIRAA</span>
+          </h1>
+          <p class="text-base sm:text-lg text-zinc-400 max-w-lg mx-auto font-normal leading-relaxed">
+            Membaca dan mempelajari Al-Qur'an dengan keindahan mushaf klasik dan panduan tajwid modern yang presisi.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <button onclick="showSection('surah-list')" class="btn-gold px-6 py-3 rounded-xl text-sm font-bold flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-4 h-4"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
+              <span>Mulai Baca Al-Qur'an</span>
+            </button>
+            <button onclick="showSection('tajwid')" class="btn-nav px-5 py-3 rounded-xl text-sm font-semibold flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="graduation-cap" aria-hidden="true" class="lucide lucide-graduation-cap w-4 h-4 text-amber-400"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+              <span>Pelajari Tajwid</span>
+            </button>
+          </div>
         </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-widest">QIRAA</h1>
-        <p class="text-sm sm:text-base text-gray-400 font-medium">Baca. Pelajari. Perbaiki Bacaan.</p>
       </div>
 
-      <!-- 3 MAIN FEATURE CARDS -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <!-- 3 MAIN FEATURE PILLARS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         
-        <!-- FITUR 1: Baca Al-Qur'an -->
-        <div onclick="showSection('surah-list')" class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-gray-500 transition duration-300 cursor-pointer space-y-3 group">
-          <div class="w-10 h-10 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-white group-hover:border-white/40 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-5 h-5"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
+        <!-- CARD 1: Baca Al-Qur'an -->
+        <div onclick="showSection('surah-list')" class="group p-6 rounded-2xl premium-card cursor-pointer space-y-4 border border-white/[0.06] hover:border-amber-500/40 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-6 h-6"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-white group-hover:text-white transition">Baca Al-Qur'an</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            30 juz, pencarian surah, terjemahan, dan penanda bacaan.
-          </p>
+          <div>
+            <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors flex items-center justify-between">
+              <span>Baca Al-Qur'an</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-4 h-4 text-zinc-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all"><path d="m9 18 6-6-6-6"></path></svg>
+            </h3>
+            <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+              Tampilan otentik 604 halaman mushaf standar Madinah dengan navigasi per surah dan halaman.
+            </p>
+          </div>
+          <div class="pt-2 flex items-center gap-2 text-[11px] text-amber-400/80 font-medium">
+            <span>114 Surah • 30 Juz</span>
+          </div>
         </div>
 
-        <!-- FITUR 2: Belajar Tajwid -->
-        <div onclick="showSection('tajwid')" class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-gray-500 transition duration-300 cursor-pointer space-y-3 group">
-          <div class="w-10 h-10 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-white group-hover:border-white/40 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="graduation-cap" aria-hidden="true" class="lucide lucide-graduation-cap w-5 h-5"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+        <!-- CARD 2: Belajar Tajwid -->
+        <div onclick="showSection('tajwid')" class="group p-6 rounded-2xl premium-card cursor-pointer space-y-4 border border-white/[0.06] hover:border-amber-500/40 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="graduation-cap" aria-hidden="true" class="lucide lucide-graduation-cap w-6 h-6"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-white group-hover:text-white transition">Belajar Tajwid</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            Materi, contoh ayat, latihan, dan kuis.
-          </p>
+          <div>
+            <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors flex items-center justify-between">
+              <span>Belajar Tajwid</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-4 h-4 text-zinc-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all"><path d="m9 18 6-6-6-6"></path></svg>
+            </h3>
+            <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+              Materi komprehensif hukum nun mati, mim mati, mad, dan qalqalah dilengkapi dalil &amp; contoh audio.
+            </p>
+          </div>
+          <div class="pt-2 flex items-center gap-2 text-[11px] text-amber-400/80 font-medium">
+            <span>10+ Kategori Hukum</span>
+          </div>
         </div>
 
-        <!-- FITUR 3: Permainan / Game -->
-        <div onclick="showSection('game')" class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-gray-500 transition duration-300 cursor-pointer space-y-3 group">
-          <div class="w-10 h-10 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center text-white group-hover:border-white/40 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="gamepad-2" aria-hidden="true" class="lucide lucide-gamepad-2 w-5 h-5"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg>
+        <!-- CARD 3: Permainan -->
+        <div onclick="showSection('game')" class="group p-6 rounded-2xl premium-card cursor-pointer space-y-4 border border-white/[0.06] hover:border-amber-500/40 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="gamepad-2" aria-hidden="true" class="lucide lucide-gamepad-2 w-6 h-6"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-white group-hover:text-white transition">Permainan</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            Uji ilmu tajwid dengan kuis interaktif, raih skor tertinggi!
-          </p>
+          <div>
+            <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors flex items-center justify-between">
+              <span>Permainan Islami</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-4 h-4 text-zinc-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all"><path d="m9 18 6-6-6-6"></path></svg>
+            </h3>
+            <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+              Asah kemampuan tajwid dan tebak surah dengan kuis interaktif berperingkat dan pencatatan skor.
+            </p>
+          </div>
+          <div class="pt-2 flex items-center gap-2 text-[11px] text-amber-400/80 font-medium">
+            <span>2 Mode Kuis • Skor Tersimpan</span>
+          </div>
         </div>
 
       </div>
     </section>
 
     <!-- SECTION 2: BACA AL-QUR'AN (DAFTAR SURAH & PENCARIAN) -->
-    <section id="section-surah-list" class="space-y-4 hidden">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-brand-border">
+    <section id="section-surah-list" class="space-y-6 hidden">
+      
+      <!-- Section Header & Filter -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-5 border-b border-white/[0.08]">
         <div>
-          <h2 class="text-xl font-extrabold text-white">Baca Al-Qur'an (30 Juz)</h2>
-          <p class="text-xs text-gray-400">Pilih dari 114 surah untuk mulai membaca tampilan Mushaf 604 halaman Rasm Utsmani.</p>
+          <div class="flex items-center gap-2 text-xs font-semibold text-amber-400 uppercase tracking-widest mb-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bookmark" aria-hidden="true" class="lucide lucide-bookmark w-3.5 h-3.5"><path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z"></path></svg>
+            <span>Daftar 114 Surah</span>
+          </div>
+          <h2 class="text-2xl font-extrabold text-white">Al-Qur'an Al-Karim</h2>
+          <p class="text-xs text-zinc-400 mt-1">Pilih surah untuk membaca langsung tampilan Mushaf Utsmani 604 halaman.</p>
         </div>
 
-        <div class="relative min-w-[260px]">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" aria-hidden="true" class="lucide lucide-search absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
-          <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Cari surah (misal: Kahf, 18)..." class="w-full pl-10 pr-4 py-2 bg-brand-card border border-brand-border rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-gray-400 transition">
+        <div class="relative w-full md:w-80">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" aria-hidden="true" class="lucide lucide-search absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
+          <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Cari surah (contoh: Al-Kahf, 18)..." class="qiraa-input w-full pl-10 pr-4 py-2.5 text-xs">
         </div>
       </div>
 
-      <div id="surah-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+      <!-- Surah Grid Container -->
+      <div id="surah-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5"></div>
     </section>
 
     <!-- SECTION 3: HALAMAN MUSHAF QURAN (PAGE READER 1 - 604) -->
-    <section id="section-reader" class="hidden space-y-4">
+    <section id="section-reader" class="space-y-6 hidden">
       
-      <!-- Top Control Bar -->
-      <div class="flex items-center justify-between bg-brand-card border border-brand-border rounded-2xl p-3 sm:p-4 shadow-md">
+      <!-- Top Control Bar (Quran.com & Tarteel Style) -->
+      <div class="sticky top-20 z-40 flex items-center justify-between premium-card px-4 py-3 shadow-xl border border-white/[0.08]">
         
-        <!-- Tombol Halaman Sebelumnya -->
-        <button onclick="navigatePage(-1)" id="btn-page-prev" class="btn-whitish-floating px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 disabled:opacity-30 disabled:pointer-events-none">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-left" aria-hidden="true" class="lucide lucide-chevron-left w-4 h-4"><path d="m15 18-6-6 6-6"></path></svg>
-          <span>halaman sebelumnya</span>
+        <!-- Previous Page Button -->
+        <button onclick="navigatePage(-1)" id="btn-page-prev" class="btn-nav px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-left" aria-hidden="true" class="lucide lucide-chevron-left w-4 h-4 text-amber-400"><path d="m15 18-6-6 6-6"></path></svg>
+          <span class="hidden sm:inline">Sebelumnya</span>
         </button>
 
-        <!-- Info Halaman, Juz & Surah -->
-        <div class="text-center space-y-0.5">
+        <!-- Current Location Indicator -->
+        <div class="text-center">
           <div class="flex items-center justify-center gap-2">
-            <span id="header-page-title" class="font-bold text-white text-sm sm:text-base">Halaman 1</span>
-            <span class="text-gray-500 text-xs">•</span>
-            <span id="header-juz-title" class="text-xs font-semibold text-brand-accentSilver">Juz 1</span>
+            <span id="header-page-title" class="font-extrabold text-white text-sm sm:text-base">Halaman 2</span>
+            <span class="text-zinc-600 text-xs">•</span>
+            <span id="header-juz-title" class="text-xs font-bold text-amber-400 font-mono">Juz 1</span>
           </div>
-          <p id="header-surah-info" class="text-[11px] text-gray-400 font-medium">Surah Al-Fatihah</p>
+          <p id="header-surah-info" class="text-[11px] text-zinc-400 font-medium mt-0.5">Surah Al-Baqarah (البقرة)</p>
         </div>
 
-        <!-- Tombol Halaman Setelahnya -->
-        <button onclick="navigatePage(1)" id="btn-page-next" class="btn-whitish-floating px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 disabled:opacity-30 disabled:pointer-events-none">
-          <span>halaman setelahnya</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-4 h-4"><path d="m9 18 6-6-6-6"></path></svg>
+        <!-- Next Page Button -->
+        <button onclick="navigatePage(1)" id="btn-page-next" class="btn-nav px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-2">
+          <span class="hidden sm:inline">Selanjutnya</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-4 h-4 text-amber-400"><path d="m9 18 6-6-6-6"></path></svg>
         </button>
       </div>
 
-      <!-- Quick Jump Page Input & Filter Toggles -->
-      <div class="flex flex-wrap items-center justify-between gap-2 px-1 text-xs text-gray-400">
-        <div class="flex items-center gap-2">
-          <span>Lompat ke Halaman:</span>
-          <input type="number" id="input-page-jump" min="1" max="604" value="1" onchange="jumpToPageInput(this.value)" class="w-16 px-2 py-1 bg-brand-card border border-brand-border rounded-lg text-center text-white text-xs font-mono focus:outline-none focus:border-gray-400">
-          <span>/ 604</span>
+      <!-- Reading Toolkit Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 px-1 py-1 text-xs">
+        
+        <!-- Quick Jump -->
+        <div class="flex items-center gap-2 bg-[#121216] px-3 py-1.5 rounded-xl border border-white/[0.06]">
+          <span class="text-zinc-400">Halaman:</span>
+          <input type="number" id="input-page-jump" min="1" max="604" value="1" onchange="jumpToPageInput(this.value)" class="w-14 px-2 py-0.5 bg-black/50 border border-white/10 rounded text-center text-amber-300 font-mono text-xs focus:outline-none focus:border-amber-400">
+          <span class="text-zinc-500">/ 604</span>
         </div>
 
+        <!-- Tool Toggles -->
         <div class="flex flex-wrap items-center gap-2">
-          <!-- Pilihan Ukuran Tulisan Arab -->
-          <div class="flex items-center rounded-xl bg-brand-card border border-brand-border p-0.5 text-xs">
-            <button onclick="changeArabicFontSize(-1)" title="Perkecil Ukuran Teks Arab" class="p-1.5 hover:bg-white/10 rounded-lg text-gray-300 hover:text-white transition flex items-center justify-center">
-              <span class="font-bold text-[11px] leading-none px-0.5">A-</span>
+          
+          <!-- Font Size Adjuster -->
+          <div class="flex items-center rounded-xl bg-[#121216] border border-white/[0.06] p-1">
+            <button onclick="changeArabicFontSize(-1)" title="Perkecil Teks Arab" class="px-2 py-1 hover:bg-white/10 rounded-lg text-zinc-300 hover:text-white transition text-xs font-bold">
+              A-
             </button>
-            <span id="label-arabic-font-size" class="px-2 text-[10px] font-mono font-semibold text-gray-300 select-none">S.Kecil</span>
-            <button onclick="changeArabicFontSize(1)" title="Perbesar Ukuran Teks Arab" class="p-1.5 hover:bg-white/10 rounded-lg text-gray-300 hover:text-white transition flex items-center justify-center">
-              <span class="font-bold text-xs leading-none px-0.5">A+</span>
+            <span id="label-arabic-font-size" class="px-2 text-[10px] font-mono font-bold text-amber-400 select-none">S.Kecil</span>
+            <button onclick="changeArabicFontSize(1)" title="Perbesar Teks Arab" class="px-2 py-1 hover:bg-white/10 rounded-lg text-zinc-300 hover:text-white transition text-xs font-bold">
+              A+
             </button>
           </div>
 
-          <button onclick="toggleTajweedColor()" id="btn-toggle-tajweed" class="px-3.5 py-1.5 rounded-xl btn-whitish-floating text-xs font-semibold flex items-center gap-1.5">
+          <!-- Tajweed Color Toggle -->
+          <button onclick="toggleTajweedColor()" id="btn-toggle-tajweed" class="btn-nav px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="palette" aria-hidden="true" class="lucide lucide-palette w-3.5 h-3.5 text-amber-400"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"></path><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle></svg>
             <span id="label-toggle-tajweed">nonaktifkan fitur warna tajwid</span>
           </button>
 
-          <button onclick="toggleTranslation()" id="btn-toggle-translation" class="px-3.5 py-1.5 rounded-xl btn-whitish-floating text-xs font-semibold flex items-center gap-1.5">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="languages" aria-hidden="true" class="lucide lucide-languages w-3.5 h-3.5"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg>
+          <!-- Translation Toggle -->
+          <button onclick="toggleTranslation()" id="btn-toggle-translation" class="btn-nav px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="languages" aria-hidden="true" class="lucide lucide-languages w-3.5 h-3.5 text-amber-400"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg>
             <span id="label-toggle-trans">Sembunyikan Arti</span>
           </button>
         </div>
       </div>
 
-      <!-- MUSHAF & TAJWID LEGEND GRID LAYOUT -->
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 items-start">
+      <!-- MAIN MUSHAF & SIDEBAR GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
         
-        <!-- LEGENDA WARNA TAJWID (KOTAK KUNING DI SAMPING KIRI MUSHAF) -->
-        <div id="tajweed-legend-box" class="lg:col-span-1 p-4 bg-brand-card border border-brand-border rounded-3xl text-xs space-y-3 shadow-xl sticky top-20">
-          <div class="flex items-center justify-between border-b border-brand-border/60 pb-2.5">
-            <span class="font-bold text-white flex items-center gap-1.5 text-xs">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="info" aria-hidden="true" class="lucide lucide-info w-4 h-4 text-brand-gold"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
-              <span>Panduan Warna Tajwid</span>
+        <!-- TAJWEED LEGEND (LEFT DOCK) -->
+        <div id="tajweed-legend-box" class="lg:col-span-1 p-5 premium-card rounded-2xl text-xs space-y-4 shadow-xl sticky top-40 border border-white/[0.08]">
+          <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
+            <span class="font-bold text-white flex items-center gap-2 text-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="info" aria-hidden="true" class="lucide lucide-info w-4 h-4 text-amber-400"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+              <span>Panduan Tajwid</span>
             </span>
           </div>
+
           <div id="tajweed-legend-items" class="grid grid-cols-2 lg:grid-cols-1 gap-2.5 text-[11px]">
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#EF4444] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Qalqalah</span></div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#22C55E] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Idgham Bighunnah</span></div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#10B981] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Idgham Bilaghunnah</span></div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#EAB308] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Ikhfa Haqiqi</span></div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#3B82F6] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Iqlab</span></div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#EC4899] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Ghunnah</span></div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#A855F7] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Hukum Mad</span></div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#F97316] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Ikhfa Syafawi</span></div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#06B6D4] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Idgham Mimi</span></div>
-            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#94A3B8] shrink-0 inline-block shadow-sm"></span><span class="text-gray-200 font-medium">Izhar</span></div>
+            <div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-[#F87171] shadow-sm"></span><span class="text-zinc-300 font-medium">Qalqalah</span></div>
+            <div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-[#4ADE80] shadow-sm"></span><span class="text-zinc-300 font-medium">Idgham Bighunnah</span></div>
+            <div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-[#2DD4BF] shadow-sm"></span><span class="text-zinc-300 font-medium">Idgham Bilaghunnah</span></div>
+            <div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-[#FBBF24] shadow-sm"></span><span class="text-zinc-300 font-medium">Ikhfa Haqiqi</span></div>
+            <div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-[#60A5FA] shadow-sm"></span><span class="text-zinc-300 font-medium">Iqlab</span></div>
+            <div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-[#F472B6] shadow-sm"></span><span class="text-zinc-300 font-medium">Ghunnah</span></div>
+            <div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-[#C084FC] shadow-sm"></span><span class="text-zinc-300 font-medium">Hukum Mad</span></div>
+            <div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-[#FB923C] shadow-sm"></span><span class="text-zinc-300 font-medium">Ikhfa Syafawi</span></div>
+            <div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-[#38BDF8] shadow-sm"></span><span class="text-zinc-300 font-medium">Idgham Mimi</span></div>
+            <div class="flex items-center gap-2.5"><span class="w-3 h-3 rounded-full bg-[#CBD5E1] shadow-sm"></span><span class="text-zinc-300 font-medium">Izhar</span></div>
           </div>
         </div>
 
-        <!-- TAMPILAN MUSHAF PAGE BOARD (LG:COL-SPAN-3) -->
-        <div id="mushaf-touch-area" class="lg:col-span-3 relative rounded-3xl bg-brand-dark border-2 border-brand-border p-4 sm:p-8 shadow-2xl space-y-6 min-h-[500px]">
-        
-        <!-- Bismillah Header -->
-        <div id="bismillah-banner" class="hidden text-center py-2 border-b border-brand-border/60">
-          <p class="font-quran-utsmani text-2xl sm:text-3xl text-gray-100">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-        </div>
-
-        <!-- TEKS ARAB MUSHAF RASM UTSMANI -->
-        <div id="mushaf-page-content" class="p-3 sm:p-6 rounded-2xl bg-[#141417] border border-brand-border/80 min-h-[350px] flex items-center justify-center">
-          <div id="utsmani-page-text" class="font-quran-utsmani text-white tracking-wide leading-loose w-full" style="font-size: 1.75rem; line-height: 2.2;">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-
-        <!-- TRANSLATION CARDS -->
-        <div id="translation-section" class="space-y-3 pt-4 border-t border-brand-border">
-          <div class="flex items-center justify-between">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-text" aria-hidden="true" class="lucide lucide-file-text w-3.5 h-3.5"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
-              <span>Arti Ayat pada Halaman Ini</span>
-            </h3>
-
-            <button onclick="saveCurrentPageBookmark()" class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold flex items-center gap-1 transition">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bookmark" aria-hidden="true" class="lucide lucide-bookmark w-3 h-3"><path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z"></path></svg>
-              <span>Tandai Halaman Ini</span>
-            </button>
+        <!-- MUSHAF PAGE BOARD (SANCTUARY FOR READING) -->
+        <div id="mushaf-touch-area" class="lg:col-span-3 rounded-3xl mushaf-master-frame p-6 sm:p-12 space-y-8 min-h-[550px] page-slide-left">
+          
+          <!-- Bismillah Calligraphy Header -->
+          <div id="bismillah-banner" class="text-center pb-6 border-b border-amber-500/20">
+            <p class="font-quran-utsmani text-2xl sm:text-3xl text-amber-200/90 tracking-wide">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
           </div>
 
-          <div id="translation-cards-container" class="space-y-2.5">
-            <!-- Rendered by JS -->
+          <!-- Utsmani Calligraphy Text -->
+          <div id="mushaf-page-content" class="p-4 sm:p-8 rounded-2xl bg-black/40 border border-white/[0.04] min-h-[360px] flex items-center justify-center shadow-inner">
+            <div id="utsmani-page-text" class="font-quran-utsmani text-[#F6F3EB] w-full tajweed-mode-on" style="font-size: 1.75rem; line-height: 2.2;">ا<tajweed class="madda_necessary">لٓ</tajweed><tajweed class="madda_necessary">مٓ</tajweed> <span class="end">١</span> <span class="ayah-symbol" style="width: 1.9rem; height: 1.9rem;">1</span> ذ<tajweed class="madda_normal">َٲ</tajweed>لِكَ <tajweed class="ham_wasl">ٱ</tajweed>لْكِتَ<tajweed class="madda_normal">ـٰ</tajweed>بُ لَا رَيْبَ‌ۛ فِيهِ‌ۛ هُ<tajweed class="idgham_wo_ghunnah">دًى ل</tajweed>ِّلْمُتَّق<tajweed class="madda_permissible">ِي</tajweed>نَ <span class="end">٢</span> <span class="ayah-symbol" style="width: 1.9rem; height: 1.9rem;">2</span> ٱلَّذِينَ يُؤْمِنُونَ بِ<tajweed class="ham_wasl">ٱ</tajweed>لْغَيْبِ وَيُقِيمُونَ <tajweed class="ham_wasl">ٱ</tajweed><tajweed class="laam_shamsiyah">ل</tajweed>صَّلَ<tajweed class="slnt">و</tajweed><tajweed class="madda_normal">ٲ</tajweed>ةَ وَمِ<tajweed class="ghunnah">مّ</tajweed>َا رَزَ<tajweed class="qalaqah">قْ</tajweed>نَ<tajweed class="madda_normal">ـٰ</tajweed>هُمْ يُ<tajweed class="ikhafa">نف</tajweed>ِق<tajweed class="madda_permissible">ُو</tajweed>نَ <span class="end">٣</span> <span class="ayah-symbol" style="width: 1.9rem; height: 1.9rem;">3</span> وَ<tajweed class="ham_wasl">ٱ</tajweed>لَّذِينَ يُؤْمِنُونَ بِم<tajweed class="madda_obligatory">َآ</tajweed> أُ<tajweed class="ikhafa">نز</tajweed>ِلَ إِلَيْكَ وَم<tajweed class="madda_obligatory">َآ</tajweed> أُ<tajweed class="ikhafa">نز</tajweed>ِلَ مِ<tajweed class="ikhafa">ن ق</tajweed>َ<tajweed class="qalaqah">بْ</tajweed>لِكَ وَبِ<tajweed class="ham_wasl">ٱ</tajweed>لْأَخِرَةِ هُمْ يُوقِن<tajweed class="madda_permissible">ُو</tajweed>نَ <span class="end">٤</span> <span class="ayah-symbol" style="width: 1.9rem; height: 1.9rem;">4</span> أُ<tajweed class="slnt">وْ</tajweed>لَ<tajweed class="madda_obligatory">ـٰٓ</tajweed>ئِكَ عَلَىٰ هُ<tajweed class="idgham_ghunnah">دًى م</tajweed>ّ<tajweed class="idgham_wo_ghunnah">ِن ر</tajweed>َّبِّهِمْ‌ۖ وَأُ<tajweed class="slnt">وْ</tajweed>لَ<tajweed class="madda_obligatory">ـٰٓ</tajweed>ئِكَ هُمُ <tajweed class="ham_wasl">ٱ</tajweed>لْمُفْلِح<tajweed class="madda_permissible">ُو</tajweed>نَ <span class="end">٥</span> <span class="ayah-symbol" style="width: 1.9rem; height: 1.9rem;">5</span> </div>
           </div>
-        </div>
 
-        </div> <!-- end #mushaf-touch-area -->
-      </div> <!-- end MUSHAF & TAJWID LEGEND GRID -->
+          <!-- TRANSLATION SECTION -->
+          <div id="translation-section" class="space-y-4 pt-6 border-t border-white/[0.08]">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-4 h-4"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
+                <span>Terjemahan Bahasa Indonesia</span>
+              </h3>
+
+              <button onclick="saveCurrentPageBookmark()" class="px-3.5 py-1.5 rounded-xl btn-nav text-xs font-semibold flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bookmark" aria-hidden="true" class="lucide lucide-bookmark w-3.5 h-3.5 text-amber-400"><path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z"></path></svg>
+                <span>Tandai Halaman Ini</span>
+              </button>
+            </div>
+
+            <div id="translation-cards-container" class="space-y-3"><div class="p-4 sm:p-5 rounded-2xl bg-black/40 border border-white/[0.06] hover:border-amber-500/30 transition-all space-y-2">
+          <div class="flex items-center justify-between pb-2.5 border-b border-white/[0.06]">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-[10px] font-bold flex items-center justify-center">1</span>
+              <span class="text-xs font-bold text-white">Al-Baqarah</span>
+            </div>
+            <span class="text-[10px] font-mono text-zinc-500 bg-[#16161A] px-2 py-0.5 rounded border border-white/[0.04]">Hal 2</span>
+          </div>
+          <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1 font-normal">Alif Lām Mīm.1</p>
+        </div><div class="p-4 sm:p-5 rounded-2xl bg-black/40 border border-white/[0.06] hover:border-amber-500/30 transition-all space-y-2">
+          <div class="flex items-center justify-between pb-2.5 border-b border-white/[0.06]">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-[10px] font-bold flex items-center justify-center">2</span>
+              <span class="text-xs font-bold text-white">Al-Baqarah</span>
+            </div>
+            <span class="text-[10px] font-mono text-zinc-500 bg-[#16161A] px-2 py-0.5 rounded border border-white/[0.04]">Hal 2</span>
+          </div>
+          <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1 font-normal">Kitab (Alquran) ini tidak ada keraguan padanya; petunjuk bagi mereka yang bertakwa,1</p>
+        </div><div class="p-4 sm:p-5 rounded-2xl bg-black/40 border border-white/[0.06] hover:border-amber-500/30 transition-all space-y-2">
+          <div class="flex items-center justify-between pb-2.5 border-b border-white/[0.06]">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-[10px] font-bold flex items-center justify-center">3</span>
+              <span class="text-xs font-bold text-white">Al-Baqarah</span>
+            </div>
+            <span class="text-[10px] font-mono text-zinc-500 bg-[#16161A] px-2 py-0.5 rounded border border-white/[0.04]">Hal 2</span>
+          </div>
+          <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1 font-normal">(Yaitu) mereka yang beriman kepada yang gaib, melaksanakan salat, dan menginfakkan1 sebagian rezeki yang Kami berikan kepada mereka,</p>
+        </div><div class="p-4 sm:p-5 rounded-2xl bg-black/40 border border-white/[0.06] hover:border-amber-500/30 transition-all space-y-2">
+          <div class="flex items-center justify-between pb-2.5 border-b border-white/[0.06]">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-[10px] font-bold flex items-center justify-center">4</span>
+              <span class="text-xs font-bold text-white">Al-Baqarah</span>
+            </div>
+            <span class="text-[10px] font-mono text-zinc-500 bg-[#16161A] px-2 py-0.5 rounded border border-white/[0.04]">Hal 2</span>
+          </div>
+          <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1 font-normal">dan mereka beriman kepada (Alquran) yang diturunkan kepadamu (Muhammad) dan (kitab-kitab) yang telah diturunkan sebelum engkau,1 dan mereka yakin akan adanya akhirat.</p>
+        </div><div class="p-4 sm:p-5 rounded-2xl bg-black/40 border border-white/[0.06] hover:border-amber-500/30 transition-all space-y-2">
+          <div class="flex items-center justify-between pb-2.5 border-b border-white/[0.06]">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-[10px] font-bold flex items-center justify-center">5</span>
+              <span class="text-xs font-bold text-white">Al-Baqarah</span>
+            </div>
+            <span class="text-[10px] font-mono text-zinc-500 bg-[#16161A] px-2 py-0.5 rounded border border-white/[0.04]">Hal 2</span>
+          </div>
+          <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1 font-normal">Merekalah yang mendapat petunjuk dari Tuhannya, dan mereka itulah orang-orang yang beruntung.</p>
+        </div></div>
+          </div>
+
+        </div>
+      </div>
 
       <!-- Bottom Page Navigation Bar -->
-      <div class="flex items-center justify-between pt-2">
-        <button onclick="navigatePage(-1)" id="btn-bottom-prev" class="btn-whitish-floating px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-left" aria-hidden="true" class="lucide lucide-arrow-left w-3.5 h-3.5"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-          <span>halaman sebelumnya</span>
+      <div class="flex items-center justify-between pt-4">
+        <button onclick="navigatePage(-1)" id="btn-bottom-prev" class="btn-nav px-5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-left" aria-hidden="true" class="lucide lucide-arrow-left w-4 h-4 text-amber-400"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+          <span>Halaman Sebelumnya</span>
         </button>
 
-        <span id="footer-page-indicator" class="text-xs font-mono text-gray-400">Hal 1 dari 604</span>
+        <span id="footer-page-indicator" class="text-xs font-mono font-bold text-zinc-400">Hal 2 dari 604</span>
 
-        <button onclick="navigatePage(1)" id="btn-bottom-next" class="btn-whitish-floating px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5">
-          <span>halaman setelahnya</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-3.5 h-3.5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        <button onclick="navigatePage(1)" id="btn-bottom-next" class="btn-nav px-5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2">
+          <span>Halaman Setelahnya</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-4 h-4 text-amber-400"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
         </button>
       </div>
 
     </section>
 
     <!-- SECTION 4: BELAJAR TAJWID -->
-    <section id="section-tajwid" class="hidden space-y-6">
-      <div class="pb-3 border-b border-brand-border">
-        <h2 class="text-2xl font-extrabold text-white">Belajar Tajwid</h2>
-        <p class="text-xs sm:text-sm text-gray-400">Materi hukum bacaan, contoh ayat, latihan, dan kuis interaktif.</p>
+    <section id="section-tajwid" class="space-y-6 hidden">
+      <div class="pb-5 border-b border-white/[0.08]">
+        <div class="flex items-center gap-2 text-xs font-semibold text-amber-400 uppercase tracking-widest mb-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="graduation-cap" aria-hidden="true" class="lucide lucide-graduation-cap w-3.5 h-3.5"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+          <span>Kaidah Tartil</span>
+        </div>
+        <h2 class="text-2xl font-extrabold text-white">Panduan Ilmu Tajwid</h2>
+        <p class="text-xs text-zinc-400 mt-1">Hukum bacaan Al-Qur'an lengkap menurut kaidah riwayat Hafs 'an Ashim.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Hukum Nun Sukun & Tanwin -->
-        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold text-white text-base">Hukum Nun Sukun &amp; Tanwin</h3>
-            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-mono">4 Materi</span>
+        <!-- Nun Sukun & Tanwin -->
+        <div class="p-6 rounded-2xl premium-card space-y-4 border border-white/[0.06] hover:border-amber-500/30 transition-all">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-bold text-white text-base">Hukum Nun Sukun &amp; Tanwin</h3>
+              <p class="text-xs text-zinc-400 mt-1">Izhar, Idgham (Bighunnah/Bilaghunnah), Iqlab, dan Ikhfa Haqiqi.</p>
+            </div>
+            <span class="text-[10px] px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 font-mono font-bold border border-amber-500/25">4 Hukum</span>
           </div>
-          <p class="text-xs text-gray-400">Izhar, Idgham (Bighunnah/Bilaghunnah), Iqlab, dan Ikhfa Haqiqi.</p>
-          <button onclick="openTajwidLesson('nun_sukun')" class="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold hover:bg-gray-200 transition">
-            Pelajari Materi &amp; Contoh
-          </button>
+          <div class="pt-2">
+            <button onclick="openTajwidLesson('nun_sukun')" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+              <span>Buka Materi &amp; Contoh</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-3.5 h-3.5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </button>
+          </div>
         </div>
 
-        <!-- Hukum Mim Sukun -->
-        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold text-white text-base">Hukum Mim Sukun</h3>
-            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-mono">3 Materi</span>
+        <!-- Mim Sukun -->
+        <div class="p-6 rounded-2xl premium-card space-y-4 border border-white/[0.06] hover:border-amber-500/30 transition-all">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-bold text-white text-base">Hukum Mim Sukun</h3>
+              <p class="text-xs text-zinc-400 mt-1">Ikhfa Syafawi, Idgham Mimi (Mutamatsilain), dan Izhar Syafawi.</p>
+            </div>
+            <span class="text-[10px] px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 font-mono font-bold border border-amber-500/25">3 Hukum</span>
           </div>
-          <p class="text-xs text-gray-400">Ikhfa Syafawi, Idgham Mimi (Mutamatsilain), dan Izhar Syafawi.</p>
-          <button onclick="openTajwidLesson('mim_sukun')" class="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold hover:bg-gray-200 transition">
-            Pelajari Materi &amp; Contoh
-          </button>
+          <div class="pt-2">
+            <button onclick="openTajwidLesson('mim_sukun')" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+              <span>Buka Materi &amp; Contoh</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-3.5 h-3.5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </button>
+          </div>
         </div>
 
-        <!-- Hukum Mad -->
-        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold text-white text-base">Hukum Mad (Panjang Bacaan)</h3>
-            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-mono">Mad Thabi'i &amp; Far'i</span>
+        <!-- Mad -->
+        <div class="p-6 rounded-2xl premium-card space-y-4 border border-white/[0.06] hover:border-amber-500/30 transition-all">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-bold text-white text-base">Hukum Mad (Panjang Bacaan)</h3>
+              <p class="text-xs text-zinc-400 mt-1">Mad Thabi'i, Mad Wajib Muttashil, Mad Jaiz Munfashil, Mad 'Arid Lissukun.</p>
+            </div>
+            <span class="text-[10px] px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 font-mono font-bold border border-amber-500/25">Thabi'i &amp; Far'i</span>
           </div>
-          <p class="text-xs text-gray-400">Mad Thabi'i, Mad Wajib Muttashil, Mad Jaiz Munfashil, Mad 'Arid Lissukun.</p>
-          <button onclick="openTajwidLesson('mad')" class="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold hover:bg-gray-200 transition">
-            Pelajari Materi &amp; Contoh
-          </button>
+          <div class="pt-2">
+            <button onclick="openTajwidLesson('mad')" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+              <span>Buka Materi &amp; Contoh</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-3.5 h-3.5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </button>
+          </div>
         </div>
 
-        <!-- Hukum Qalqalah -->
-        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold text-white text-base">Hukum Qalqalah</h3>
-            <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-mono">2 Materi</span>
+        <!-- Qalqalah -->
+        <div class="p-6 rounded-2xl premium-card space-y-4 border border-white/[0.06] hover:border-amber-500/30 transition-all">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-bold text-white text-base">Hukum Qalqalah (Pantulan)</h3>
+              <p class="text-xs text-zinc-400 mt-1">Qalqalah Sugra (tengah kata) dan Qalqalah Kubra (waqaf/akhir kata).</p>
+            </div>
+            <span class="text-[10px] px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 font-mono font-bold border border-amber-500/25">2 Jenis</span>
           </div>
-          <p class="text-xs text-gray-400">Qalqalah Sugra (Kecil) dan Qalqalah Kubra (Besar).</p>
-          <button onclick="openTajwidLesson('qalqalah')" class="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold hover:bg-gray-200 transition">
-            Pelajari Materi &amp; Contoh
-          </button>
+          <div class="pt-2">
+            <button onclick="openTajwidLesson('qalqalah')" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+              <span>Buka Materi &amp; Contoh</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-3.5 h-3.5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 6: DETAIL MATERI TAJWID -->
-    <section id="section-tajwid-detail" class="hidden space-y-6">
-      <div class="pb-3 border-b border-brand-border flex items-center justify-between">
+    <!-- SECTION 6: DETAIL TAJWID -->
+    <section id="section-tajwid-detail" class="space-y-6 hidden">
+      <div class="flex items-center justify-between pb-5 border-b border-white/[0.08]">
         <div>
-          <h2 id="page-tajwid-title" class="text-2xl font-extrabold text-white">Judul Materi</h2>
-          <p class="text-xs sm:text-sm text-gray-400">Pelajari hukum bacaan dan contohnya.</p>
+          <div class="flex items-center gap-2 text-xs font-semibold text-amber-400 uppercase tracking-widest mb-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-3.5 h-3.5"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
+            <span>Materi Tajwid</span>
+          </div>
+          <h2 id="page-tajwid-title" class="text-2xl font-extrabold text-white">Hukum Nun Sukun (نْ) &amp; Tanwin (ً ٍ ٌ)</h2>
         </div>
-        <button onclick="showSection('tajwid')" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 transition flex items-center gap-1.5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-left" aria-hidden="true" class="lucide lucide-arrow-left w-3.5 h-3.5"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-          <span class="hidden sm:inline">Kembali ke Materi</span>
+        <button onclick="showSection('tajwid')" class="btn-nav px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-left" aria-hidden="true" class="lucide lucide-arrow-left w-3.5 h-3.5 text-amber-400"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+          <span>Kembali</span>
         </button>
       </div>
 
-      <div class="p-4 sm:p-8 rounded-3xl bg-brand-dark border border-brand-border space-y-6 shadow-xl">
-        <div id="page-tajwid-content" class="text-sm sm:text-base text-gray-300 space-y-4 leading-relaxed"></div>
+      <div class="p-6 sm:p-10 rounded-3xl premium-card space-y-6 border border-white/[0.08] shadow-2xl">
+        <div id="page-tajwid-content" class="text-sm sm:text-base text-zinc-300 space-y-5 leading-relaxed">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-white text-base">1. Izhar Haqiqi</h4>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">Jelas</span>
+              </div>
+              <p class="text-xs text-zinc-400">Dibaca jelas tanpa dengung jika bertemu huruf ء, هـ, ع, ح, غ, خ.</p>
+              <div class="pt-2 text-right">
+                <span class="font-quran-utsmani text-2xl text-amber-200">مَنْ آمَنَ</span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-white text-base">2. Idgham Bighunnah</h4>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/25">Dengung</span>
+              </div>
+              <p class="text-xs text-zinc-400">Dibaca melebur dengan dengung jika bertemu huruf ي, ن, م, و.</p>
+              <div class="pt-2 text-right">
+                <span class="font-quran-utsmani text-2xl text-amber-200">مَنْ يَقُولُ</span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-white text-base">3. Iqlab</h4>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/25">Ubah ke Mim</span>
+              </div>
+              <p class="text-xs text-zinc-400">Suara nun/tanwin berubah menjadi bunyi 'mim' jika bertemu huruf ب.</p>
+              <div class="pt-2 text-right">
+                <span class="font-quran-utsmani text-2xl text-amber-200">مِنْ بَعْدِ</span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-white text-base">4. Ikhfa Haqiqi</h4>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/25">Samar</span>
+              </div>
+              <p class="text-xs text-zinc-400">Dibaca samar dengan dengung jika bertemu 15 huruf hijaiyah lainnya.</p>
+              <div class="pt-2 text-right">
+                <span class="font-quran-utsmani text-2xl text-amber-200">مِنْ قَبْلِ</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- SECTION 7: PANEL KONTROL ADMIN -->
     <section id="section-admin" class="space-y-6 hidden">
-      <div class="pb-3 border-b border-brand-border flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center shadow-inner">
+      <div class="flex items-center justify-between pb-5 border-b border-white/[0.08]">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-2xl bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center justify-center shadow-lg shadow-black/40">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" aria-hidden="true" class="lucide lucide-shield-check w-6 h-6"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
           </div>
           <div>
-            <h2 class="text-2xl font-extrabold text-white">Panel Kontrol Admin QIRAA</h2>
-            <p class="text-xs text-gray-400">Pantau perkembangan aplikasi dan kelola deployment GitHub.</p>
+            <h2 class="text-2xl font-extrabold text-white">Panel Kontrol Pengembang</h2>
+            <p class="text-xs text-zinc-400">Status rilis aplikasi QIRAA dan konsol publikasi ke GitHub Pages.</p>
           </div>
         </div>
-        <button onclick="showSection('home')" type="button" class="cursor-pointer px-4 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-bold border border-white/30 transition flex items-center gap-1.5 shadow-md">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="log-out" aria-hidden="true" class="lucide lucide-log-out w-3.5 h-3.5"><path d="m16 17 5-5-5-5"></path><path d="M21 12H9"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path></svg>
-          <span>Keluar Admin</span>
+        <button onclick="showSection('home')" type="button" class="cursor-pointer px-4 py-2 rounded-xl btn-nav text-xs font-bold flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="log-out" aria-hidden="true" class="lucide lucide-log-out w-3.5 h-3.5 text-amber-400"><path d="m16 17 5-5-5-5"></path><path d="M21 12H9"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path></svg>
+          <span>Keluar</span>
         </button>
       </div>
 
       <!-- METRICS GRID -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-2">
-          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Status Sistem</span>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-5 rounded-2xl premium-card space-y-2 border border-white/[0.06]">
+          <span class="text-[10px] text-zinc-500 uppercase font-mono tracking-wider">Status Sistem</span>
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <h3 class="text-lg font-bold text-white">Aktif (Production)</h3>
+            <h3 class="text-base font-bold text-white">Production</h3>
           </div>
-          <p class="text-[11px] text-gray-400">Versi 2.4.0 (Tajwid &amp; AI)</p>
+          <p class="text-[11px] text-zinc-400">Versi 2.5 (Design Overhaul)</p>
         </div>
 
-        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-2">
-          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Total Surah &amp; Hal</span>
-          <h3 class="text-lg font-bold text-white">114 Surah / 604 Hal</h3>
-          <p class="text-[11px] text-gray-400">Mushaf Rasm Utsmani Lengkap</p>
+        <div class="p-5 rounded-2xl premium-card space-y-2 border border-white/[0.06]">
+          <span class="text-[10px] text-zinc-500 uppercase font-mono tracking-wider">Mushaf Utsmani</span>
+          <h3 class="text-base font-bold text-white">114 Surah / 604 Hal</h3>
+          <p class="text-[11px] text-zinc-400">Madinah Standard</p>
         </div>
 
-        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-2">
-          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Murottal Qori</span>
-          <h3 class="text-lg font-bold text-white">3 Qori Server MP3</h3>
-          <p class="text-[11px] text-gray-400">Alafasy, Ghamadi, Sudais</p>
+        <div class="p-5 rounded-2xl premium-card space-y-2 border border-white/[0.06]">
+          <span class="text-[10px] text-zinc-500 uppercase font-mono tracking-wider">Tajwid Engine</span>
+          <h3 class="text-base font-bold text-amber-400">10+ Kaidah</h3>
+          <p class="text-[11px] text-zinc-400">Hafs 'an Ashim</p>
         </div>
 
-        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-2">
-          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Tajwid Berwarna</span>
-          <h3 class="text-lg font-bold text-emerald-400">10+ Hukum Warna</h3>
-          <p class="text-[11px] text-gray-400">Anotasi Hafs 'an Ashim</p>
+        <div class="p-5 rounded-2xl premium-card space-y-2 border border-white/[0.06]">
+          <span class="text-[10px] text-zinc-500 uppercase font-mono tracking-wider">Game Engine</span>
+          <h3 class="text-base font-bold text-emerald-400">Kuis &amp; Tebak</h3>
+          <p class="text-[11px] text-zinc-400">Interactive Quiz</p>
         </div>
       </div>
 
-      <!-- ONE CLICK DEPLOYMENT CARD -->
-      <div class="p-6 rounded-3xl bg-brand-card border border-brand-border space-y-4 shadow-xl">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-brand-border pb-4">
+      <!-- ONE CLICK DEPLOY CARD -->
+      <div class="p-6 sm:p-8 rounded-3xl premium-card space-y-6 border border-white/[0.08] shadow-2xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/[0.08] pb-5">
           <div>
             <h3 class="text-base font-bold text-white flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="git-branch" aria-hidden="true" class="lucide lucide-git-branch w-5 h-5 text-amber-400"><path d="M15 6a9 9 0 0 0-9 9V3"></path><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle></svg>
               <span>One-Click Deploy ke GitHub</span>
             </h3>
-            <p class="text-xs text-gray-400">Push dan deploy pembaruan terbaru ke repositori GitHub secara instan.</p>
+            <p class="text-xs text-zinc-400 mt-1">Otomatis sinkronisasi file aplikasi ke repositori GitHub Pages.</p>
           </div>
 
-          <button onclick="deployToGitHub()" id="btn-deploy-github" class="px-5 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs transition flex items-center gap-2 shadow-lg opacity-50" disabled="">
+          <button onclick="deployToGitHub()" id="btn-deploy-github" class="btn-gold px-6 py-3 rounded-2xl text-xs font-bold flex items-center gap-2 opacity-50" disabled="">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="upload-cloud" aria-hidden="true" class="lucide lucide-upload-cloud w-4 h-4"><path d="M12 13v8"></path><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="m8 17 4-4 4 4"></path></svg>
-            <span>Deploy ke GitHub Sekarang</span>
+            <span>Deploy Sekarang</span>
           </button>
         </div>
 
-        <!-- GitHub Configuration / Direct Deploy Form -->
-        <div class="p-4 rounded-2xl bg-brand-dark border border-brand-border space-y-3">
+        <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.06] space-y-4">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-gray-200 flex items-center gap-1.5">
+            <span class="text-xs font-bold text-zinc-200 flex items-center gap-1.5">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="key" aria-hidden="true" class="lucide lucide-key w-4 h-4 text-amber-400"><path d="m2 21 9.6-9.6"></path><path d="m7.5 15.5 2.3 2.3a1 1 0 0 1 0 1.4l-2.1 2.1a1 1 0 0 1-1.4 0L4 19"></path><circle cx="15.5" cy="7.5" r="5.5"></circle></svg>
-              <span>Kunci Akses 1-Klik Deploy (Otomatis)</span>
+              <span>Kunci Akses Deployment GitHub</span>
             </span>
-            <span class="text-[10px] text-emerald-400 font-mono bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">Tersimpan Otomatis</span>
+            <span class="text-[10px] text-emerald-400 font-mono bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/30">Auto Save</span>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
             <div>
-              <label class="text-[11px] text-gray-300 font-medium block mb-1">GitHub Personal Access Token (PAT):</label>
-              <input type="password" id="admin-gh-token" oninput="saveAdminToken(this.value)" placeholder="Tempel token ghp_... di sini (cukup sekali)" class="w-full px-3 py-2 bg-brand-card border border-brand-border rounded-xl text-white text-xs placeholder-gray-500 focus:outline-none focus:border-amber-400">
+              <label class="text-[11px] text-zinc-400 font-medium block mb-1">GitHub Personal Access Token (PAT):</label>
+              <input type="password" id="admin-gh-token" oninput="saveAdminToken(this.value)" placeholder="ghp_..." class="qiraa-input w-full px-3.5 py-2.5 text-xs">
             </div>
             <div>
-              <label class="text-[11px] text-gray-300 font-medium block mb-1">Catatan Pembaruan (Commit Message):</label>
-              <input type="text" id="admin-gh-commit" value="Pembaruan aplikasi QIRAA" class="w-full px-3 py-2 bg-brand-card border border-brand-border rounded-xl text-white text-xs placeholder-gray-500 focus:outline-none focus:border-amber-400">
+              <label class="text-[11px] text-zinc-400 font-medium block mb-1">Pesan Commit (Changelog):</label>
+              <input type="text" id="admin-gh-commit" value="Rombak total UI/UX QIRAA Modern Islamic Premium" class="qiraa-input w-full px-3.5 py-2.5 text-xs">
             </div>
           </div>
-          <p class="text-[11px] text-gray-400 leading-relaxed">
-            🔑 Cukup masukkan Token GitHub Anda <strong>sekali saja</strong> di atas (token akan tersimpan otomatis). Setelah itu, setiap kali Anda klik tombol kuning <strong>"Deploy ke GitHub Sekarang"</strong>, seluruh file aplikasi langsung terkirim dan dipublikasikan tanpa perlu unggah manual!
-          </p>
         </div>
 
-        <!-- Deploy Terminal Output -->
         <div class="space-y-2">
-          <span class="text-xs font-mono text-gray-400">Deploy Terminal Log Output:</span>
-          <div id="admin-deploy-console" class="p-4 rounded-2xl bg-[#09090C] border border-brand-border font-mono text-xs text-emerald-400 h-40 overflow-y-auto space-y-1"><div class="text-gray-300">[Deploy Started] Memulai proses 1-Klik Deploy ke GitHub...</div><div class="text-gray-300">[1/4] Mengautentikasi ke akun GitHub...</div><div class="text-gray-300">[2/4] Memeriksa file di repositori GitHub...</div><div class="text-gray-300">[3/4] Mengompilasi dan mengemas kode aplikasi terbaru...</div></div>
+          <span class="text-xs font-mono text-zinc-400">Deploy Terminal Output:</span>
+          <div id="admin-deploy-console" class="p-4 rounded-2xl bg-[#070709] border border-white/[0.06] font-mono text-xs text-emerald-400 h-36 overflow-y-auto space-y-1"><div class="text-gray-300">[Deploy Started] Memulai proses 1-Klik Deploy ke GitHub...</div><div class="text-gray-300">[1/4] Mengautentikasi ke akun GitHub...</div><div class="text-gray-300">[2/4] Memeriksa file di repositori GitHub...</div><div class="text-gray-300">[3/4] Mengompilasi dan mengemas kode aplikasi terbaru...</div></div>
         </div>
       </div>
     </section>
 
     <!-- SECTION 5: PERMAINAN / GAME ISLAMI -->
     <section id="section-game" class="space-y-6 hidden">
-
+      
       <!-- Header -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-brand-border">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/[0.08]">
         <div>
-          <h2 class="text-2xl font-extrabold text-white flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="gamepad-2" aria-hidden="true" class="lucide lucide-gamepad-2 w-6 h-6 text-brand-gold"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg>
-            Permainan Islami
-          </h2>
-          <p class="text-xs sm:text-sm text-gray-400">Uji dan asah ilmu tajwid kamu dengan kuis interaktif yang menyenangkan!</p>
+          <div class="flex items-center gap-2 text-xs font-semibold text-amber-400 uppercase tracking-widest mb-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="gamepad-2" aria-hidden="true" class="lucide lucide-gamepad-2 w-3.5 h-3.5"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg>
+            <span>Uji Pengetahuan</span>
+          </div>
+          <h2 class="text-2xl font-extrabold text-white">Permainan &amp; Kuis Islami</h2>
+          <p class="text-xs text-zinc-400 mt-1">Tingkatkan pemahaman ilmu tajwid dan hafalan surah secara menyenangkan.</p>
         </div>
       </div>
 
       <!-- PILIH MODE GAME -->
-      <div id="game-menu" class="space-y-4">
-        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" aria-hidden="true" class="lucide lucide-layers w-3.5 h-3.5"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
-          <span>Pilih Mode Permainan</span>
-        </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div id="game-menu" class="space-y-6 hidden">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
           <!-- Mode 1: Kuis Tajwid Cepat -->
-          <div onclick="startGame('tajwid')" class="cursor-pointer group p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-amber-500/60 transition duration-300 space-y-3 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full -translate-y-8 translate-x-8"></div>
-            <div class="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+          <div onclick="startGame('tajwid')" class="group p-6 rounded-2xl premium-card cursor-pointer space-y-4 border border-white/[0.06] hover:border-amber-500/40 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="brain" aria-hidden="true" class="lucide lucide-brain w-6 h-6"><path d="M12 18V5"></path><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"></path><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"></path><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"></path><path d="M18 18a4 4 0 0 0 2-7.464"></path><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"></path><path d="M6 18a4 4 0 0 1-2-7.464"></path><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"></path></svg>
             </div>
             <div>
-              <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition">Kuis Tajwid</h3>
-              <p class="text-xs text-gray-400 leading-relaxed mt-1">Identifikasi hukum bacaan dari penggalan ayat Al-Qur'an. 10 soal pilihan ganda.</p>
+              <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Kuis Tajwid</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed mt-1">Identifikasi hukum bacaan dari cuplikan ayat Al-Qur'an (10 soal pilihan ganda).</p>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-[10px] font-bold">10 Soal</span>
-              <span class="px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-gray-300 text-[10px] font-bold">Pilihan Ganda</span>
+            <div class="flex items-center gap-2 pt-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[10px] font-bold">10 Soal</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/10 text-zinc-400 text-[10px]">Tersimpan</span>
             </div>
           </div>
 
           <!-- Mode 2: Tebak Nama Surah -->
-          <div onclick="startGame('surah')" class="cursor-pointer group p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-emerald-500/60 transition duration-300 space-y-3 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full -translate-y-8 translate-x-8"></div>
-            <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+          <div onclick="startGame('surah')" class="group p-6 rounded-2xl premium-card cursor-pointer space-y-4 border border-white/[0.06] hover:border-amber-500/40 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-marked" aria-hidden="true" class="lucide lucide-book-marked w-6 h-6"><path d="M10 2v7.751a.25.25 0 00.407.195l2.28-1.834a.5.5 0 01.627 0l2.28 1.834A.25.25 0 0016 9.751V2"></path><path d="M4 19.5v-15A2.5 2.5 0 016.5 2H19a1 1 0 011 1v18a1 1 0 01-1 1H6.5a1 1 0 010-5H20"></path></svg>
             </div>
             <div>
-              <h3 class="text-base font-bold text-white group-hover:text-emerald-300 transition">Tebak Surah</h3>
-              <p class="text-xs text-gray-400 leading-relaxed mt-1">Tebak nama surah dari arti atau jumlah ayatnya. Seberapa hafal kamu?</p>
+              <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Tebak Surah</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed mt-1">Uji wawasan mengenai nama-nama surah, arti kata, dan keutamaannya.</p>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold">10 Soal</span>
-              <span class="px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-gray-300 text-[10px] font-bold">Pilihan Ganda</span>
+            <div class="flex items-center gap-2 pt-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[10px] font-bold">10 Soal</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/10 text-zinc-400 text-[10px]">Tersimpan</span>
             </div>
           </div>
 
         </div>
 
-        <!-- Leaderboard / Skor Tersimpan -->
-        <div class="p-5 rounded-2xl bg-brand-card border border-brand-border space-y-3">
-          <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trophy" aria-hidden="true" class="lucide lucide-trophy w-3.5 h-3.5 text-brand-gold"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"></path><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"></path><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"></path><path d="M4 22h16"></path><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"></path><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"></path></svg>
-            <span>Rekor Skor Terbaik</span>
+        <!-- Leaderboard Card -->
+        <div class="p-6 rounded-2xl premium-card border border-white/[0.06] space-y-4">
+          <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trophy" aria-hidden="true" class="lucide lucide-trophy w-4 h-4"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"></path><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"></path><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"></path><path d="M4 22h16"></path><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"></path><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"></path></svg>
+            <span>Skor Terbaik Anda</span>
           </h3>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="p-3 rounded-xl bg-brand-dark border border-brand-border text-center">
-              <p class="text-[10px] text-gray-500 mb-1">Kuis Tajwid</p>
-              <p id="game-best-tajwid" class="text-xl font-extrabold text-amber-400">-</p>
-              <p class="text-[10px] text-gray-500">/ 10 benar</p>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-black/40 border border-white/[0.06] text-center">
+              <p class="text-[11px] text-zinc-500 mb-1">Kuis Tajwid</p>
+              <p id="game-best-tajwid" class="text-2xl font-black text-amber-400 font-mono">-</p>
+              <p class="text-[10px] text-zinc-500">/ 10 benar</p>
             </div>
-            <div class="p-3 rounded-xl bg-brand-dark border border-brand-border text-center">
-              <p class="text-[10px] text-gray-500 mb-1">Tebak Surah</p>
-              <p id="game-best-surah" class="text-xl font-extrabold text-emerald-400">8</p>
-              <p class="text-[10px] text-gray-500">/ 10 benar</p>
+            <div class="p-4 rounded-xl bg-black/40 border border-white/[0.06] text-center">
+              <p class="text-[11px] text-zinc-500 mb-1">Tebak Surah</p>
+              <p id="game-best-surah" class="text-2xl font-black text-emerald-400 font-mono">8</p>
+              <p class="text-[10px] text-zinc-500">/ 10 benar</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- AREA PERMAINAN AKTIF -->
-      <div id="game-play-area" class="space-y-4 hidden">
-
-        <!-- Header Permainan -->
+      <!-- GAME PLAY AREA -->
+      <div id="game-play-area" class="space-y-5">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <button onclick="stopGame()" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold flex items-center gap-1.5 transition">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-left" aria-hidden="true" class="lucide lucide-arrow-left w-3.5 h-3.5"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg> Keluar
+            <button onclick="stopGame()" class="btn-nav px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-left" aria-hidden="true" class="lucide lucide-arrow-left w-3.5 h-3.5"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+              <span>Kembali</span>
             </button>
             <span id="game-mode-label" class="text-sm font-bold text-white">Tebak Surah</span>
           </div>
           <div class="flex items-center gap-3">
-            <span class="text-xs text-gray-400">Soal <span id="game-q-num" class="text-white font-bold">2</span>/10</span>
-            <span class="px-3 py-1 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 text-xs font-bold">Skor: <span id="game-score">1</span></span>
+            <span class="text-xs text-zinc-400">Soal <span id="game-q-num" class="text-amber-400 font-bold">2</span>/10</span>
+            <span class="px-3 py-1 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-bold">Skor: <span id="game-score">1</span></span>
           </div>
         </div>
 
         <!-- Progress Bar -->
-        <div class="w-full h-2 bg-brand-dark rounded-full overflow-hidden border border-brand-border">
-          <div id="game-progress-bar" class="h-full bg-gradient-to-r from-amber-500 to-amber-300 rounded-full transition-all duration-500" style="width: 10%;"></div>
+        <div class="w-full h-2 bg-black/50 rounded-full overflow-hidden border border-white/[0.08]">
+          <div id="game-progress-bar" class="h-full bg-gradient-to-r from-amber-600 to-amber-300 rounded-full transition-all duration-300" style="width: 10%;"></div>
         </div>
 
         <!-- Soal Card -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-brand-dark border-2 border-brand-border shadow-2xl space-y-5">
-          <p class="text-[10px] text-gray-500 uppercase font-mono tracking-widest" id="game-question-label">Tebak Nama Surah</p>
+        <div class="p-6 sm:p-10 rounded-3xl premium-card border border-white/[0.08] shadow-2xl space-y-6">
+          <p class="text-[10px] text-amber-400 uppercase font-mono tracking-widest" id="game-question-label">Tebak Nama Surah</p>
 
-          <!-- Cuplikan Ayat / Pertanyaan -->
-          <div class="text-center py-4 px-4 rounded-2xl bg-brand-card border border-brand-border">
-            <p id="game-question-arabic" class="font-quran text-3xl sm:text-4xl text-white leading-loose hidden" dir="rtl">سَوَاءٌ</p>
-            <p id="game-question-text" class="text-sm text-gray-300 mt-3 font-medium">Surah manakah yang dikenal sebagai "Surat Penyejuk Hati" dan disebut sepertiga Al-Qur'an?</p>
+          <div class="text-center py-6 px-4 rounded-2xl bg-black/50 border border-white/[0.06]">
+            <p id="game-question-arabic" class="font-quran-utsmani text-3xl sm:text-4xl text-amber-200 hidden" dir="rtl"></p>
+            <p id="game-question-text" class="text-sm text-zinc-300 mt-4 font-medium">Surah manakah yang dimulai dari huruf "Alif Lam Mim" dan artinya "Keluarga Imran"?</p>
           </div>
 
-          <!-- Pilihan Jawaban -->
-          <div id="game-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3"><button class="w-full p-3.5 rounded-2xl bg-brand-card border-2 border-brand-border hover:border-amber-500/60 hover:bg-amber-500/10 text-left text-sm text-white font-medium transition duration-200 flex items-center gap-3"><span class="w-6 h-6 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold shrink-0">A</span><span>Al-Falaq</span></button><button class="w-full p-3.5 rounded-2xl bg-brand-card border-2 border-brand-border hover:border-amber-500/60 hover:bg-amber-500/10 text-left text-sm text-white font-medium transition duration-200 flex items-center gap-3"><span class="w-6 h-6 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold shrink-0">B</span><span>An-Nas</span></button><button class="w-full p-3.5 rounded-2xl bg-brand-card border-2 border-brand-border hover:border-amber-500/60 hover:bg-amber-500/10 text-left text-sm text-white font-medium transition duration-200 flex items-center gap-3"><span class="w-6 h-6 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold shrink-0">C</span><span>Al-Ikhlas</span></button><button class="w-full p-3.5 rounded-2xl bg-brand-card border-2 border-brand-border hover:border-amber-500/60 hover:bg-amber-500/10 text-left text-sm text-white font-medium transition duration-200 flex items-center gap-3"><span class="w-6 h-6 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold shrink-0">D</span><span>Al-Kafirun</span></button></div>
+          <div id="game-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5"><button class="w-full p-3.5 rounded-xl text-left text-sm font-medium transition duration-200 flex items-center gap-3" style="background: rgb(28, 28, 31); border: 1.5px solid rgb(39, 39, 41); color: rgb(228, 228, 231);"><span class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold shrink-0" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:#C9A84C">A</span><span>Al-Maidah</span></button><button class="w-full p-3.5 rounded-xl text-left text-sm font-medium transition duration-200 flex items-center gap-3" style="background: rgb(28, 28, 31); border: 1.5px solid rgb(39, 39, 41); color: rgb(228, 228, 231);"><span class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold shrink-0" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:#C9A84C">B</span><span>Ali Imran</span></button><button class="w-full p-3.5 rounded-xl text-left text-sm font-medium transition duration-200 flex items-center gap-3" style="background: rgb(28, 28, 31); border: 1.5px solid rgb(39, 39, 41); color: rgb(228, 228, 231);"><span class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold shrink-0" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:#C9A84C">C</span><span>An-Nisa'</span></button><button class="w-full p-3.5 rounded-xl text-left text-sm font-medium transition duration-200 flex items-center gap-3" style="background: rgb(28, 28, 31); border: 1.5px solid rgb(39, 39, 41); color: rgb(228, 228, 231);"><span class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold shrink-0" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:#C9A84C">D</span><span>Al-Baqarah</span></button></div>
 
-          <!-- Feedback -->
-          <div id="game-feedback" class="p-4 rounded-2xl text-center space-y-2 border bg-emerald-500/10 border-emerald-500/30 hidden">
+          <!-- Feedback Box -->
+          <div id="game-feedback" class="p-5 rounded-2xl text-center space-y-2 border bg-emerald-500/10 border-emerald-500/30 hidden">
             <p id="game-feedback-icon" class="text-3xl">✅</p>
             <p id="game-feedback-text" class="text-sm font-bold text-white">Benar! Bagus sekali!</p>
-            <p id="game-feedback-explanation" class="text-xs text-gray-300 leading-relaxed">Surah Yusuf (يوسف) adalah surah ke-12 yang berisi kisah Nabi Yusuf secara lengkap dan indah.</p>
-            <button onclick="nextQuestion()" class="mt-2 px-5 py-2 rounded-xl bg-white text-black font-bold text-xs hover:bg-gray-200 transition">Soal Berikutnya →</button>
+            <p id="game-feedback-explanation" class="text-xs text-zinc-300 leading-relaxed max-w-md mx-auto">Surah Yusuf (يوسف) adalah surah ke-12 yang berisi kisah Nabi Yusuf secara lengkap dan indah.</p>
+            <button onclick="nextQuestion()" class="btn-gold mt-3 px-6 py-2.5 rounded-xl text-xs font-bold">Soal Berikutnya →</button>
           </div>
         </div>
       </div>
 
-      <!-- AREA HASIL AKHIR -->
-      <div id="game-result-area" class="p-8 rounded-3xl bg-brand-dark border-2 border-brand-border shadow-2xl text-center space-y-5 hidden">
-        <div id="game-result-emoji" class="text-6xl">⭐</div>
-        <h2 class="text-2xl font-extrabold text-white">Permainan Selesai!</h2>
-        <p class="text-gray-400 text-sm">Mode: <span id="game-result-mode" class="text-white font-bold">Tebak Surah</span></p>
-        <div class="flex items-center justify-center gap-6">
+      <!-- GAME RESULT AREA -->
+      <div id="game-result-area" class="hidden p-8 sm:p-14 rounded-3xl premium-card border border-white/[0.08] shadow-2xl text-center space-y-6">
+        <div id="game-result-emoji" class="text-6xl"></div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Sesi Selesai!</h2>
+        <p class="text-zinc-400 text-xs">Mode: <span id="game-result-mode" class="text-amber-400 font-bold"></span></p>
+        
+        <div class="flex items-center justify-center gap-6 py-2">
           <div class="text-center">
-            <p class="text-4xl font-extrabold text-amber-400" id="game-result-score">8</p>
-            <p class="text-xs text-gray-400">Skor Benar</p>
+            <p class="text-5xl font-black text-amber-400 font-mono" id="game-result-score">0</p>
+            <p class="text-xs text-zinc-400 mt-1">Jawaban Benar</p>
           </div>
-          <div class="text-3xl text-gray-600">/</div>
+          <div class="text-3xl text-zinc-600">/</div>
           <div class="text-center">
-            <p class="text-4xl font-extrabold text-gray-300">10</p>
-            <p class="text-xs text-gray-400">Total Soal</p>
+            <p class="text-5xl font-black text-zinc-400 font-mono">10</p>
+            <p class="text-xs text-zinc-400 mt-1">Total Pertanyaan</p>
           </div>
         </div>
-        <p id="game-result-message" class="text-sm text-gray-300 italic">Bagus sekali! Terus tingkatkan ilmumu!</p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-          <button onclick="restartGame()" class="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-sm transition flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="refresh-cw" aria-hidden="true" class="lucide lucide-refresh-cw w-4 h-4"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg> Main Lagi
+
+        <p id="game-result-message" class="text-sm text-zinc-300 italic max-w-sm mx-auto leading-relaxed"></p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+          <button onclick="restartGame()" class="btn-gold px-6 py-3 rounded-xl text-xs font-bold flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="refresh-cw" aria-hidden="true" class="lucide lucide-refresh-cw w-4 h-4"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>
+            <span>Main Lagi</span>
           </button>
-          <button onclick="stopGame()" class="px-6 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition">Kembali ke Menu</button>
+          <button onclick="stopGame()" class="btn-nav px-6 py-3 rounded-xl text-xs font-semibold">
+            <span>Pilih Mode Lain</span>
+          </button>
         </div>
       </div>
 
     </section>
 
-    <!-- LOADING INDICATOR -->
-    <div id="loading-indicator" class="py-16 text-center space-y-3 hidden">
-      <div class="w-8 h-8 border-3 border-white/20 border-t-white rounded-full animate-spin mx-auto"></div>
-      <p class="text-xs text-gray-400 font-medium">Memuat Data QIRAA...</p>
+
+    <!-- LOADING -->
+    <div id="loading-indicator" class="py-20 text-center space-y-4 hidden">
+      <div class="w-7 h-7 rounded-full border-2 border-t-transparent animate-spin mx-auto" style="border-color:rgba(201,168,76,0.3);border-top-color:#C9A84C"></div>
+      <p class="text-xs font-medium" style="color:#52525B">Memuat data Al-Qur'an...</p>
     </div>
 
-    <!-- ERROR INDICATOR -->
-    <div id="error-indicator" class="hidden py-12 px-6 rounded-3xl bg-red-950/30 border border-red-900/50 text-center space-y-3 max-w-md mx-auto">
-      <div class="w-10 h-10 rounded-full bg-red-900/40 text-red-400 flex items-center justify-center mx-auto">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="wifi-off" aria-hidden="true" class="lucide lucide-wifi-off w-5 h-5"><path d="M12 20h.01"></path><path d="M8.5 16.429a5 5 0 0 1 7 0"></path><path d="M5 12.859a10 10 0 0 1 5.17-2.69"></path><path d="M19 12.859a10 10 0 0 0-2.007-1.523"></path><path d="M2 8.82a15 15 0 0 1 4.177-2.643"></path><path d="M22 8.82a15 15 0 0 0-11.288-3.764"></path><path d="m2 2 20 20"></path></svg>
+    <!-- ERROR -->
+    <div id="error-indicator" class="hidden py-10 px-6 rounded-2xl text-center space-y-4 max-w-sm mx-auto" style="background:#1C1C1F;border:1px solid #272729">
+      <div class="w-10 h-10 rounded-xl mx-auto flex items-center justify-center" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="wifi-off" aria-hidden="true" class="lucide lucide-wifi-off w-5 h-5" style="color:#F87171"><path d="M12 20h.01"></path><path d="M8.5 16.429a5 5 0 0 1 7 0"></path><path d="M5 12.859a10 10 0 0 1 5.17-2.69"></path><path d="M19 12.859a10 10 0 0 0-2.007-1.523"></path><path d="M2 8.82a15 15 0 0 1 4.177-2.643"></path><path d="M22 8.82a15 15 0 0 0-11.288-3.764"></path><path d="m2 2 20 20"></path></svg>
       </div>
-      <h3 class="text-base font-bold text-white">Gagal Memuat Data</h3>
-      <p id="error-message-text" class="text-xs text-gray-300">Terjadi kendala koneksi internet.</p>
-      <button onclick="retryFetch()" class="px-5 py-2 rounded-xl bg-white text-black font-semibold hover:bg-gray-200 transition text-xs">
-        Coba Lagi
-      </button>
+      <div>
+        <h3 class="text-sm font-semibold" style="color:#E4E4E7">Gagal Memuat Data</h3>
+        <p id="error-message-text" class="text-xs mt-1" style="color:#71717A">Terjadi kendala koneksi internet.</p>
+      </div>
+      <button onclick="retryFetch()" class="btn-gold px-5 py-2 rounded-lg text-xs">Coba Lagi</button>
     </div>
 
   </main>
@@ -932,20 +1210,23 @@
 
       surahs.forEach(surah => {
         const el = document.createElement('div');
-        el.className = "p-3.5 rounded-2xl bg-brand-card border border-brand-border hover:border-gray-500 transition cursor-pointer flex items-center justify-between group";
+        el.className = 'surah-card p-4 flex items-center justify-between group';
         el.onclick = () => openSurahFirstPage(surah.number);
 
         el.innerHTML = `
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-brand-dark border border-brand-border flex items-center justify-center font-bold text-xs text-white">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xs font-black shrink-0 font-mono bg-[#1C1C22] text-amber-400 border border-amber-500/25 group-hover:border-amber-400 group-hover:bg-amber-500/10 transition-all">
               ${surah.number}
             </div>
-            <div>
-              <h3 class="font-bold text-white text-xs group-hover:text-white transition">${surah.nameLatin}</h3>
-              <p class="text-[11px] text-gray-400">${surah.meaning} • ${surah.numberOfAyahs} Ayat</p>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-sm text-white group-hover:text-amber-300 transition-colors truncate">${surah.nameLatin}</h3>
+                <span class="text-[9px] px-1.5 py-0.2 rounded bg-white/[0.04] text-zinc-400 border border-white/[0.06] shrink-0">${surah.revelation || ''}</span>
+              </div>
+              <p class="text-[11px] text-zinc-400 mt-0.5 truncate">${surah.meaning} &bull; ${surah.numberOfAyahs} Ayat</p>
             </div>
           </div>
-          <span class="font-quran text-xl text-gray-200">${surah.nameArabic}</span>
+          <span class="font-quran text-xl text-amber-200/90 group-hover:text-amber-300 transition-colors shrink-0 pl-2" dir="rtl">${surah.nameArabic}</span>
         `;
         container.appendChild(el);
       });
@@ -1013,8 +1294,11 @@
 
       shuffledOptions.options.forEach((opt, i) => {
         const btn = document.createElement('button');
-        btn.className = 'w-full p-3.5 rounded-2xl bg-brand-card border-2 border-brand-border hover:border-amber-500/60 hover:bg-amber-500/10 text-left text-sm text-white font-medium transition duration-200 flex items-center gap-3';
-        btn.innerHTML = `<span class="w-6 h-6 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold shrink-0">${['A','B','C','D'][i]}</span><span>${opt}</span>`;
+        btn.className = 'w-full p-3.5 rounded-xl text-left text-sm font-medium transition duration-200 flex items-center gap-3';
+        btn.style.cssText = 'background:#1C1C1F;border:1.5px solid #272729;color:#E4E4E7';
+        btn.onmouseover = function() { if (!this.disabled) this.style.borderColor = 'rgba(201,168,76,0.5)'; };
+        btn.onmouseout = function() { if (!this.disabled && !this.dataset.marked) this.style.borderColor = '#272729'; };
+        btn.innerHTML = `<span class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold shrink-0" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:#C9A84C">${['A','B','C','D'][i]}</span><span>${opt}</span>`;
         btn.onclick = () => checkAnswer(i, shuffledOptions.correctIndex, q.explanation, btn, optionsEl);
         optionsEl.appendChild(btn);
       });
@@ -1042,10 +1326,14 @@
       const allBtns = optionsEl.querySelectorAll('button');
       allBtns.forEach((btn, i) => {
         btn.disabled = true;
+        btn.onmouseover = null;
+        btn.onmouseout = null;
         if (i === correctIndex) {
-          btn.className = btn.className + ' !border-emerald-500 !bg-emerald-500/20 text-emerald-300';
+          btn.style.cssText = 'background:rgba(74,222,128,0.1);border:1.5px solid rgba(74,222,128,0.5);color:#4ADE80';
         } else if (i === selectedIndex && !isCorrect) {
-          btn.className = btn.className + ' !border-red-500 !bg-red-500/20 text-red-300';
+          btn.style.cssText = 'background:rgba(248,113,113,0.1);border:1.5px solid rgba(248,113,113,0.5);color:#F87171';
+        } else {
+          btn.style.opacity = '0.45';
         }
       });
 
@@ -1241,17 +1529,20 @@
 
       ayahs.forEach(a => {
         const card = document.createElement('div');
-        card.className = "p-3 sm:p-4 rounded-xl bg-brand-card border border-brand-border space-y-1.5";
+        card.className = "p-4 sm:p-5 rounded-2xl bg-black/40 border border-white/[0.06] hover:border-amber-500/30 transition-all space-y-2";
 
         const surahMeta = allSurahs.find(s => s.number === a.surahNumber);
         const surahName = surahMeta ? surahMeta.nameLatin : `Surah ${a.surahNumber}`;
 
         card.innerHTML = `
-          <div class="flex items-center justify-between text-xs text-gray-400 font-mono border-b border-brand-border/60 pb-1.5">
-            <span class="font-bold text-white">${surahName} : Ayat ${a.ayahNumber}</span>
-            <span class="text-[10px] bg-brand-dark px-2 py-0.5 rounded border border-brand-border">Hal ${currentPage}</span>
+          <div class="flex items-center justify-between pb-2.5 border-b border-white/[0.06]">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-[10px] font-bold flex items-center justify-center">${a.ayahNumber}</span>
+              <span class="text-xs font-bold text-white">${surahName}</span>
+            </div>
+            <span class="text-[10px] font-mono text-zinc-500 bg-[#16161A] px-2 py-0.5 rounded border border-white/[0.04]">Hal ${currentPage}</span>
           </div>
-          <p class="text-xs text-gray-200 leading-relaxed pt-1">${a.translation}</p>
+          <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1 font-normal">${a.translation}</p>
         `;
         container.appendChild(card);
       });
@@ -1267,88 +1558,128 @@
       if (type === 'nun_sukun') {
         title.innerText = 'Hukum Nun Sukun (نْ) & Tanwin (ً ٍ ٌ)';
         content.innerHTML = `
-          <div class="space-y-4">
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">1. Izhar Haqiqi</h4>
-              <p>Dibaca jelas tanpa dengung jika bertemu huruf ء, هـ, ع, ح, غ, خ.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">مَنْ آمَنَ</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-white text-base">1. Izhar Haqiqi</h4>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">Jelas</span>
+              </div>
+              <p class="text-xs text-zinc-400">Dibaca jelas tanpa dengung jika bertemu huruf ء, هـ, ع, ح, غ, خ.</p>
+              <div class="pt-2 text-right">
+                <span class="font-quran-utsmani text-2xl text-amber-200">مَنْ آمَنَ</span>
+              </div>
             </div>
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">2. Idgham Bighunnah</h4>
-              <p>Dibaca melebur dengan dengung jika bertemu huruf ي, ن, م, و.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">مَنْ يَقُولُ</p>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-white text-base">2. Idgham Bighunnah</h4>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/25">Dengung</span>
+              </div>
+              <p class="text-xs text-zinc-400">Dibaca melebur dengan dengung jika bertemu huruf ي, ن, م, و.</p>
+              <div class="pt-2 text-right">
+                <span class="font-quran-utsmani text-2xl text-amber-200">مَنْ يَقُولُ</span>
+              </div>
             </div>
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">3. Iqlab</h4>
-              <p>Suara nun/tanwin berubah menjadi 'mim' jika bertemu huruf ب.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">مِنْ بَعْدِ</p>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-white text-base">3. Iqlab</h4>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/25">Ubah ke Mim</span>
+              </div>
+              <p class="text-xs text-zinc-400">Suara nun/tanwin berubah menjadi bunyi 'mim' jika bertemu huruf ب.</p>
+              <div class="pt-2 text-right">
+                <span class="font-quran-utsmani text-2xl text-amber-200">مِنْ بَعْدِ</span>
+              </div>
             </div>
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">4. Ikhfa Haqiqi</h4>
-              <p>Dibaca samar dengan dengung jika bertemu 15 huruf sisa.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">مِنْ قَبْلِ</p>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-white text-base">4. Ikhfa Haqiqi</h4>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/25">Samar</span>
+              </div>
+              <p class="text-xs text-zinc-400">Dibaca samar dengan dengung jika bertemu 15 huruf hijaiyah lainnya.</p>
+              <div class="pt-2 text-right">
+                <span class="font-quran-utsmani text-2xl text-amber-200">مِنْ قَبْلِ</span>
+              </div>
             </div>
           </div>
         `;
       } else if (type === 'mim_sukun') {
         title.innerText = 'Hukum Mim Sukun (مْ)';
         content.innerHTML = `
-          <div class="space-y-4">
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">1. Ikhfa Syafawi</h4>
-              <p>Mim sukun bertemu huruf ب dibaca samar dengan dengung.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">تَرْمِيهِمْ بِحِجَارَةٍ</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <h4 class="font-bold text-white text-base">1. Ikhfa Syafawi</h4>
+              <p class="text-xs text-zinc-400">Mim sukun bertemu huruf ب dibaca samar dengan dengung lembut.</p>
+              <div class="pt-3 text-right">
+                <span class="font-quran-utsmani text-xl text-amber-200">تَرْمِيهِمْ بِحِجَارَةٍ</span>
+              </div>
             </div>
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">2. Idgham Mimi</h4>
-              <p>Mim sukun bertemu huruf م dibaca melebur.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">كَمْ مِنْ فِئَةٍ</p>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <h4 class="font-bold text-white text-base">2. Idgham Mimi</h4>
+              <p class="text-xs text-zinc-400">Mim sukun bertemu huruf م dibaca melebur bersuara ghunnah.</p>
+              <div class="pt-3 text-right">
+                <span class="font-quran-utsmani text-xl text-amber-200">كَمْ مِنْ فِئَةٍ</span>
+              </div>
             </div>
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">3. Izhar Syafawi</h4>
-              <p>Mim sukun bertemu huruf selain م dan ب dibaca jelas.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">لَهُمْ دِينُهُمْ</p>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <h4 class="font-bold text-white text-base">3. Izhar Syafawi</h4>
+              <p class="text-xs text-zinc-400">Mim sukun bertemu huruf selain م dan ب dibaca jelas dan terang.</p>
+              <div class="pt-3 text-right">
+                <span class="font-quran-utsmani text-xl text-amber-200">لَهُمْ دِينُهُمْ</span>
+              </div>
             </div>
           </div>
         `;
       } else if (type === 'mad') {
         title.innerText = 'Hukum Mad (Panjang Bacaan)';
         content.innerHTML = `
-          <div class="space-y-4">
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">1. Mad Thabi'i (Asli)</h4>
-              <p>Panjang 2 harakat (Alif setelah fathah, Ya sukun setelah kasrah, Waw sukun setelah dhammah).</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">نُوحِيهَا</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <h4 class="font-bold text-white text-base">1. Mad Thabi'i</h4>
+              <p class="text-xs text-zinc-400">Panjang 2 harakat (Alif setelah fathah, Ya sukun setelah kasrah, Waw sukun setelah dhammah).</p>
+              <div class="pt-3 text-right">
+                <span class="font-quran-utsmani text-xl text-amber-200">نُوحِيهَا</span>
+              </div>
             </div>
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">2. Mad Wajib Muttashil</h4>
-              <p>Mad bertemu hamzah dalam 1 kata. Panjang 4-5 harakat.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">سَوَاءٌ</p>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <h4 class="font-bold text-white text-base">2. Mad Wajib Muttashil</h4>
+              <p class="text-xs text-zinc-400">Huruf mad bertemu hamzah dalam 1 kata yang sama. Panjang 4-5 harakat.</p>
+              <div class="pt-3 text-right">
+                <span class="font-quran-utsmani text-xl text-amber-200">سَوَاءٌ</span>
+              </div>
             </div>
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">3. Mad Jaiz Munfashil</h4>
-              <p>Mad bertemu hamzah di lain kata. Panjang 2-5 harakat.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">إِنَّا أَنْزَلْنَاهُ</p>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <h4 class="font-bold text-white text-base">3. Mad Jaiz Munfashil</h4>
+              <p class="text-xs text-zinc-400">Huruf mad bertemu hamzah di kata berikutnya yang terpisah. Panjang 2-5 harakat.</p>
+              <div class="pt-3 text-right">
+                <span class="font-quran-utsmani text-xl text-amber-200">إِنَّا أَنْزَلْنَاهُ</span>
+              </div>
             </div>
           </div>
         `;
       } else if (type === 'qalqalah') {
-        title.innerText = 'Hukum Qalqalah';
+        title.innerText = 'Hukum Qalqalah (Pantulan Suara)';
         content.innerHTML = `
-          <div class="space-y-4">
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">Huruf Qalqalah</h4>
-              <p>Ada 5 huruf yaitu: ق, ط, ب, ج, د (Baju di Toko).</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <h4 class="font-bold text-white text-base">1. Qalqalah Sugra</h4>
+              <p class="text-xs text-zinc-400">Huruf qalqalah (ق ط ب ج د) berharakat sukun asli di tengah-tengah kata. Pantulannya ringan.</p>
+              <div class="pt-3 text-right">
+                <span class="font-quran-utsmani text-2xl text-amber-200">يَقْطَعُونَ</span>
+              </div>
             </div>
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">1. Qalqalah Sugra</h4>
-              <p>Terjadi apabila huruf qalqalah berharakat sukun di tengah kata. Pantulannya ringan.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">يَقْطَعُونَ</p>
-            </div>
-            <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-              <h4 class="font-bold text-white text-lg mb-2">2. Qalqalah Kubra</h4>
-              <p>Terjadi apabila huruf qalqalah berada di akhir kata dan diwaqafkan (berhenti). Pantulannya kuat.</p>
-              <p class="mt-2 text-brand-gold font-quran text-xl text-right">مِنْ خَلَقٍ</p>
+
+            <div class="p-5 rounded-2xl bg-black/40 border border-white/[0.08] space-y-2">
+              <h4 class="font-bold text-white text-base">2. Qalqalah Kubra</h4>
+              <p class="text-xs text-zinc-400">Huruf qalqalah berada di akhir kata dan dibaca sukun karena berhenti (waqaf). Pantulannya kuat.</p>
+              <div class="pt-3 text-right">
+                <span class="font-quran-utsmani text-2xl text-amber-200">مِنْ خَلَقٍ</span>
+              </div>
             </div>
           </div>
         `;
