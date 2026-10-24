@@ -930,7 +930,7 @@
             </div>
             <div>
               <p class="text-xs text-zinc-400">Total Interaksi / Pembukaan Fitur</p>
-              <h4 id="stat-total-interactions" class="text-xl sm:text-2xl font-black text-amber-300 font-mono">40</h4>
+              <h4 id="stat-total-interactions" class="text-xl sm:text-2xl font-black text-amber-300 font-mono">53</h4>
             </div>
           </div>
           <span class="text-[11px] text-zinc-500 font-mono hidden sm:inline">Diperbarui otomatis secara realtime</span>
@@ -944,7 +944,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-3.5 h-3.5 text-amber-400 shrink-0"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
               <span class="truncate">Baca Al-Qur'an</span>
             </span>
-            <p id="stat-baca-quran" class="text-2xl font-black text-white font-mono pt-1">3</p>
+            <p id="stat-baca-quran" class="text-2xl font-black text-white font-mono pt-1">4</p>
             <p class="text-[10px] text-zinc-500">kali dibuka</p>
           </div>
 
@@ -1034,7 +1034,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" aria-hidden="true" class="lucide lucide-search w-3.5 h-3.5 text-emerald-400 shrink-0"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
               <span class="truncate">Cari Surah</span>
             </span>
-            <p id="stat-cari-surah" class="text-2xl font-black text-emerald-400 font-mono pt-1">36</p>
+            <p id="stat-cari-surah" class="text-2xl font-black text-emerald-400 font-mono pt-1">48</p>
             <p class="text-[10px] text-zinc-500">pencarian dilakukan</p>
           </div>
         </div>
@@ -1433,6 +1433,11 @@
       const btn = document.getElementById('btn-install-pwa');
       if (btn) {
         btn.classList.add('ring-2', 'ring-amber-400', 'animate-pulse');
+      }
+      if (window.location.hash.includes('install') || window.location.search.includes('install=1')) {
+        setTimeout(() => {
+          installQiraaApp();
+        }, 400);
       }
     });
 
@@ -3147,10 +3152,6 @@ self.addEventListener('fetch', (event) => {
             showToast('🎉 Alhamdulillah! Aplikasi QIRAA sedang dipasang ke Layar Utama Anda...');
           }
           deferredPWAInstallPrompt = null;
-          // Di desktop PC, sediakan shortcut langsung agar otomatis ada di desktop
-          if (!/Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
-            downloadDesktopShortcut();
-          }
           return;
         } catch (err) {
           console.log('Install prompt error:', err);
@@ -3164,31 +3165,41 @@ self.addEventListener('fetch', (event) => {
         return;
       }
 
-      // 3. Khusus iPhone / iPad (Safari) yang mewajibkan tap manual Share -> Tambah ke Layar Utama
+      // 3. Khusus iPhone / iPad (Safari)
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
       if (isIOS) {
         showToast('📲 Di Safari: Ketuk tombol Bagikan ⎋ di bilah bawah lalu pilih "Tambah ke Layar Utama" ⊞');
         return;
       }
 
-      // 4. Perangkat Desktop (Windows / PC / Laptop) -> Langsung unduh shortcut desktop 1-klik!
-      const isMobile = /Android|iPhone|iPad|iPod/.test(navigator.userAgent);
-      if (!isMobile) {
-        downloadDesktopShortcut();
-        showToast('🎉 Pintasan Desktop QIRAA berhasil diunduh ke komputer Anda!');
+      // 4. Unduh berkas resmi QIRAA langsung ke perangkat
+      downloadDesktopShortcut();
+
+      // 5. Khusus Perangkat HP Android
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      if (isAndroid) {
+        // Cek jika pengguna memakai browser bawaan OEM (Vivo, Xiaomi, Oppo, Realme, dll)
+        const isOEMBrowser = /VivoBrowser|HeyTapBrowser|MiuiBrowser|OppoBrowser|Browser\//i.test(navigator.userAgent);
+        const liveTarget = (window.location.protocol === 'file:') 
+          ? 'https://qiraaofficial.github.io/qiraa/' 
+          : window.location.href;
+
+        if (isOEMBrowser) {
+          // Buka otomatis ke Google Chrome agar sistem WebAPK Play Store memasang ke Layar Utama
+          showToast('🚀 Membuka ke Chrome untuk pemasangan otomatis ke Layar Utama...');
+          const intentUrl = `intent://${liveTarget.replace(/^https?:\/\//, '')}#install#Intent;scheme=https;package=com.android.chrome;end`;
+          setTimeout(() => {
+            window.location.href = intentUrl;
+          }, 500);
+          return;
+        }
+
+        showToast('🎉 Aplikasi QIRAA berhasil diunduh ke perangkat Anda!');
         return;
       }
 
-      // 5. Perangkat HP Android jika prompt otomatis browser belum siap
-      if (/Android/.test(navigator.userAgent)) {
-        if (window.location.protocol === 'file:') {
-          showToast('🌐 Membuka tautan publik QIRAA untuk pemasangan langsung di HP...');
-          window.open('https://qiraaofficial.github.io/qiraa/', '_blank');
-        } else {
-          showToast('📲 Ketuk menu titik tiga (⋮) di pojok kanan atas browser lalu pilih "Instal aplikasi"');
-        }
-        return;
-      }
+      // 6. Desktop PC / Laptop
+      showToast('🎉 Pintasan Desktop QIRAA berhasil diunduh ke komputer Anda!');
     }
 
     function downloadDesktopShortcut() {
