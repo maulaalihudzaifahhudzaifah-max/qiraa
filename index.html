@@ -3,6 +3,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>QIRAA - Baca. Pelajari. Perbaiki Bacaan.</title>
+  <!-- PWA & Mobile Meta Tags -->
+  <meta name="theme-color" content="#0A0A0C">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="QIRAA">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="apple-touch-icon" href="icon.svg">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts -->
@@ -325,7 +334,7 @@
     .tajweed-mode-on tajweed[class*="slnt"] { color: #71717A !important; font-weight: normal; opacity: 0.8; }
     .tajweed-mode-off tajweed { color: inherit !important; font-weight: normal !important; text-shadow: none !important; }
   </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:DM Sans, Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-top-24{top:-6rem}.left-1\/2{left:50%}.left-3\.5{left:0.875rem}.right-2{right:0.5rem}.top-0{top:0px}.top-1\/2{top:50%}.top-14{top:3.5rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.-mx-3{margin-left:-0.75rem;margin-right:-0.75rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-2{height:0.5rem}.h-2\.5{height:0.625rem}.h-3{height:0.75rem}.h-3\.5{height:0.875rem}.h-36{height:9rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-9{height:2.25rem}.h-96{height:24rem}.h-full{height:100%}.max-h-\[50dvh\]{max-height:50dvh}.max-h-\[50vh\]{max-height:50vh}.max-h-\[90dvh\]{max-height:90dvh}.max-h-\[90vh\]{max-height:90vh}.min-h-\[100dvh\]{min-height:100dvh}.min-h-screen{min-height:100vh}.w-1\.5{width:0.375rem}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-2\.5{width:0.625rem}.w-3{width:0.75rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-9{width:2.25rem}.w-96{width:24rem}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-2xl{max-width:42rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-\[130px\]{max-width:130px}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.appearance-none{-webkit-appearance:none;appearance:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.self-start{align-self:flex-start}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-amber-500\/20{border-color:rgb(245 158 11 / 0.2)}.border-amber-500\/25{border-color:rgb(245 158 11 / 0.25)}.border-amber-500\/30{border-color:rgb(245 158 11 / 0.3)}.border-emerald-500\/25{border-color:rgb(16 185 129 / 0.25)}.border-emerald-500\/30{border-color:rgb(16 185 129 / 0.3)}.border-red-500\/20{border-color:rgb(239 68 68 / 0.2)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/\[0\.04\]{border-color:rgb(255 255 255 / 0.04)}.border-white\/\[0\.06\]{border-color:rgb(255 255 255 / 0.06)}.border-white\/\[0\.08\]{border-color:rgb(255 255 255 / 0.08)}.border-white\/\[0\.1\]{border-color:rgb(255 255 255 / 0.1)}.border-t-transparent{border-top-color:transparent}.bg-\[\#070709\]{--tw-bg-opacity:1;background-color:rgb(7 7 9 / var(--tw-bg-opacity, 1))}.bg-\[\#0A0A0C\]\/90{background-color:rgb(10 10 12 / 0.9)}.bg-\[\#0E0E12\]{--tw-bg-opacity:1;background-color:rgb(14 14 18 / var(--tw-bg-opacity, 1))}.bg-\[\#0E0E12\]\/95{background-color:rgb(14 14 18 / 0.95)}.bg-\[\#141418\]{--tw-bg-opacity:1;background-color:rgb(20 20 24 / var(--tw-bg-opacity, 1))}.bg-\[\#18181D\]{--tw-bg-opacity:1;background-color:rgb(24 24 29 / var(--tw-bg-opacity, 1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-amber-400\/20{background-color:rgb(251 191 36 / 0.2)}.bg-amber-500\/10{background-color:rgb(245 158 11 / 0.1)}.bg-amber-500\/15{background-color:rgb(245 158 11 / 0.15)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/10{background-color:rgb(16 185 129 / 0.1)}.bg-white\/\[0\.04\]{background-color:rgb(255 255 255 / 0.04)}.bg-white\/\[0\.05\]{background-color:rgb(255 255 255 / 0.05)}.bg-\[\#1C1C22\]{--tw-bg-opacity:1;background-color:rgb(28 28 34 / var(--tw-bg-opacity, 1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-\[\#17171C\]{--tw-gradient-from:#17171C var(--tw-gradient-from-position);--tw-gradient-to:rgb(23 23 28 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#1C1C22\]{--tw-gradient-from:#1C1C22 var(--tw-gradient-from-position);--tw-gradient-to:rgb(28 28 34 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-500\/10{--tw-gradient-from:rgb(245 158 11 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(245 158 11 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-600{--tw-gradient-from:#d97706 var(--tw-gradient-from-position);--tw-gradient-to:rgb(217 119 6 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-\[\#1C1C22\]{--tw-gradient-to:rgb(28 28 34 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #1C1C22 var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-\[\#121215\]{--tw-gradient-to:#121215 var(--tw-gradient-to-position)}.to-\[\#141418\]{--tw-gradient-to:#141418 var(--tw-gradient-to-position)}.to-amber-300{--tw-gradient-to:#fcd34d var(--tw-gradient-to-position)}.to-amber-500\/5{--tw-gradient-to:rgb(245 158 11 / 0.05) var(--tw-gradient-to-position)}.p-0\.5{padding:0.125rem}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-3{padding-bottom:0.75rem}.pb-5{padding-bottom:1.25rem}.pl-10{padding-left:2.5rem}.pr-1{padding-right:0.25rem}.pr-4{padding-right:1rem}.pr-7{padding-right:1.75rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.pl-2{padding-left:0.5rem}.text-center{text-align:center}.text-right{text-align:right}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-quran{font-family:"Scheherazade New", Amiri, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[8px\]{font-size:8px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-loose{line-height:2}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-\[0\.16em\]{letter-spacing:0.16em}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-amber-200{--tw-text-opacity:1;color:rgb(253 230 138 / var(--tw-text-opacity, 1))}.text-amber-200\/90{color:rgb(253 230 138 / 0.9)}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-400\/80{color:rgb(251 191 36 / 0.8)}.text-amber-400\/90{color:rgb(251 191 36 / 0.9)}.text-amber-500\/60{color:rgb(245 158 11 / 0.6)}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-cyan-400{--tw-text-opacity:1;color:rgb(34 211 238 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-pink-400{--tw-text-opacity:1;color:rgb(244 114 182 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-zinc-100{--tw-text-opacity:1;color:rgb(244 244 245 / var(--tw-text-opacity, 1))}.text-zinc-200{--tw-text-opacity:1;color:rgb(228 228 231 / var(--tw-text-opacity, 1))}.text-zinc-300{--tw-text-opacity:1;color:rgb(212 212 216 / var(--tw-text-opacity, 1))}.text-zinc-400{--tw-text-opacity:1;color:rgb(161 161 170 / var(--tw-text-opacity, 1))}.text-zinc-500{--tw-text-opacity:1;color:rgb(113 113 122 / var(--tw-text-opacity, 1))}.text-zinc-600{--tw-text-opacity:1;color:rgb(82 82 91 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-50{opacity:0.5}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-black\/40{--tw-shadow-color:rgb(0 0 0 / 0.4);--tw-shadow:var(--tw-shadow-colored)}.blur-3xl{--tw-blur:blur(64px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:border-amber-500\/30:hover{border-color:rgb(245 158 11 / 0.3)}.hover\:border-amber-500\/40:hover{border-color:rgb(245 158 11 / 0.4)}.hover\:bg-\[\#202026\]:hover{--tw-bg-opacity:1;background-color:rgb(32 32 38 / var(--tw-bg-opacity, 1))}.hover\:bg-red-500\/10:hover{background-color:rgb(239 68 68 / 0.1)}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:bg-white\/\[0\.1\]:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:text-red-300:hover{--tw-text-opacity:1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-amber-400:focus{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:translate-x-1{--tw-translate-x:0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:border-amber-400\/60{border-color:rgb(251 191 36 / 0.6)}.group:hover .group-hover\:border-amber-400{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.group:hover .group-hover\:bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.group:hover .group-hover\:bg-amber-500\/10{background-color:rgb(245 158 11 / 0.1)}.group:hover .group-hover\:text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:right-2\.5{right:0.625rem}.sm\:top-16{top:4rem}.sm\:-mx-6{margin-left:-1.5rem;margin-right:-1.5rem}.sm\:inline{display:inline}.sm\:h-10{height:2.5rem}.sm\:h-16{height:4rem}.sm\:h-3\.5{height:0.875rem}.sm\:h-4{height:1rem}.sm\:h-5{height:1.25rem}.sm\:w-10{width:2.5rem}.sm\:w-12{width:3rem}.sm\:w-3\.5{width:0.875rem}.sm\:w-4{width:1rem}.sm\:w-5{width:1.25rem}.sm\:max-w-\[180px\]{max-width:180px}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:gap-1\.5{gap:0.375rem}.sm\:gap-2{gap:0.5rem}.sm\:gap-3{gap:0.75rem}.sm\:gap-3\.5{gap:0.875rem}.sm\:gap-4{gap:1rem}.sm\:space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.sm\:space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.sm\:space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.sm\:self-auto{align-self:auto}.sm\:rounded-2xl{border-radius:1rem}.sm\:rounded-3xl{border-radius:1.5rem}.sm\:p-1{padding:0.25rem}.sm\:p-10{padding:2.5rem}.sm\:p-14{padding:3.5rem}.sm\:p-2{padding:0.5rem}.sm\:p-4{padding:1rem}.sm\:p-7{padding:1.75rem}.sm\:p-8{padding:2rem}.sm\:px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.sm\:px-2{padding-left:0.5rem;padding-right:0.5rem}.sm\:px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.sm\:px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:px-5{padding-left:1.25rem;padding-right:1.25rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.sm\:py-2{padding-top:0.5rem;padding-bottom:0.5rem}.sm\:py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.sm\:py-3{padding-top:0.75rem;padding-bottom:0.75rem}.sm\:py-6{padding-top:1.5rem;padding-bottom:1.5rem}.sm\:py-8{padding-top:2rem;padding-bottom:2rem}.sm\:pb-4{padding-bottom:1rem}.sm\:pr-8{padding-right:2rem}.sm\:pt-4{padding-top:1rem}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-6xl{font-size:3.75rem;line-height:1}.sm\:text-\[10px\]{font-size:10px}.sm\:text-\[11px\]{font-size:11px}.sm\:text-\[9px\]{font-size:9px}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}.sm\:tracking-\[0\.18em\]{letter-spacing:0.18em}.sm\:tracking-\[0\.22em\]{letter-spacing:0.22em}}@media (min-width: 768px){.md\:w-80{width:20rem}.md\:max-w-none{max-width:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-end{align-items:flex-end}.md\:p-14{padding:3.5rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}}@media (min-width: 1024px){.lg\:-mx-8{margin-left:-2rem;margin-right:-2rem}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style></head>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:DM Sans, Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-bottom-1{bottom:-0.25rem}.-right-1{right:-0.25rem}.-right-16{right:-4rem}.-top-16{top:-4rem}.-top-24{top:-6rem}.left-1\/2{left:50%}.left-3\.5{left:0.875rem}.right-2{right:0.5rem}.top-0{top:0px}.top-1\/2{top:50%}.top-14{top:3.5rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.-mx-3{margin-left:-0.75rem;margin-right:-0.75rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.block{display:block}.inline{display:inline}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-2\.5{height:0.625rem}.h-3{height:0.75rem}.h-3\.5{height:0.875rem}.h-36{height:9rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-60{height:15rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-96{height:24rem}.h-full{height:100%}.max-h-\[50dvh\]{max-height:50dvh}.max-h-\[50vh\]{max-height:50vh}.max-h-\[90dvh\]{max-height:90dvh}.max-h-\[90vh\]{max-height:90vh}.min-h-\[100dvh\]{min-height:100dvh}.min-h-screen{min-height:100vh}.w-1\.5{width:0.375rem}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-16{width:4rem}.w-2\.5{width:0.625rem}.w-3{width:0.75rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-60{width:15rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-96{width:24rem}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-2xl{max-width:42rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-\[130px\]{max-width:130px}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.list-inside{list-style-position:inside}.list-decimal{list-style-type:decimal}.appearance-none{-webkit-appearance:none;appearance:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.self-start{align-self:flex-start}.self-stretch{align-self:stretch}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-amber-500\/20{border-color:rgb(245 158 11 / 0.2)}.border-amber-500\/25{border-color:rgb(245 158 11 / 0.25)}.border-amber-500\/30{border-color:rgb(245 158 11 / 0.3)}.border-amber-500\/40{border-color:rgb(245 158 11 / 0.4)}.border-blue-500\/20{border-color:rgb(59 130 246 / 0.2)}.border-emerald-500\/20{border-color:rgb(16 185 129 / 0.2)}.border-emerald-500\/25{border-color:rgb(16 185 129 / 0.25)}.border-emerald-500\/30{border-color:rgb(16 185 129 / 0.3)}.border-red-500\/20{border-color:rgb(239 68 68 / 0.2)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/\[0\.04\]{border-color:rgb(255 255 255 / 0.04)}.border-white\/\[0\.06\]{border-color:rgb(255 255 255 / 0.06)}.border-white\/\[0\.08\]{border-color:rgb(255 255 255 / 0.08)}.border-white\/\[0\.1\]{border-color:rgb(255 255 255 / 0.1)}.border-t-transparent{border-top-color:transparent}.bg-\[\#070709\]{--tw-bg-opacity:1;background-color:rgb(7 7 9 / var(--tw-bg-opacity, 1))}.bg-\[\#0A0A0C\]\/90{background-color:rgb(10 10 12 / 0.9)}.bg-\[\#0B0B0E\]{--tw-bg-opacity:1;background-color:rgb(11 11 14 / var(--tw-bg-opacity, 1))}.bg-\[\#0E0E12\]{--tw-bg-opacity:1;background-color:rgb(14 14 18 / var(--tw-bg-opacity, 1))}.bg-\[\#0E0E12\]\/95{background-color:rgb(14 14 18 / 0.95)}.bg-\[\#141418\]{--tw-bg-opacity:1;background-color:rgb(20 20 24 / var(--tw-bg-opacity, 1))}.bg-\[\#18181D\]{--tw-bg-opacity:1;background-color:rgb(24 24 29 / var(--tw-bg-opacity, 1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-amber-400\/20{background-color:rgb(251 191 36 / 0.2)}.bg-amber-500\/10{background-color:rgb(245 158 11 / 0.1)}.bg-amber-500\/15{background-color:rgb(245 158 11 / 0.15)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-blue-500\/10{background-color:rgb(59 130 246 / 0.1)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/10{background-color:rgb(16 185 129 / 0.1)}.bg-white\/\[0\.04\]{background-color:rgb(255 255 255 / 0.04)}.bg-white\/\[0\.05\]{background-color:rgb(255 255 255 / 0.05)}.bg-white\/\[0\.06\]{background-color:rgb(255 255 255 / 0.06)}.bg-\[\#1C1C22\]{--tw-bg-opacity:1;background-color:rgb(28 28 34 / var(--tw-bg-opacity, 1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-\[\#17171C\]{--tw-gradient-from:#17171C var(--tw-gradient-from-position);--tw-gradient-to:rgb(23 23 28 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#1C1C22\]{--tw-gradient-from:#1C1C22 var(--tw-gradient-from-position);--tw-gradient-to:rgb(28 28 34 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-500\/10{--tw-gradient-from:rgb(245 158 11 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(245 158 11 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-600{--tw-gradient-from:#d97706 var(--tw-gradient-from-position);--tw-gradient-to:rgb(217 119 6 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-\[\#1C1C22\]{--tw-gradient-to:rgb(28 28 34 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #1C1C22 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#1D1B17\]{--tw-gradient-to:rgb(29 27 23 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #1D1B17 var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-\[\#121215\]{--tw-gradient-to:#121215 var(--tw-gradient-to-position)}.to-\[\#141418\]{--tw-gradient-to:#141418 var(--tw-gradient-to-position)}.to-amber-300{--tw-gradient-to:#fcd34d var(--tw-gradient-to-position)}.to-amber-500\/5{--tw-gradient-to:rgb(245 158 11 / 0.05) var(--tw-gradient-to-position)}.object-contain{object-fit:contain}.p-0\.5{padding:0.125rem}.p-1{padding:0.25rem}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-3{padding-bottom:0.75rem}.pb-4{padding-bottom:1rem}.pb-5{padding-bottom:1.25rem}.pl-10{padding-left:2.5rem}.pl-2{padding-left:0.5rem}.pr-1{padding-right:0.25rem}.pr-4{padding-right:1rem}.pr-7{padding-right:1.75rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-quran{font-family:"Scheherazade New", Amiri, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[8px\]{font-size:8px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-loose{line-height:2}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-\[0\.16em\]{letter-spacing:0.16em}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-amber-200{--tw-text-opacity:1;color:rgb(253 230 138 / var(--tw-text-opacity, 1))}.text-amber-200\/90{color:rgb(253 230 138 / 0.9)}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-400\/80{color:rgb(251 191 36 / 0.8)}.text-amber-400\/90{color:rgb(251 191 36 / 0.9)}.text-amber-500\/60{color:rgb(245 158 11 / 0.6)}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-cyan-400{--tw-text-opacity:1;color:rgb(34 211 238 / var(--tw-text-opacity, 1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-pink-400{--tw-text-opacity:1;color:rgb(244 114 182 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-zinc-100{--tw-text-opacity:1;color:rgb(244 244 245 / var(--tw-text-opacity, 1))}.text-zinc-200{--tw-text-opacity:1;color:rgb(228 228 231 / var(--tw-text-opacity, 1))}.text-zinc-300{--tw-text-opacity:1;color:rgb(212 212 216 / var(--tw-text-opacity, 1))}.text-zinc-400{--tw-text-opacity:1;color:rgb(161 161 170 / var(--tw-text-opacity, 1))}.text-zinc-500{--tw-text-opacity:1;color:rgb(113 113 122 / var(--tw-text-opacity, 1))}.text-zinc-600{--tw-text-opacity:1;color:rgb(82 82 91 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-50{opacity:0.5}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-amber-500\/15{--tw-shadow-color:rgb(245 158 11 / 0.15);--tw-shadow:var(--tw-shadow-colored)}.shadow-amber-500\/25{--tw-shadow-color:rgb(245 158 11 / 0.25);--tw-shadow:var(--tw-shadow-colored)}.shadow-black\/40{--tw-shadow-color:rgb(0 0 0 / 0.4);--tw-shadow:var(--tw-shadow-colored)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-\[\#0A0A0C\]{--tw-ring-opacity:1;--tw-ring-color:rgb(10 10 12 / var(--tw-ring-opacity, 1))}.blur-3xl{--tw-blur:blur(64px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow{--tw-drop-shadow:drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:border-amber-500\/30:hover{border-color:rgb(245 158 11 / 0.3)}.hover\:border-amber-500\/40:hover{border-color:rgb(245 158 11 / 0.4)}.hover\:border-amber-500\/50:hover{border-color:rgb(245 158 11 / 0.5)}.hover\:bg-\[\#202026\]:hover{--tw-bg-opacity:1;background-color:rgb(32 32 38 / var(--tw-bg-opacity, 1))}.hover\:bg-red-500\/10:hover{background-color:rgb(239 68 68 / 0.1)}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:bg-white\/\[0\.12\]:hover{background-color:rgb(255 255 255 / 0.12)}.hover\:bg-white\/\[0\.1\]:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:text-amber-300:hover{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.hover\:text-red-300:hover{--tw-text-opacity:1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-amber-400:focus{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:translate-x-1{--tw-translate-x:0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:border-amber-400\/60{border-color:rgb(251 191 36 / 0.6)}.group:hover .group-hover\:border-amber-400{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.group:hover .group-hover\:bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.group:hover .group-hover\:bg-amber-500\/10{background-color:rgb(245 158 11 / 0.1)}.group:hover .group-hover\:text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:right-2\.5{right:0.625rem}.sm\:top-16{top:4rem}.sm\:-mx-6{margin-left:-1.5rem;margin-right:-1.5rem}.sm\:inline{display:inline}.sm\:h-10{height:2.5rem}.sm\:h-16{height:4rem}.sm\:h-20{height:5rem}.sm\:h-3\.5{height:0.875rem}.sm\:h-4{height:1rem}.sm\:h-5{height:1.25rem}.sm\:w-10{width:2.5rem}.sm\:w-12{width:3rem}.sm\:w-20{width:5rem}.sm\:w-3\.5{width:0.875rem}.sm\:w-4{width:1rem}.sm\:w-5{width:1.25rem}.sm\:w-auto{width:auto}.sm\:max-w-\[180px\]{max-width:180px}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:gap-1\.5{gap:0.375rem}.sm\:gap-2{gap:0.5rem}.sm\:gap-3{gap:0.75rem}.sm\:gap-3\.5{gap:0.875rem}.sm\:gap-4{gap:1rem}.sm\:gap-5{gap:1.25rem}.sm\:space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.sm\:space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.sm\:space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.sm\:self-auto{align-self:auto}.sm\:self-center{align-self:center}.sm\:rounded-2xl{border-radius:1rem}.sm\:rounded-3xl{border-radius:1.5rem}.sm\:p-1{padding:0.25rem}.sm\:p-10{padding:2.5rem}.sm\:p-14{padding:3.5rem}.sm\:p-2{padding:0.5rem}.sm\:p-4{padding:1rem}.sm\:p-7{padding:1.75rem}.sm\:p-8{padding:2rem}.sm\:px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.sm\:px-12{padding-left:3rem;padding-right:3rem}.sm\:px-2{padding-left:0.5rem;padding-right:0.5rem}.sm\:px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.sm\:px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:px-5{padding-left:1.25rem;padding-right:1.25rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.sm\:py-2{padding-top:0.5rem;padding-bottom:0.5rem}.sm\:py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.sm\:py-3{padding-top:0.75rem;padding-bottom:0.75rem}.sm\:py-4{padding-top:1rem;padding-bottom:1rem}.sm\:py-6{padding-top:1.5rem;padding-bottom:1.5rem}.sm\:py-8{padding-top:2rem;padding-bottom:2rem}.sm\:pb-4{padding-bottom:1rem}.sm\:pr-8{padding-right:2rem}.sm\:pt-4{padding-top:1rem}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-6xl{font-size:3.75rem;line-height:1}.sm\:text-\[10px\]{font-size:10px}.sm\:text-\[11px\]{font-size:11px}.sm\:text-\[9px\]{font-size:9px}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}.sm\:tracking-\[0\.18em\]{letter-spacing:0.18em}.sm\:tracking-\[0\.22em\]{letter-spacing:0.22em}}@media (min-width: 768px){.md\:w-80{width:20rem}.md\:max-w-none{max-width:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-end{align-items:flex-end}.md\:items-center{align-items:center}.md\:p-14{padding:3.5rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}}@media (min-width: 1024px){.lg\:-mx-8{margin-left:-2rem;margin-right:-2rem}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style></head>
 <body class="min-h-screen min-h-[100dvh] flex flex-col spiritual-canvas text-zinc-100 antialiased overflow-x-hidden">
 
   <!-- ULTRA-CLEAN NAVBAR (QURAN.COM & TARTEEL AESTHETIC) -->
@@ -466,6 +475,52 @@
           </div>
         </div>
 
+      </div>
+
+      <!-- FITUR DOWNLOAD / PASANG APLIKASI KE LAYAR UTAMA (PERSIS POSISI PERSEGI PANJANG GAMBAR 1) -->
+      <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl p-5 sm:p-7 bg-gradient-to-r from-[#17171C] via-[#1D1B17] to-[#141418] border border-amber-500/30 shadow-2xl hover:border-amber-500/50 transition-all duration-300">
+        <!-- Ambient Gold Glow -->
+        <div class="absolute -right-16 -top-16 w-60 h-60 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-5">
+          <!-- Sisi Kiri: Ikon Aplikasi Resmi & Deskripsi -->
+          <div class="flex items-center gap-4 sm:gap-5">
+            <!-- Thumbnail Ikon Resmi (Sesuai Gambar 2 User) -->
+            <div class="relative shrink-0 group">
+              <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#0B0B0E] border-2 border-amber-500/40 p-1 shadow-lg shadow-amber-500/15 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
+                <img src="icon.svg" alt="Ikon Resmi QIRAA" class="w-full h-full object-contain drop-shadow">
+              </div>
+              <span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 text-black flex items-center justify-center text-[10px] font-black ring-2 ring-[#0A0A0C]" title="Siap Terpasang di Layar Utama">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" aria-hidden="true" class="lucide lucide-check w-3 h-3"><path d="M20 6 9 17l-5-5"></path></svg>
+              </span>
+            </div>
+
+            <!-- Teks Penjelasan Fitur -->
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-bold flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                  Fitur Layar Utama
+                </span>
+                <span class="text-[11px] text-zinc-400 font-medium">Android • iPhone/iPad • PC • Laptop</span>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold text-white flex items-center gap-2">
+                <span>Download Aplikasi QIRAA</span>
+              </h3>
+              <p class="text-xs text-zinc-400 max-w-xl leading-relaxed">
+                Download dan pasang QIRAA langsung ke Layar Utama HP Anda (layaknya aplikasi Play Store) atau ke Layar Desktop Komputer hanya dalam 1 kali klik. Buka instan, layar penuh, dan hemat kuota!
+              </p>
+            </div>
+          </div>
+
+          <!-- Sisi Kanan: Tombol Aksi Download Langsung 1-Klik -->
+          <div class="flex items-center gap-2.5 shrink-0 self-stretch sm:self-center">
+            <button onclick="installQiraaApp()" id="btn-install-pwa" class="w-full sm:w-auto btn-gold px-8 sm:px-12 py-3.5 sm:py-4 rounded-2xl text-sm sm:text-base font-extrabold flex items-center justify-center gap-2.5 shadow-xl shadow-amber-500/25 active:scale-95 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="download" aria-hidden="true" class="lucide lucide-download w-5 h-5"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+              <span>Download</span>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -875,7 +930,7 @@
             </div>
             <div>
               <p class="text-xs text-zinc-400">Total Interaksi / Pembukaan Fitur</p>
-              <h4 id="stat-total-interactions" class="text-xl sm:text-2xl font-black text-amber-300 font-mono">13</h4>
+              <h4 id="stat-total-interactions" class="text-xl sm:text-2xl font-black text-amber-300 font-mono">27</h4>
             </div>
           </div>
           <span class="text-[11px] text-zinc-500 font-mono hidden sm:inline">Diperbarui otomatis secara realtime</span>
@@ -889,7 +944,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-3.5 h-3.5 text-amber-400 shrink-0"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
               <span class="truncate">Baca Al-Qur'an</span>
             </span>
-            <p id="stat-baca-quran" class="text-2xl font-black text-white font-mono pt-1">1</p>
+            <p id="stat-baca-quran" class="text-2xl font-black text-white font-mono pt-1">2</p>
             <p class="text-[10px] text-zinc-500">kali dibuka</p>
           </div>
 
@@ -909,7 +964,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="gamepad-2" aria-hidden="true" class="lucide lucide-gamepad-2 w-3.5 h-3.5 text-emerald-400 shrink-0"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg>
               <span class="truncate">Game &amp; Kuis</span>
             </span>
-            <p id="stat-game-kuis" class="text-2xl font-black text-emerald-400 font-mono pt-1">0</p>
+            <p id="stat-game-kuis" class="text-2xl font-black text-emerald-400 font-mono pt-1">1</p>
             <p class="text-[10px] text-zinc-500">sesi dimainkan</p>
           </div>
 
@@ -979,7 +1034,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" aria-hidden="true" class="lucide lucide-search w-3.5 h-3.5 text-emerald-400 shrink-0"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
               <span class="truncate">Cari Surah</span>
             </span>
-            <p id="stat-cari-surah" class="text-2xl font-black text-emerald-400 font-mono pt-1">12</p>
+            <p id="stat-cari-surah" class="text-2xl font-black text-emerald-400 font-mono pt-1">24</p>
             <p class="text-[10px] text-zinc-500">pencarian dilakukan</p>
           </div>
         </div>
@@ -1024,7 +1079,7 @@
 
         <div class="space-y-2">
           <span class="text-xs font-mono text-zinc-400">Deploy Terminal Output:</span>
-          <div id="admin-deploy-console" class="p-4 rounded-2xl bg-[#070709] border border-white/[0.06] font-mono text-xs text-emerald-400 h-36 overflow-y-auto space-y-1"><div class="text-gray-300">[Deploy Started] Memulai proses 1-Klik Deploy ke GitHub...</div><div class="text-gray-300">[1/4] Mengautentikasi ke akun GitHub...</div><div class="text-gray-300">[2/4] Memeriksa file di repositori GitHub...</div><div class="text-gray-300">[3/4] Mengompilasi dan mengemas kode aplikasi terbaru...</div></div>
+          <div id="admin-deploy-console" class="p-4 rounded-2xl bg-[#070709] border border-white/[0.06] font-mono text-xs text-emerald-400 h-36 overflow-y-auto space-y-1"><div class="text-gray-300">[Deploy Started] Memulai proses 1-Klik Deploy ke GitHub...</div><div class="text-gray-300">[1/5] Mengautentikasi ke akun GitHub...</div><div class="text-gray-300">[2/5] Memeriksa status file di repositori GitHub...</div><div class="text-gray-300">[3/5] Mengompilasi dan mengemas halaman aplikasi terbaru...</div></div>
         </div>
       </div>
     </section>
@@ -1278,10 +1333,124 @@
       </div>
     </div>
 
+    <!-- MODAL PANDUAN DOWNLOAD / PASANG KE LAYAR UTAMA -->
+    <div id="modal-install-guide" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md hidden transition-all duration-300">
+      <div class="relative w-full max-w-lg bg-[#141418] border border-amber-500/30 rounded-2xl sm:rounded-3xl p-5 sm:p-7 space-y-5 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+        <!-- Header -->
+        <div class="flex items-start justify-between border-b border-white/[0.08] pb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-[#0B0B0E] border border-amber-500/40 p-1 shrink-0 overflow-hidden shadow">
+              <img src="icon.svg" alt="Ikon QIRAA" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white">Pasang Aplikasi ke Layar Utama</h3>
+              <p class="text-xs text-zinc-400">Ikuti panduan mudah sesuai perangkat Anda</p>
+            </div>
+          </div>
+          <button onclick="closeInstallModal()" class="w-8 h-8 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-zinc-400 hover:text-white flex items-center justify-center transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" aria-hidden="true" class="lucide lucide-x w-4 h-4"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          </button>
+        </div>
+
+        <!-- Body Panduan -->
+        <div class="space-y-4 overflow-y-auto text-xs sm:text-sm text-zinc-300">
+          
+          <!-- Panduan iPhone / iPad -->
+          <div id="install-guide-ios" class="space-y-3">
+            <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="smartphone" aria-hidden="true" class="lucide lucide-smartphone w-4 h-4 shrink-0"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+              <span class="font-bold">Panduan iPhone / iPad (Safari):</span>
+            </div>
+            <ol class="space-y-2.5 pl-2 list-decimal list-inside text-xs leading-relaxed text-zinc-300">
+              <li>Buka situs ini di browser <strong class="text-white">Safari</strong> di iPhone Anda.</li>
+              <li>Ketuk tombol <strong class="text-amber-400">Bagikan (Share)</strong> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="share" aria-hidden="true" class="lucide lucide-share w-3.5 h-3.5 inline text-amber-400"><path d="M12 2v13"></path><path d="m16 6-4-4-4 4"></path><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path></svg> di bilah bawah layar.</li>
+              <li>Gulir ke bawah pada menu, lalu pilih <strong class="text-white">"Tambah ke Layar Utama" (Add to Home Screen ⊞)</strong>.</li>
+              <li>Ketuk <strong class="text-amber-400">"Tambah" (Add)</strong> di pojok kanan atas.</li>
+              <li>Aplikasi <strong>QIRAA</strong> beserta ikon resmi mewahnya akan langsung terpasang di layar utama iPhone Anda!</li>
+            </ol>
+          </div>
+
+          <!-- Panduan Android -->
+          <div id="install-guide-android" class="space-y-3">
+            <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="smartphone" aria-hidden="true" class="lucide lucide-smartphone w-4 h-4 shrink-0"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+              <span class="font-bold">Panduan Android (Chrome / Edge / Opera):</span>
+            </div>
+            <ol class="space-y-2.5 pl-2 list-decimal list-inside text-xs leading-relaxed text-zinc-300">
+              <li>Ketuk tombol menu <strong class="text-white">titik tiga (⋮)</strong> di pojok kanan atas browser.</li>
+              <li>Pilih opsi <strong class="text-emerald-400">"Instal aplikasi"</strong> atau <strong class="text-emerald-400">"Tambahkan ke Layar Utama"</strong>.</li>
+              <li>Tekan tombol <strong class="text-white">"Instal"</strong> saat dialog konfirmasi muncul.</li>
+              <li>Aplikasi langsung dapat dibuka dari menu HP Anda seperti aplikasi bawaan!</li>
+            </ol>
+          </div>
+
+          <!-- Panduan Komputer / Laptop -->
+          <div id="install-guide-pc" class="space-y-3">
+            <div class="p-3.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-300 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="laptop" aria-hidden="true" class="lucide lucide-laptop w-4 h-4 shrink-0"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z"></path><path d="M20.054 15.987H3.946"></path></svg>
+              <span class="font-bold">Panduan Laptop / Komputer (Chrome / Edge):</span>
+            </div>
+            <p class="text-xs text-zinc-300 leading-relaxed">
+              Klik ikon instal <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="download" aria-hidden="true" class="lucide lucide-download w-3.5 h-3.5 inline text-blue-400"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg> di sebelah kanan bilah alamat (URL bar) browser Anda, lalu klik <strong>"Instal"</strong>.
+            </p>
+          </div>
+
+          <!-- Preview Ikon Layar Utama Resmi -->
+          <div class="p-4 rounded-2xl bg-black/50 border border-white/[0.06] flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <img src="icon.svg" alt="Ikon Resmi QIRAA" class="w-12 h-12 rounded-xl object-contain border border-amber-500/30">
+              <div>
+                <p class="text-xs font-bold text-white">Tampilan Ikon Layar Utama</p>
+                <p class="text-[10px] text-zinc-400 font-mono">QIRAA Luxury Gold Edition</p>
+              </div>
+            </div>
+            <a href="icon.svg" download="qiraa-icon.svg" class="btn-nav px-3 py-1.5 rounded-xl text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="download" aria-hidden="true" class="lucide lucide-download w-3.5 h-3.5"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+              <span>Simpan Ikon</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="pt-3 border-t border-white/[0.08] flex justify-end">
+          <button onclick="closeInstallModal()" class="btn-gold px-6 py-2.5 rounded-xl text-xs font-bold">
+            Mengerti, Siap Pasang
+          </button>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
+    // Inisialisasi PWA listener sedini mungkin agar tidak melewatkan event instalasi
+    let deferredPWAInstallPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPWAInstallPrompt = e;
+      const btn = document.getElementById('btn-install-pwa');
+      if (btn) {
+        btn.classList.add('ring-2', 'ring-amber-400', 'animate-pulse');
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredPWAInstallPrompt = null;
+      showToast('🎉 Alhamdulillah! Aplikasi QIRAA berhasil dipasang di layar utama!');
+      const btn = document.getElementById('btn-install-pwa');
+      if (btn) {
+        btn.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i><span>Terpasang di Layar Utama</span>`;
+        btn.classList.remove('animate-pulse');
+      }
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }
+
     // App State
     let allSurahs = [];
     let currentPage = 1; // 1 to 604
@@ -2488,6 +2657,10 @@
       if (modal && !modal.classList.contains('hidden') && e.target === modal) {
         closeAyahDetailModal();
       }
+      const installModal = document.getElementById('modal-install-guide');
+      if (installModal && !installModal.classList.contains('hidden') && e.target === installModal) {
+        closeInstallModal();
+      }
     });
 
     function toggleTajweedColor() {
@@ -2777,6 +2950,296 @@
       }
     }
 
+    // ==========================================
+    // --- FITUR DOWNLOAD & PASANG 1-KLIK KE LAYAR UTAMA ---
+    // ==========================================
+
+    // Konten PWA resmi agar tersinkronisasi langsung ke GitHub tanpa terhambat file:// protocol
+    const PWA_MANIFEST_CONTENT = JSON.stringify({
+      "name": "QIRAA - Al-Qur'an & Tajwid",
+      "short_name": "QIRAA",
+      "description": "Membaca dan mempelajari Al-Qur'an dengan mushaf klasik standar Madinah dan panduan tajwid modern yang presisi.",
+      "start_url": "./",
+      "scope": "./",
+      "id": "qiraa-mushaf-pwa",
+      "display": "standalone",
+      "orientation": "portrait-primary",
+      "background_color": "#0A0A0C",
+      "theme_color": "#0A0A0C",
+      "categories": ["books", "education", "lifestyle"],
+      "icons": [
+        {
+          "src": "icon.svg",
+          "sizes": "192x192 512x512 any",
+          "type": "image/svg+xml",
+          "purpose": "any maskable"
+        },
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any maskable"
+        },
+        {
+          "src": "icon-512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "any maskable"
+        }
+      ]
+    }, null, 2);
+
+    const PWA_SW_CONTENT = `// QIRAA PWA Service Worker
+const CACHE_NAME = 'qiraa-cache-v1';
+const PRECACHE_ASSETS = [
+  './',
+  './index.html',
+  './manifest.json',
+  './icon.svg'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(PRECACHE_ASSETS).catch(() => {});
+    })
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) return caches.delete(key);
+        })
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+  event.respondWith(
+    fetch(event.request)
+      .then((response) => {
+        if (response && response.status === 200) {
+          const resClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, resClone).catch(() => {});
+          });
+        }
+        return response;
+      })
+      .catch(() => caches.match(event.request))
+  );
+});
+`;
+
+    const PWA_ICON_SVG_CONTENT = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141418"/>
+      <stop offset="50%" stop-color="#0E0E11"/>
+      <stop offset="100%" stop-color="#070709"/>
+    </linearGradient>
+    <radialGradient id="gold-ambient" cx="50%" cy="42%" r="48%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.22"/>
+      <stop offset="50%" stop-color="#D4AF37" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold-metal-3d" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2BE"/>
+      <stop offset="18%" stop-color="#E2B852"/>
+      <stop offset="38%" stop-color="#FFF9DD"/>
+      <stop offset="55%" stop-color="#B88A22"/>
+      <stop offset="78%" stop-color="#E5BE5E"/>
+      <stop offset="100%" stop-color="#7A5208"/>
+    </linearGradient>
+    <linearGradient id="gold-highlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF0"/>
+      <stop offset="50%" stop-color="#E6C46A"/>
+      <stop offset="100%" stop-color="#A57A18"/>
+    </linearGradient>
+    <linearGradient id="gold-deep" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D9A836"/>
+      <stop offset="60%" stop-color="#8E6510"/>
+      <stop offset="100%" stop-color="#4F3302"/>
+    </linearGradient>
+    <linearGradient id="pages-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBF0"/>
+      <stop offset="50%" stop-color="#F2DEAE"/>
+      <stop offset="100%" stop-color="#C79F45"/>
+    </linearGradient>
+    <filter id="shadow-3d" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+    <filter id="gold-bloom" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg-grad)"/>
+  <rect x="2" y="2" width="508" height="508" rx="110" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2.5"/>
+  <rect x="5" y="5" width="502" height="502" rx="107" fill="none" stroke="rgba(212, 175, 55, 0.12)" stroke-width="1.5"/>
+  <circle cx="256" cy="216" r="210" fill="url(#gold-ambient)"/>
+  <g filter="url(#shadow-3d)">
+    <path d="M 256 94 C 328 94, 386 150, 386 220 C 386 250, 374 278, 355 298 C 368 304, 388 308, 412 300 C 396 322, 368 335, 332 334 C 308 343, 282 348, 256 348 C 184 348, 126 290, 126 220 C 126 150, 184 94, 256 94 Z M 256 128 C 204 128, 162 169, 162 220 C 162 271, 204 312, 256 312 C 280 312, 301 303, 318 288 C 305 282, 292 272, 286 264 C 310 274, 332 274, 344 266 C 348 252, 350 236, 350 220 C 350 169, 308 128, 256 128 Z" fill="url(#gold-metal-3d)" fill-rule="evenodd" />
+    <path d="M 256 100 C 324 100, 378 153, 378 220 C 378 248, 367 274, 349 293 L 343 286 C 360 268, 370 245, 370 220 C 370 158, 319 108, 256 108 C 193 108, 142 158, 142 220 C 142 245, 152 268, 169 286 L 163 293 C 145 274, 134 248, 134 220 C 134 153, 188 100, 256 100 Z" fill="url(#gold-highlight)" opacity="0.6"/>
+    <path d="M 318 290 C 334 300, 354 306, 378 300 C 398 295, 416 284, 426 270 C 418 292, 396 316, 362 328 C 334 338, 305 334, 282 324 C 298 316, 310 304, 318 290 Z" fill="url(#gold-highlight)" />
+    <path d="M 256 114 C 264 134, 280 152, 304 164 C 318 171, 324 186, 324 212 L 324 252 L 308 252 L 308 214 C 308 196, 304 184, 294 178 C 275 168, 264 152, 256 132 C 248 152, 237 168, 218 178 C 208 184, 204 196, 204 214 L 204 252 L 188 252 L 188 212 C 188 186, 194 171, 208 164 C 232 152, 248 134, 256 114 Z" fill="url(#gold-metal-3d)" />
+    <path d="M 256 126 C 261 142, 274 156, 293 166 C 304 172, 310 184, 310 206 L 310 248" fill="none" stroke="url(#gold-highlight)" stroke-width="2.5" opacity="0.8"/>
+    <path d="M 256 126 C 251 142, 238 156, 219 166 C 208 172, 202 184, 202 206 L 202 248" fill="none" stroke="url(#gold-highlight)" stroke-width="2.5" opacity="0.8"/>
+    <path d="M 256 158 L 262 165 L 256 172 L 250 165 Z" fill="url(#gold-highlight)" />
+    <path d="M 256 175 C 262 178, 269 184, 271 193 C 273 203, 268 211, 261 216 C 252 222, 243 227, 242 235 C 241 242, 246 247, 252 248 C 258 249, 264 246, 267 242 L 268 245 C 263 252, 255 255, 247 253 C 237 250, 233 241, 235 231 C 237 221, 247 215, 256 209 C 262 205, 264 199, 262 193 C 260 187, 255 182, 251 180 Z" fill="url(#gold-metal-3d)" />
+    <path d="M 256 312 C 234 300, 192 292, 142 284 C 176 270, 222 264, 256 274 C 290 264, 336 270, 370 284 C 320 292, 278 300, 256 312 Z" fill="url(#gold-deep)" />
+    <path d="M 256 274 C 220 264, 180 268, 148 280 C 174 256, 218 246, 256 260 Z" fill="url(#pages-grad)" />
+    <path d="M 256 260 C 214 245, 172 250, 148 266 C 178 242, 224 235, 256 250 Z" fill="url(#gold-highlight)" />
+    <path d="M 256 274 C 292 264, 332 268, 364 280 C 338 256, 294 246, 256 260 Z" fill="url(#pages-grad)" />
+    <path d="M 256 260 C 298 245, 340 250, 364 266 C 334 242, 288 235, 256 250 Z" fill="url(#gold-highlight)" />
+    <path d="M 254 250 L 256 312 L 258 250 Z" fill="#543702" />
+    <path d="M 256 312 L 246 328 L 256 322 L 266 328 Z" fill="url(#gold-metal-3d)" />
+  </g>
+  <g filter="url(#shadow-3d)">
+    <text x="256" y="420" text-anchor="middle" font-family="'Playfair Display', 'Cinzel', 'Georgia', 'Times New Roman', serif" font-size="64" font-weight="700" letter-spacing="1.5" fill="url(#gold-metal-3d)">Qiroo</text>
+  </g>
+  <circle cx="256" cy="94" r="3" fill="#FFFFFF" opacity="0.9" filter="url(#gold-bloom)"/>
+  <circle cx="370" cy="170" r="2.5" fill="#FFFFFF" opacity="0.8" filter="url(#gold-bloom)"/>
+</svg>`;
+
+    // Helper konversi SVG ke format PNG Base64 resolusi tinggi via offscreen canvas
+    async function generatePngBase64(svgString, size) {
+      return new Promise((resolve) => {
+        try {
+          const img = new Image();
+          const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+          const url = URL.createObjectURL(svgBlob);
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, size, size);
+            URL.revokeObjectURL(url);
+            const dataUrl = canvas.toDataURL('image/png');
+            resolve(dataUrl.split(',')[1]);
+          };
+          img.onerror = () => {
+            URL.revokeObjectURL(url);
+            resolve(null);
+          };
+          img.src = url;
+        } catch (e) {
+          resolve(null);
+        }
+      });
+    }
+
+    async function installQiraaApp() {
+      // 1. Jika native PWA prompt siap (Android Chrome, Edge, Chrome PC), picu langsung 1-klik!
+      if (deferredPWAInstallPrompt) {
+        try {
+          deferredPWAInstallPrompt.prompt();
+          const choice = await deferredPWAInstallPrompt.userChoice;
+          if (choice && choice.outcome === 'accepted') {
+            showToast('🎉 Alhamdulillah! Aplikasi QIRAA sedang dipasang ke Layar Utama Anda...');
+          }
+          deferredPWAInstallPrompt = null;
+          // Di desktop PC, sediakan shortcut langsung agar otomatis ada di desktop
+          if (!/Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            downloadDesktopShortcut();
+          }
+          return;
+        } catch (err) {
+          console.log('Install prompt error:', err);
+        }
+      }
+
+      // 2. Jika sudah terpasang dan dibuka dari layar utama (mode standalone)
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+      if (isStandalone) {
+        showToast('✓ Aplikasi QIRAA sudah terpasang dan aktif di Layar Utama Anda!');
+        return;
+      }
+
+      // 3. Khusus iPhone / iPad (Safari) yang mewajibkan tap manual Share -> Tambah ke Layar Utama
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        showToast('📲 Di Safari: Ketuk tombol Bagikan ⎋ di bilah bawah lalu pilih "Tambah ke Layar Utama" ⊞');
+        return;
+      }
+
+      // 4. Perangkat Desktop (Windows / PC / Laptop) -> Langsung unduh shortcut desktop 1-klik!
+      const isMobile = /Android|iPhone|iPad|iPod/.test(navigator.userAgent);
+      if (!isMobile) {
+        downloadDesktopShortcut();
+        showToast('🎉 Pintasan Desktop QIRAA berhasil diunduh ke komputer Anda!');
+        return;
+      }
+
+      // 5. Perangkat HP Android jika prompt otomatis browser belum siap
+      if (/Android/.test(navigator.userAgent)) {
+        if (window.location.protocol === 'file:') {
+          showToast('🌐 Membuka tautan publik QIRAA untuk pemasangan langsung di HP...');
+          window.open('https://maulaalihudzaifahhudzaifah-max.github.io/qiraa/', '_blank');
+        } else {
+          showToast('📲 Ketuk menu titik tiga (⋮) di pojok kanan atas browser lalu pilih "Instal aplikasi"');
+        }
+        return;
+      }
+    }
+
+    function downloadDesktopShortcut() {
+      const liveUrl = (window.location.protocol === 'file:') 
+        ? 'https://maulaalihudzaifahhudzaifah-max.github.io/qiraa/' 
+        : window.location.href;
+      
+      const shortcutContent = `[InternetShortcut]\nURL=${liveUrl}\nIconIndex=0\nHotKey=0\n[{000214A0-0000-0000-C000-000000000046}]\nProp3=19,11\n`;
+      const blob = new Blob([shortcutContent], { type: 'application/octet-stream' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'QIRAA.url';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+      }, 500);
+    }
+
+    function openInstallModal(isIOS = false) {
+      const modal = document.getElementById('modal-install-guide');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+
+      const iosSec = document.getElementById('install-guide-ios');
+      const androidSec = document.getElementById('install-guide-android');
+      const pcSec = document.getElementById('install-guide-pc');
+
+      if (isIOS) {
+        if (iosSec) iosSec.classList.remove('hidden');
+        if (androidSec) androidSec.classList.add('hidden');
+        if (pcSec) pcSec.classList.add('hidden');
+      } else if (/Android/.test(navigator.userAgent)) {
+        if (iosSec) iosSec.classList.add('hidden');
+        if (androidSec) androidSec.classList.remove('hidden');
+        if (pcSec) pcSec.classList.add('hidden');
+      } else {
+        if (iosSec) iosSec.classList.remove('hidden');
+        if (androidSec) androidSec.classList.remove('hidden');
+        if (pcSec) pcSec.classList.remove('hidden');
+      }
+
+      lucide.createIcons();
+    }
+
+    function closeInstallModal() {
+      const modal = document.getElementById('modal-install-guide');
+      if (modal) modal.classList.add('hidden');
+    }
+
     // --- One Click Deploy to GitHub Handler ---
     async function deployToGitHub() {
       const consoleBox = document.getElementById('admin-deploy-console');
@@ -2824,13 +3287,13 @@
       }
 
       try {
-        logLine('[1/4] Mengautentikasi ke akun GitHub...', false);
+        logLine('[1/5] Mengautentikasi ke akun GitHub...', false);
         const repoOwner = 'maulaalihudzaifahhudzaifah-max';
         const repoName = 'qiraa';
         const filePath = 'index.html';
 
         // Dapatkan SHA file index.html yang ada di repo saat ini
-        logLine('[2/4] Memeriksa file di repositori GitHub...', false);
+        logLine('[2/5] Memeriksa status file di repositori GitHub...', false);
         const getFileRes = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
           headers: {
             'Authorization': `token ${token}`,
@@ -2844,15 +3307,13 @@
           sha = fileData.sha;
         }
 
-        logLine('[3/4] Mengompilasi dan mengemas kode aplikasi terbaru...', false);
-        // Pastikan tampilan awal yang diunggah adalah halaman beranda (bukan admin)
+        logLine('[3/5] Mengompilasi dan mengemas halaman aplikasi terbaru...', false);
         showSection('home');
         const fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
         const base64Content = btoa(unescape(encodeURIComponent(fullHtml)));
-        // Kembalikan lagi ke admin agar pengguna tetap di panel
         showSection('admin');
 
-        logLine('[4/4] Mengirim (commit & push) langsung ke GitHub...', false);
+        logLine('[4/5] Mengirim (commit & push) index.html ke GitHub...', false);
         const putRes = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
           method: 'PUT',
           headers: {
@@ -2869,15 +3330,67 @@
 
         if (!putRes.ok) {
           const errData = await putRes.json();
-          throw new Error(errData.message || 'Gagal mengirim pembaruan ke GitHub');
+          throw new Error(errData.message || 'Gagal mengirim pembaruan index.html ke GitHub');
         }
 
-        logLine(`🚀 [SUKSES] Seluruh file aplikasi QIRAA berhasil di-deploy ke GitHub!`, true);
-        logLine('🌐 Situs publik sedang dipublikasikan secara langsung.', true);
+        // Helper komit file mandiri ke GitHub API tanpa ketergantungan fetch local file
+        async function commitRepoFile(targetPath, base64Data, message) {
+          try {
+            const checkRes = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${targetPath}`, {
+              headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+            });
+            let targetSha = null;
+            if (checkRes.ok) {
+              const info = await checkRes.json();
+              targetSha = info.sha;
+            }
+            const res = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${targetPath}`, {
+              method: 'PUT',
+              headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+              body: JSON.stringify({ message: message, content: base64Data, sha: targetSha ? targetSha : undefined })
+            });
+            return res.ok;
+          } catch(e) {
+            return false;
+          }
+        }
+
+        logLine('[5/5] Menyelaraskan seluruh aset PWA (Layar Utama HP & Desktop)...', false);
+
+        const manifestB64 = btoa(unescape(encodeURIComponent(PWA_MANIFEST_CONTENT)));
+        await commitRepoFile('manifest.json', manifestB64, 'Update manifest.json PWA');
+        logLine('  ✓ manifest.json terkirim', false);
+
+        const swB64 = btoa(unescape(encodeURIComponent(PWA_SW_CONTENT)));
+        await commitRepoFile('sw.js', swB64, 'Update sw.js PWA Service Worker');
+        logLine('  ✓ sw.js (Service Worker) terkirim', false);
+
+        const svgB64 = btoa(unescape(encodeURIComponent(PWA_ICON_SVG_CONTENT)));
+        await commitRepoFile('icon.svg', svgB64, 'Update icon.svg Luxury Gold Edition');
+        logLine('  ✓ icon.svg resmi terkirim', false);
+
+        logLine('  • Mengonversi ikon resolusi tinggi untuk Play Store WebAPK & Desktop...', false);
+        try {
+          const png192 = await generatePngBase64(PWA_ICON_SVG_CONTENT, 192);
+          if (png192) {
+            await commitRepoFile('icon-192.png', png192, 'Update icon-192.png for Android Play Store WebAPK');
+            logLine('  ✓ icon-192.png siap untuk Layar Utama Android', false);
+          }
+          const png512 = await generatePngBase64(PWA_ICON_SVG_CONTENT, 512);
+          if (png512) {
+            await commitRepoFile('icon-512.png', png512, 'Update icon-512.png for Desktop & Splash Screen');
+            logLine('  ✓ icon-512.png siap untuk Layar Desktop PC', false);
+          }
+        } catch (canvasErr) {
+          console.warn('Canvas conversion notice:', canvasErr);
+        }
+
+        logLine(`🚀 [SUKSES] Seluruh file aplikasi QIRAA & PWA berhasil di-deploy ke GitHub!`, true);
+        logLine('🌐 Situs publik dan installer layar utama aktif seketika.', true);
         
         // Notifikasi popup sukses kepada pengguna dengan teks dinamis sesuai fitur yang dideploy
         setTimeout(() => {
-          alert(`🎉 ALHAMDULILLAH! Pembaruan aplikasi QIRAA BERHASIL DIPUBLIKASIKAN KE GITHUB!\n\nFitur yang dideploy:\n"${commitMsg}"\n\nSemua perubahan kini langsung terbit ke publik di:\nhttps://maulaalihudzaifahhudzaifah-max.github.io/qiraa/`);
+          alert(`🎉 ALHAMDULILLAH! Pembaruan aplikasi QIRAA BERHASIL DIPUBLIKASIKAN KE GITHUB!\n\nFitur yang dideploy:\n"${commitMsg}"\n\nInstaller Layar Utama HP & Desktop aktif di:\nhttps://maulaalihudzaifahhudzaifah-max.github.io/qiraa/`);
         }, 500);
 
       } catch (err) {
