@@ -930,7 +930,7 @@
             </div>
             <div>
               <p class="text-xs text-zinc-400">Total Interaksi / Pembukaan Fitur</p>
-              <h4 id="stat-total-interactions" class="text-xl sm:text-2xl font-black text-amber-300 font-mono">27</h4>
+              <h4 id="stat-total-interactions" class="text-xl sm:text-2xl font-black text-amber-300 font-mono">40</h4>
             </div>
           </div>
           <span class="text-[11px] text-zinc-500 font-mono hidden sm:inline">Diperbarui otomatis secara realtime</span>
@@ -944,7 +944,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-3.5 h-3.5 text-amber-400 shrink-0"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg>
               <span class="truncate">Baca Al-Qur'an</span>
             </span>
-            <p id="stat-baca-quran" class="text-2xl font-black text-white font-mono pt-1">2</p>
+            <p id="stat-baca-quran" class="text-2xl font-black text-white font-mono pt-1">3</p>
             <p class="text-[10px] text-zinc-500">kali dibuka</p>
           </div>
 
@@ -1034,7 +1034,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" aria-hidden="true" class="lucide lucide-search w-3.5 h-3.5 text-emerald-400 shrink-0"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
               <span class="truncate">Cari Surah</span>
             </span>
-            <p id="stat-cari-surah" class="text-2xl font-black text-emerald-400 font-mono pt-1">24</p>
+            <p id="stat-cari-surah" class="text-2xl font-black text-emerald-400 font-mono pt-1">36</p>
             <p class="text-[10px] text-zinc-500">pencarian dilakukan</p>
           </div>
         </div>
@@ -1079,7 +1079,7 @@
 
         <div class="space-y-2">
           <span class="text-xs font-mono text-zinc-400">Deploy Terminal Output:</span>
-          <div id="admin-deploy-console" class="p-4 rounded-2xl bg-[#070709] border border-white/[0.06] font-mono text-xs text-emerald-400 h-36 overflow-y-auto space-y-1"><div class="text-gray-300">[Deploy Started] Memulai proses 1-Klik Deploy ke GitHub...</div><div class="text-gray-300">[1/5] Mengautentikasi ke akun GitHub...</div><div class="text-gray-300">[2/5] Memeriksa status file di repositori GitHub...</div><div class="text-gray-300">[3/5] Mengompilasi dan mengemas halaman aplikasi terbaru...</div></div>
+          <div id="admin-deploy-console" class="p-4 rounded-2xl bg-[#070709] border border-white/[0.06] font-mono text-xs text-emerald-400 h-36 overflow-y-auto space-y-1"><div class="text-gray-300">[Deploy Started] Memulai proses 1-Klik Deploy ke GitHub...</div><div class="text-gray-300">[1/5] Mengautentikasi ke akun GitHub...</div><div class="text-gray-300">[2/5] Memeriksa status repositori GitHub...</div><div class="text-gray-300">[3/5] Mengompilasi dan mengemas halaman aplikasi terbaru...</div></div>
         </div>
       </div>
     </section>
@@ -3183,7 +3183,7 @@ self.addEventListener('fetch', (event) => {
       if (/Android/.test(navigator.userAgent)) {
         if (window.location.protocol === 'file:') {
           showToast('🌐 Membuka tautan publik QIRAA untuk pemasangan langsung di HP...');
-          window.open('https://maulaalihudzaifahhudzaifah-max.github.io/qiraa/', '_blank');
+          window.open('https://qiraaofficial.github.io/qiraa/', '_blank');
         } else {
           showToast('📲 Ketuk menu titik tiga (⋮) di pojok kanan atas browser lalu pilih "Instal aplikasi"');
         }
@@ -3193,7 +3193,7 @@ self.addEventListener('fetch', (event) => {
 
     function downloadDesktopShortcut() {
       const liveUrl = (window.location.protocol === 'file:') 
-        ? 'https://maulaalihudzaifahhudzaifah-max.github.io/qiraa/' 
+        ? 'https://qiraaofficial.github.io/qiraa/' 
         : window.location.href;
       
       const shortcutContent = `[InternetShortcut]\nURL=${liveUrl}\nIconIndex=0\nHotKey=0\n[{000214A0-0000-0000-C000-000000000046}]\nProp3=19,11\n`;
@@ -3288,18 +3288,28 @@ self.addEventListener('fetch', (event) => {
 
       try {
         logLine('[1/5] Mengautentikasi ke akun GitHub...', false);
-        const repoOwner = 'maulaalihudzaifahhudzaifah-max';
+        let repoOwner = 'qiraaofficial';
         const repoName = 'qiraa';
         const filePath = 'index.html';
 
-        // Dapatkan SHA file index.html yang ada di repo saat ini
-        logLine('[2/5] Memeriksa status file di repositori GitHub...', false);
-        const getFileRes = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
+        // Deteksi repositori: prioritaskan qiraaofficial, fallback ke maulaalihudzaifahhudzaifah-max jika akun belum sempat direname
+        logLine('[2/5] Memeriksa status repositori GitHub...', false);
+        let getFileRes = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
           headers: {
             'Authorization': `token ${token}`,
             'Accept': 'application/vnd.github.v3+json'
           }
         });
+
+        if (!getFileRes.ok && getFileRes.status === 404) {
+          const fallbackRes = await fetch(`https://api.github.com/repos/maulaalihudzaifahhudzaifah-max/${repoName}/contents/${filePath}`, {
+            headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+          });
+          if (fallbackRes.ok) {
+            repoOwner = 'maulaalihudzaifahhudzaifah-max';
+            getFileRes = fallbackRes;
+          }
+        }
 
         let sha = null;
         if (getFileRes.ok) {
@@ -3390,7 +3400,7 @@ self.addEventListener('fetch', (event) => {
         
         // Notifikasi popup sukses kepada pengguna dengan teks dinamis sesuai fitur yang dideploy
         setTimeout(() => {
-          alert(`🎉 ALHAMDULILLAH! Pembaruan aplikasi QIRAA BERHASIL DIPUBLIKASIKAN KE GITHUB!\n\nFitur yang dideploy:\n"${commitMsg}"\n\nInstaller Layar Utama HP & Desktop aktif di:\nhttps://maulaalihudzaifahhudzaifah-max.github.io/qiraa/`);
+          alert(`🎉 ALHAMDULILLAH! Pembaruan aplikasi QIRAA BERHASIL DIPUBLIKASIKAN KE GITHUB!\n\nFitur yang dideploy:\n"${commitMsg}"\n\nInstaller Layar Utama HP & Desktop aktif di:\nhttps://${repoOwner}.github.io/qiraa/`);
         }, 500);
 
       } catch (err) {
